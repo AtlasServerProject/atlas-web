@@ -1,0 +1,46 @@
+:root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --bg-soft: #0d182b;
+  --panel: rgba(11, 18, 33, 0.82);
+  --line: rgba(255, 255, 255, 0.11);
+  --text: #f5f7fb;
+  --muted: #afbad0;
+  --accent: #ffd36a;
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(7, 17, 31, 0.75), rgba(7, 17, 31, 0.96)),
+    radial-gradient(circle at top left, rgba(69, 121, 176, 0.24), transparent 38%),
+    radial-gradient(circle at top right, rgba(189, 146, 62, 0.16), transparent 34%),
+    var(--bg);
+  color: var(--text);
+  font-family: 'Bahnschrift', 'Trebuchet MS', 'Segoe UI', sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}

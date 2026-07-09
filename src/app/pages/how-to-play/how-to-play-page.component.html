@@ -1,0 +1,85 @@
+<main class="how-shell">
+  <header class="how-topbar">
+    <a class="how-brand" href="/" aria-label="Atlas">
+      <span class="how-brand__mark">
+        <img src="logo-atlas.jpeg" alt="" aria-hidden="true" />
+      </span>
+      <span class="how-brand__text">
+        <strong>{{ serverName }}</strong>
+        <small>Como Jogar</small>
+      </span>
+    </a>
+
+    <nav class="how-nav" aria-label="Navegacao principal">
+      @for (item of menu; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+  </header>
+
+  <section class="how-hero">
+    <div class="how-hero__content">
+      <p class="eyebrow">Guia para novos jogadores</p>
+      <h1>Comece sua jornada no Atlas em poucos passos.</h1>
+      <p class="lead">
+        Prepare o jogo, baixe a base oficial do servidor, configure o acesso e entre no mundo do Atlas
+        com um caminho claro desde o primeiro login.
+      </p>
+    </div>
+
+    <aside class="how-status">
+      <span class="how-status__tag">IP oficial</span>
+      <strong>{{ serverIp }}</strong>
+      <p>Endereco principal do servidor para a abertura publica.</p>
+    </aside>
+  </section>
+
+  <section class="steps-grid">
+    @for (item of steps; track item.title) {
+      <article class="step-card">
+        <span class="step-card__index">{{ item.step }}</span>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.text }}</p>
+        <button type="button">{{ item.action }}</button>
+      </article>
+    }
+  </section>
+
+  <section class="downloads-board">
+    <article class="downloads-intro">
+      <p class="eyebrow">Downloads</p>
+      <h2>Escolha o formato ideal para entrar no Atlas.</h2>
+      <p>
+        A pagina foi preparada para receber launcher, modpack e instrucoes oficiais no mesmo fluxo,
+        mantendo a entrada do jogador simples e organizada.
+      </p>
+    </article>
+
+    <div class="downloads-grid">
+      @for (item of downloadOptions; track item.title) {
+        <article class="download-card">
+          <span>{{ item.badge }}</span>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+          <button type="button">{{ item.action }}</button>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="guide-panel">
+    <div>
+      <p class="eyebrow">Primeiros passos</p>
+      <h2>O Atlas foi desenhado para receber novos jogadores com um inicio guiado.</h2>
+      <p>
+        Depois de instalar o pacote oficial, entre no servidor, acompanhe o tutorial inicial e avance
+        pelos sistemas principais com foco em exploracao, captura e progressao.
+      </p>
+    </div>
+
+    <div class="guide-panel__ip">
+      <span>Servidor</span>
+      <strong>{{ serverIp }}</strong>
+    </div>
+  </section>
+</main>

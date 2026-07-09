@@ -15,17 +15,12 @@ type ProductCard = {
 
 type StoreSection = 'vip' | 'keys';
 
-type LinkCard = {
-  title: string;
-  text: string;
-};
-
 @Component({
   selector: 'app-store-page',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './store-page.html',
-  styleUrls: ['./store-page.scss']
+  templateUrl: './store-page.component.html',
+  styleUrls: ['./store-page.component.scss']
 })
 export class StorePageComponent {
   protected readonly serverName = 'Atlas';
@@ -34,21 +29,19 @@ export class StorePageComponent {
   protected readonly menu: MenuItem[] = [
     { label: 'Inicio', href: '/' },
     { label: 'Loja', href: '/store' },
-    { label: 'Jogar', href: '/#jogar' },
-    { label: 'Noticias', href: '/#novidades' },
-    { label: 'Equipe', href: '/#suporte' },
-    { label: 'Wiki', href: 'https://wiki.pixelmonbrasiloficial.com.br/' },
-    { label: 'Suporte', href: '/#suporte' }
+    { label: 'Jogar', href: '/how-to-play' },
+    { label: 'Noticias', href: '/notices' },
+    { label: 'Equipe', href: '/#novidades' }
   ];
 
   protected readonly vipBenefits = [
-    'Tag exclusiva no Discord oficial.',
+    'Tag exclusiva dentro do Atlas.',
     'Vaga reservada, mesmo com o servidor cheio.',
     'Chat VIP exclusivo para membros.',
     'Progresso acelerado com vantagens unicas no jogo.'
   ];
 
-  protected readonly vipPlans = [
+  protected readonly vipPlans: ProductCard[] = [
     {
       name: 'VIP 30 dias',
       price: 'R$ 19,99',
@@ -75,7 +68,7 @@ export class StorePageComponent {
     }
   ];
 
-  protected readonly legendaryKeys = [
+  protected readonly legendaryKeys: ProductCard[] = [
     {
       name: 'Chave de Lendario | 1o Geracao',
       price: 'R$ 9,99',
@@ -129,21 +122,6 @@ export class StorePageComponent {
       price: 'R$ 17,99',
       text: 'Uma das chaves mais valorizadas da loja do Atlas.',
       accent: 'Lendaria'
-    },
-  ];
-
-  protected readonly supportCards: LinkCard[] = [
-    {
-      title: 'Abrir ticket',
-      text: 'Fale com a equipe sobre compras, reembolsos ou entrega de itens.'
-    },
-    {
-      title: 'Fazer login',
-      text: 'Entre na sua conta para acompanhar pedidos e historico da loja.'
-    },
-    {
-      title: 'Discord oficial',
-      text: 'Tire duvidas, veja avisos e acompanhe novos pacotes com a comunidade.'
     }
   ];
 

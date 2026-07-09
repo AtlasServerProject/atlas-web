@@ -1,9 +1,4 @@
 <main class="page-shell">
-  <div class="announcement">
-    <p>Junte-se a comunidade do Atlas e comece sua aventura agora.</p>
-    <a href="#discord">Discord oficial</a>
-  </div>
-
   <section id="inicio" class="hero">
     <header class="topbar">
       <a class="brand" href="#inicio" aria-label="Atlas">
@@ -20,6 +15,10 @@
         @for (item of navItems; track item.id) {
           @if (item.id === 'store') {
             <a href="/store">{{ item.label }}</a>
+          } @else if (item.id === 'how-to-play') {
+            <a href="/how-to-play">{{ item.label }}</a>
+          } @else if (item.id === 'notices') {
+            <a href="/notices">{{ item.label }}</a>
           } @else {
             <a [href]="'#' + item.id">{{ item.label }}</a>
           }
@@ -40,12 +39,12 @@
           <span>Atlas Cobblemon</span>
         </div>
         <p class="lead">
-          Uma homepage inspirada nos maiores servidores do segmento, com foco em comunidade, noticias,
-          suporte e acesso rapido.
+          Uma homepage inspirada nos maiores servidores do segmento, com foco em comunidade, noticias
+          e acesso rapido.
         </p>
 
         <div class="actions">
-          <a class="button button--primary" href="#jogar">Como jogar</a>
+          <a class="button button--primary" href="/how-to-play">Como jogar</a>
           <a class="button button--secondary" href="#novidades">Ver novidades</a>
         </div>
 
@@ -61,10 +60,6 @@
           <span class="rail-card__tag">Status do servidor</span>
           <strong>{{ serverIp }}</strong>
           <p>Em preparo para abrir as portas do Atlas.</p>
-          <div class="status-card__actions">
-            <button type="button">Copiar IP</button>
-            <a href="#suporte">Abrir ticket</a>
-          </div>
         </aside>
 
         <article class="rail-card">
@@ -93,11 +88,11 @@
 
   <section id="novidades" class="updates">
     <article class="updates__feature">
-      <p class="eyebrow">Notícias</p>
-      <h2>Atualizações, eventos e avisos em um só lugar</h2>
+      <p class="eyebrow">Noticias</p>
+      <h2>Atualizacoes, eventos e avisos em um so lugar</h2>
       <p>
         A home do Atlas agora conversa com a forma que sites de servidor realmente funcionam:
-        uma primeira dobra forte, seguida por blocos práticos e fáceis de navegar.
+        uma primeira dobra forte, seguida por blocos praticos e faceis de navegar.
       </p>
     </article>
 
@@ -112,30 +107,10 @@
     </div>
   </section>
 
-  <section id="suporte" class="support">
-    <div class="support__intro">
-      <p class="eyebrow">Precisa de suporte?</p>
-      <h2>Abra um ticket ou fale com a comunidade</h2>
-      <p>
-        Aqui entra o mesmo papel que você viu nas referências: um espaço claro para ajuda, regras,
-        links importantes e orientação para novos jogadores.
-      </p>
-    </div>
-
-    <div class="support__grid">
-      @for (item of supportLinks; track item.title) {
-        <article class="support-card">
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-        </article>
-      }
-    </div>
-  </section>
-
-  <section id="discord" class="cta-strip">
+  <section class="cta-strip">
     <div>
       <p class="eyebrow">Comunidade</p>
-      <h2>Pronto para o botao oficial do Discord e links uteis</h2>
+      <h2>Atlas pronto para crescer com loja, noticias e abertura oficial</h2>
     </div>
 
     <a class="button button--primary" href="#inicio">Voltar ao topo</a>

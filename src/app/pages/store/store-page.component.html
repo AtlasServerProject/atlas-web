@@ -1,0 +1,156 @@
+<main class="store-shell">
+  <header class="store-topbar">
+    <a class="store-brand" href="/" aria-label="Atlas">
+      <span class="store-brand__mark">
+        <img src="logo-atlas.jpeg" alt="" aria-hidden="true" />
+      </span>
+      <span class="store-brand__text">
+        <strong>{{ serverName }}</strong>
+        <small>Store</small>
+      </span>
+    </a>
+
+    <nav class="store-nav" aria-label="Navegacao principal">
+      @for (item of menu; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+  </header>
+
+  <section class="store-layout">
+    <aside class="store-sidebar" aria-label="Categorias da loja">
+      <a class="store-sidebar__home" href="/">Inicio</a>
+
+      <details class="store-group" open>
+        <summary>OFERTAS LIMITADAS</summary>
+        <p>Itens com destaque especial e tempo reduzido.</p>
+      </details>
+
+      <details class="store-group">
+        <summary>PACOTES PROMOCIONAIS</summary>
+        <p>Pacotes com melhor custo-beneficio.</p>
+      </details>
+
+      <details class="store-group" [open]="isActiveSection('vip')">
+        <summary>LOJA VIP</summary>
+        <div class="store-group__links">
+          <button
+            type="button"
+            class="store-group__button"
+            [class.store-group__button--active]="isActiveSection('vip')"
+            (click)="setActiveSection('vip')">
+            PLANOS VIP
+          </button>
+        </div>
+      </details>
+
+      <details class="store-group" [open]="isActiveSection('keys')">
+        <summary>CHAVES</summary>
+        <div class="store-group__links">
+          <button
+            type="button"
+            class="store-group__button"
+            [class.store-group__button--active]="isActiveSection('keys')"
+            (click)="setActiveSection('keys')">
+            CHAVES LENDARIAS
+          </button>
+        </div>
+      </details>
+    </aside>
+
+    <div class="store-content">
+      @if (isActiveSection('vip')) {
+        <section id="vip-plans" class="store-section">
+          <div class="section-heading">
+            <p class="eyebrow">PLANOS VIP</p>
+            <h2>Planos VIP - Beneficios exclusivos para quem quer ir alem.</h2>
+            <p class="section-text">
+              Escolha entre ativacoes por periodo ou recorrentes para garantir vantagens extras,
+              prioridade de entrada e presenca VIP dentro da comunidade Atlas.
+            </p>
+          </div>
+
+          <div class="store-note-grid">
+            <article class="legendary-info">
+              <h3>Beneficios VIP</h3>
+              <ul>
+                @for (benefit of vipBenefits; track benefit) {
+                  <li>{{ benefit }}</li>
+                }
+              </ul>
+            </article>
+
+            <article class="legendary-info">
+              <h3>Atencao</h3>
+              <ul>
+                <li><strong>Ativacao por servidor:</strong> o VIP vale apenas para o servidor em que foi comprado.</li>
+                <li><strong>Transferencia excepcional:</strong> em caso de problema, o pedido deve ser feito em ate 3 dias.</li>
+                <li><strong>Entrega organizada:</strong> as ativacoes seguem o plano selecionado na loja oficial.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="product-grid product-grid--vip">
+            @for (plan of vipPlans; track plan.name) {
+              <article class="product-card product-card--vip">
+                <span class="product-card__badge">{{ plan.accent }}</span>
+                <div class="product-card__icon product-card__icon--vip"></div>
+                <h3>{{ plan.name }}</h3>
+                <strong>{{ plan.price }}</strong>
+                <p>{{ plan.text }}</p>
+                <button type="button">Assinar</button>
+              </article>
+            }
+          </div>
+        </section>
+      }
+
+      @if (isActiveSection('keys')) {
+        <section id="legendary-keys" class="store-section">
+          <div class="section-heading">
+            <p class="eyebrow">CHAVES LENDARIAS</p>
+            <h2>Chaves Lendarias - Capture o seu Lendario!</h2>
+            <p class="section-text">
+              Use essas chaves para abrir as Caixas Lendarias e receber um Pixelmon lendario aleatorio
+              da geracao correspondente.
+            </p>
+          </div>
+
+          <div class="legendary-info">
+            <div>
+              <h3>Detalhes</h3>
+              <ul>
+                <li><strong>Acesse as Caixas Lendarias:</strong> use o comando <code>/caixas</code> para visualizar os lendarios disponiveis.</li>
+                <li><strong>Chave virtual:</strong> voce nao ocupa espaco no inventario. Consulte suas chaves com <code>/chaves</code>.</li>
+                <li><strong>Sorteio aleatorio:</strong> cada chave usada garante um Lendario aleatorio.</li>
+                <li><strong>Sem trocas:</strong> apos abrir a caixa, a chave e consumida.</li>
+              </ul>
+            </div>
+            <p>Garanta suas chaves e amplie sua colecao lendaria!</p>
+          </div>
+
+          <div class="product-grid product-grid--legendary">
+            @for (key of legendaryKeys; track key.name) {
+              <article class="product-card product-card--key">
+                <span class="product-card__badge">{{ key.accent }}</span>
+                <div class="product-card__icon"></div>
+                <h3>{{ key.name }}</h3>
+                <strong>{{ key.price }}</strong>
+                <p>{{ key.text }}</p>
+                <button type="button">Adicionar</button>
+              </article>
+            }
+          </div>
+        </section>
+      }
+    </div>
+  </section>
+
+  <footer class="store-footer">
+    <div>
+      <strong>{{ serverName }}</strong>
+      <p>Loja oficial em Angular, pronta para crescer com o backend Spring Boot.</p>
+    </div>
+    <a href="/">Voltar ao Atlas</a>
+  </footer>
+</main>

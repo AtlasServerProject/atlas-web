@@ -1,0 +1,71 @@
+<main class="notices-shell">
+  <header class="notices-topbar">
+    <a class="notices-brand" href="/" aria-label="Atlas">
+      <span class="notices-brand__mark">
+        <img src="logo-atlas.jpeg" alt="" aria-hidden="true" />
+      </span>
+      <span class="notices-brand__text">
+        <strong>{{ serverName }}</strong>
+        <small>Notices</small>
+      </span>
+    </a>
+
+    <nav class="notices-nav" aria-label="Navegacao principal">
+      @for (item of menu; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+  </header>
+
+  <section class="notices-hero">
+    <div class="notices-hero__content">
+      <p class="eyebrow">Noticias do servidor</p>
+      <h1>Atualizacoes, eventos e avisos oficiais do Atlas.</h1>
+      <p class="lead">
+        Uma central para acompanhar a abertura do servidor, progresso da temporada, mudancas da loja
+        e comunicados importantes da equipe.
+      </p>
+    </div>
+
+    <aside class="notices-status">
+      <span class="status-tag">Servidor</span>
+      <strong>{{ serverIp }}</strong>
+      <p>{{ serverStatus }}</p>
+      <small>Painel de noticias preparado para centralizar os proximos anuncios.</small>
+    </aside>
+  </section>
+
+  <section class="highlights-grid">
+    @for (item of highlights; track item.title) {
+      <article class="highlight-card">
+        <span>{{ item.label }}</span>
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.text }}</p>
+      </article>
+    }
+  </section>
+
+  <section class="notices-board">
+    <article class="board-feature">
+      <p class="eyebrow">Painel oficial</p>
+      <h2>O Atlas agora tem uma pagina propria para acompanhar o que muda no servidor.</h2>
+      <p>
+        Aqui entram avisos de manutencao, novidades da loja, calendario de abertura e recados da equipe
+        em um formato limpo, rapido de escanear e facil de atualizar.
+      </p>
+    </article>
+
+    <div class="board-list">
+      @for (notice of notices; track notice.title) {
+        <article class="notice-card">
+          <div class="notice-card__meta">
+            <span>{{ notice.category }}</span>
+            <small>{{ notice.date }}</small>
+          </div>
+          <h3>{{ notice.title }}</h3>
+          <p>{{ notice.text }}</p>
+        </article>
+      }
+    </div>
+  </section>
+</main>

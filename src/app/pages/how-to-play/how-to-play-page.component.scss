@@ -1,0 +1,293 @@
+:host {
+  display: block;
+}
+
+.how-shell {
+  width: min(1240px, calc(100% - 24px));
+  margin: 0 auto;
+  padding: 12px 0 34px;
+}
+
+.how-topbar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 16px 18px;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(11, 25, 45, 0.72);
+}
+
+.how-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.how-brand__mark {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, rgba(111, 181, 255, 0.12), rgba(244, 208, 113, 0.1));
+}
+
+.how-brand__mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.how-brand__text {
+  display: grid;
+  gap: 2px;
+}
+
+.how-brand__text strong,
+.how-status__tag,
+.download-card span {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.how-brand__text small,
+.lead,
+.how-status p,
+.downloads-intro p,
+.step-card p,
+.download-card p,
+.guide-panel p {
+  color: var(--muted);
+}
+
+.how-nav {
+  display: inline-flex;
+  justify-self: end;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.how-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.96rem;
+}
+
+.how-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 16px;
+  align-items: stretch;
+  margin-bottom: 16px;
+}
+
+.how-hero__content,
+.how-status,
+.step-card,
+.downloads-intro,
+.download-card,
+.guide-panel {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(11, 25, 45, 0.72);
+}
+
+.how-hero__content {
+  padding: 28px;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(106, 164, 224, 0.14), transparent 24%),
+    linear-gradient(180deg, rgba(12, 24, 46, 0.96), rgba(10, 18, 34, 0.94));
+}
+
+.how-status {
+  padding: 22px;
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.how-status__tag,
+.download-card span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: rgba(141, 211, 255, 0.12);
+  color: #8dd3ff;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.how-status strong,
+.guide-panel__ip strong {
+  font-size: 1.2rem;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 4.6vw, 4.6rem);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.lead {
+  max-width: 62ch;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.step-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.step-card__index {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: rgba(107, 180, 255, 0.12);
+  color: #8dd3ff;
+  font-weight: 800;
+}
+
+.step-card h2,
+.download-card h3 {
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.step-card p,
+.download-card p,
+.guide-panel p,
+.downloads-intro p {
+  line-height: 1.6;
+}
+
+.step-card button,
+.download-card button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: linear-gradient(135deg, #6bb4ff, #8dd3ff);
+  color: #08111e;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.downloads-board {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.downloads-intro {
+  padding: 24px;
+}
+
+.downloads-intro h2,
+.guide-panel h2 {
+  font-size: 2rem;
+  line-height: 1.08;
+  margin-bottom: 12px;
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.download-card {
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.guide-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: 16px;
+  align-items: center;
+  padding: 24px;
+}
+
+.guide-panel__ip {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.guide-panel__ip span {
+  color: #8dd3ff;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+@media (max-width: 1024px) {
+  .how-topbar,
+  .how-hero,
+  .steps-grid,
+  .downloads-board,
+  .downloads-grid,
+  .guide-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .how-topbar {
+    justify-items: start;
+  }
+
+  .how-nav {
+    justify-self: start;
+  }
+}
+
+@media (max-width: 720px) {
+  .how-shell {
+    width: min(100% - 14px, 1240px);
+  }
+
+  .how-hero__content,
+  .how-status,
+  .step-card,
+  .downloads-intro,
+  .download-card,
+  .guide-panel {
+    padding: 18px;
+  }
+}

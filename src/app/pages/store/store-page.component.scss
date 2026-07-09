@@ -8,28 +8,9 @@
   padding: 12px 0 34px;
 }
 
-.store-banner {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
-  align-items: center;
-  margin-bottom: 12px;
-  padding: 12px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
-  background: rgba(13, 24, 43, 0.72);
-  color: var(--muted);
-}
-
-.store-banner a {
-  color: #9fd9ff;
-  text-decoration: none;
-  font-weight: 700;
-}
-
 .store-topbar {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 18px;
   align-items: center;
   padding: 16px 18px;
@@ -80,13 +61,12 @@
 
 .store-nav {
   display: inline-flex;
-  justify-self: center;
+  justify-self: end;
   gap: 18px;
   flex-wrap: wrap;
 }
 
 .store-nav a,
-.store-login,
 .store-footer a {
   color: inherit;
   text-decoration: none;
@@ -95,15 +75,6 @@
 .store-nav a {
   color: var(--muted);
   font-size: 0.96rem;
-}
-
-.store-login {
-  padding: 12px 16px;
-  border: 1px solid rgba(123, 193, 255, 0.3);
-  border-radius: 8px;
-  background: rgba(103, 180, 255, 0.16);
-  color: #dff5ff;
-  font-weight: 700;
 }
 
 .store-layout {
@@ -115,8 +86,6 @@
 }
 
 .store-sidebar,
-.support-panel,
-.support-card,
 .product-card,
 .store-footer,
 .legendary-info {
@@ -171,12 +140,12 @@
 }
 
 .store-group summary::after {
-  content: '⌄';
+  content: '+';
   color: var(--muted);
 }
 
 .store-group[open] summary::after {
-  transform: rotate(180deg);
+  content: '-';
 }
 
 .store-group p {
@@ -193,11 +162,6 @@
   border-radius: 8px;
 }
 
-.store-group__link,
-.store-group__button {
-  font-weight: 800;
-}
-
 .store-group__button {
   width: 100%;
   border: 0;
@@ -205,6 +169,7 @@
   text-align: left;
   cursor: pointer;
   font: inherit;
+  font-weight: 800;
 }
 
 .store-group a:hover,
@@ -247,8 +212,7 @@ ul {
 }
 
 .section-heading h2,
-.legendary-info h3,
-.support-panel h2 {
+.legendary-info h3 {
   line-height: 1.05;
 }
 
@@ -256,35 +220,11 @@ ul {
   font-size: 2rem;
 }
 
-.support-panel p,
-.support-card p,
 .product-card p,
 .store-footer p,
 .legendary-info p,
 .legendary-info li {
   color: var(--muted);
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 46px;
-  padding: 0 18px;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  font-weight: 700;
-}
-
-.button--primary {
-  background: linear-gradient(135deg, #6bb4ff, #8dd3ff);
-  color: #08111e;
-}
-
-.button--secondary {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--line);
-  color: var(--text);
 }
 
 .product-card__badge {
@@ -416,42 +356,6 @@ ul {
   cursor: pointer;
 }
 
-.support-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 16px;
-  padding: 26px 0 14px;
-}
-
-.support-panel {
-  padding: 24px;
-}
-
-.support-panel h2 {
-  font-size: 2rem;
-  margin-bottom: 12px;
-}
-
-.support-panel p {
-  line-height: 1.7;
-  max-width: 58ch;
-  margin-bottom: 16px;
-}
-
-.support-cards {
-  display: grid;
-  gap: 12px;
-}
-
-.support-card {
-  padding: 18px;
-}
-
-.support-card h3 {
-  margin-bottom: 8px;
-  font-size: 1.08rem;
-}
-
 .store-footer {
   display: flex;
   justify-content: space-between;
@@ -478,7 +382,6 @@ ul {
   }
 
   .store-layout,
-  .support-grid,
   .store-note-grid,
   .product-grid--vip,
   .product-grid--legendary {
@@ -498,11 +401,6 @@ ul {
 @media (max-width: 720px) {
   .store-shell {
     width: min(100% - 14px, 1240px);
-  }
-
-  .store-banner {
-    flex-direction: column;
-    align-items: flex-start;
   }
 
   .store-topbar,

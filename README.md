@@ -1,59 +1,34 @@
-# AtlasWeb
+# Atlas Cobblemon — website
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.5.
+Frontend Angular do Atlas, com home, guia de entrada, novidades e loja em preparação. Identidade verde Emerald, navegação compartilhada, layouts responsivos e suporte a redução de movimento.
 
-## Development server
+## Desenvolvimento
 
-To start a local development server, run:
+Node.js compatível com o projeto e dependências via `npm ci`. Execute `npm start` para desenvolvimento e `npm run build` para gerar `dist/atlas-web/browser`.
 
-```bash
-ng serve
-```
+Na VM, `atlas-web.service` (serviço do usuário) serve o build na porta 4200. Após mudanças, gere novamente o build; o servidor lê os arquivos compilados. Acesso pela rede da VM: http://192.168.227.129:4200.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Conteúdo
 
-## Code scaffolding
+- `/`: apresentação do Emerald, recursos disponíveis e comunidade.
+- `/how-to-play`: orientações para testers e perguntas frequentes.
+- `/notices`: progresso real do projeto, sem data prometida de abertura.
+- `/store`: preparação da loja, sem catálogo fictício ou pagamentos.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Convite oficial do Discord nos links de comunidade. Endereço Minecraft e download público omitidos até definição. Não há API de status no frontend, checkout ou autenticação. A imagem de capa existente é ilustrativa, não uma captura documentada do lobby.
 
-```bash
-ng generate component component-name
-```
+Próximas validações: revisão visual no navegador desktop/celular, distribuição do modpack e conteúdo final. HTTPS já está ativo no Netlify; domínio próprio é opcional. A compilação não substitui esses testes.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Netlify
 
-```bash
-ng generate --help
-```
+Configuração em netlify.toml para o repositório atlas-web: `npm run build`, saída `dist/atlas-web/browser`, Node 24.21.0. `public/_redirects` preserva as rotas Angular em acessos diretos. Não fornecer credenciais do Discord ou Minecraft ao build.
 
-## Building
+Para publicar via CLI autenticada: `npx netlify-cli login`, depois `npx netlify-cli deploy --prod --dir=dist/atlas-web/browser --no-build` após compilar. A primeira publicação pode exigir criar/vincular o projeto na conta Netlify. Alternativa: enviar o conteúdo compilado pelo Netlify Drop. O deploy estático permanece disponível mesmo com a VM desligada; isso não hospeda Minecraft nem Atlas-bot.
 
-To build the project run:
+### Publicação ativa
 
-```bash
-ng build
-```
+Produção: https://atlas-cobblemon.netlify.app — publicada em 30/09/2026 por deploy manual do build local, incluindo os nove prints dos kits. Rotas início, loja, como jogar e notícias e nove imagens verificadas via HTTPS. Não há deploy automático por Git configurado; novas alterações exigem build e deploy. O endereço público do site não é o endereço de conexão Minecraft.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Loja VIP
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+VIP 1: R$ 25,00; VIP 2: R$ 35,00; VIP 3: R$ 50,00. Valores por 30 dias, sem renovação automática, sujeitos a alteração até a abertura das vendas. Kits incluídos, sem venda avulsa. Caixas serão separadas futuramente. Nove prints originais e ampliação em dialog nativo. Catálogo em pré-lançamento: pagamento e ativação ainda indisponíveis. Especificação comercial em atlas-docs/LOJA.md.

@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'how-to-play', component: HowToPlayPageComponent },
   { path: 'notices', component: NoticesPageComponent },
   { path: 'store', component: StorePageComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];

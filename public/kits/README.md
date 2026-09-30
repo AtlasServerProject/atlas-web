@@ -1,0 +1,1 @@
+Nove prints originais fornecidos pelo dono em downloads/kits vip.zip. Organizados por plano (1–3) e período. Exibidos na vitrine com ampliação nativa em dialog e lista textual conferida no código do servidor.

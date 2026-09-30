@@ -1,135 +1,136 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-
-type MenuItem = {
-  label: string;
-  href: string;
-};
-
-type ProductCard = {
-  name: string;
-  price: string;
-  text: string;
-  accent: string;
-};
-
-type StoreSection = 'vip' | 'keys';
-
 @Component({
   selector: 'app-store-page',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './store-page.component.html',
-  styleUrls: ['./store-page.component.scss']
+  styleUrls: ['./store-page.component.scss'],
 })
 export class StorePageComponent {
-  protected readonly serverName = 'Atlas';
-  protected activeSection: StoreSection = 'keys';
-
-  protected readonly menu: MenuItem[] = [
-    { label: 'Inicio', href: '/' },
-    { label: 'Loja', href: '/store' },
-    { label: 'Jogar', href: '/how-to-play' },
-    { label: 'Noticias', href: '/notices' },
-    { label: 'Equipe', href: '/#novidades' }
+  readonly plans = [
+    {
+      name: 'VIP 1',
+      price: 'R$ 25,00',
+      rank: 'VIP',
+      description: 'O primeiro passo para sua jornada.',
+      kits: [
+        {
+          name: 'Diário',
+          cooldown: '24 horas',
+          items: [
+            '24 Poké Bolas',
+            '16 Super Bolas',
+            '8 Ultra Bolas',
+            '2 Doces Raros',
+            '2 Exp. Candy M',
+            '2 Revives',
+          ],
+        },
+        {
+          name: 'Semanal',
+          cooldown: '7 dias',
+          items: [
+            '32 Poké Bolas',
+            '16 Super Bolas',
+            '8 Ultra Bolas',
+            '12 Doces Raros',
+            '8 Exp. Candy L',
+            '5 Revives',
+            '1 Mint aleatória',
+            '1 Pedra de Evolução aleatória',
+          ],
+        },
+        {
+          name: 'Mensal',
+          cooldown: '30 dias',
+          items: [
+            '64 Poké Bolas',
+            '32 Super Bolas',
+            '16 Ultra Bolas',
+            '32 Doces Raros',
+            '16 Exp. Candy XL',
+            '10 Revives',
+            '2 Max Revives',
+            '2 Mints aleatórias',
+            '2 Pedras de Evolução aleatórias',
+            '1 Lucky Egg',
+            '1 Bottle Cap de atributo aleatório',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'VIP 2',
+      price: 'R$ 35,00',
+      rank: 'VIP ✦',
+      description: 'Mais possibilidades para sua equipe.',
+      kits: [
+        {
+          name: 'Diário',
+          cooldown: '24 horas',
+          items: ['1 Exp. Share', '2 Exp. Candy XL', '1 Max Revive'],
+        },
+        {
+          name: 'Semanal',
+          cooldown: '7 dias',
+          items: ['1 Lucky Egg', '1 Ability Capsule', '2 Mints aleatórias'],
+        },
+        {
+          name: 'Mensal',
+          cooldown: '30 dias',
+          items: [
+            '1 Destiny Knot',
+            '1 Everstone',
+            '2 Lucky Eggs',
+            '2 Ability Capsules',
+            '5 Bottle Caps (OBC)',
+          ],
+        },
+      ],
+    },
+    {
+      name: 'VIP 3',
+      price: 'R$ 50,00',
+      rank: 'VIP ✦✦',
+      description: 'A experiência completa dos kits VIP.',
+      kits: [
+        {
+          name: 'Diário',
+          cooldown: '24 horas',
+          items: ['2 Exp. Candy XL', '2 Max Revives', '1 Mint à escolha'],
+        },
+        {
+          name: 'Semanal',
+          cooldown: '7 dias',
+          items: ['2 Silver Bottle Caps', '3 Ability Capsules', '16 Exp. Candy XL'],
+        },
+        {
+          name: 'Mensal',
+          cooldown: '30 dias',
+          items: [
+            '1 Master Ball',
+            '1 Golden Bottle Cap',
+            '2 Ability Patches',
+            '3 Lucky Eggs',
+            '2 Destiny Knots',
+            '2 Everstones',
+            '5 Bottle Caps de atributos aleatórios',
+            '5 Mints à escolha',
+          ],
+        },
+      ],
+    },
   ];
-
-  protected readonly vipBenefits = [
-    'Tag exclusiva dentro do Atlas.',
-    'Vaga reservada, mesmo com o servidor cheio.',
-    'Chat VIP exclusivo para membros.',
-    'Progresso acelerado com vantagens unicas no jogo.'
-  ];
-
-  protected readonly vipPlans: ProductCard[] = [
-    {
-      name: 'VIP 30 dias',
-      price: 'R$ 19,99',
-      text: 'Plano de entrada para liberar beneficios exclusivos e acesso prioritario no Atlas.',
-      accent: 'VIP'
-    },
-    {
-      name: 'VIP 45 dias',
-      price: 'R$ 27,99',
-      text: 'Mais tempo de vantagens para quem quer consolidar a jornada no servidor.',
-      accent: 'VIP'
-    },
-    {
-      name: 'VIP Permanente',
-      price: 'R$ 79,99',
-      text: 'Acesso definitivo ao pacote VIP com foco em praticidade e presenca constante.',
-      accent: 'VIP'
-    },
-    {
-      name: 'VIP Assinatura',
-      price: 'R$ 16,99',
-      text: 'Modelo recorrente para manter os beneficios sempre ativos sem renovacao manual.',
-      accent: 'VIP'
-    }
-  ];
-
-  protected readonly legendaryKeys: ProductCard[] = [
-    {
-      name: 'Chave de Lendario | 1o Geracao',
-      price: 'R$ 9,99',
-      text: 'Use esta chave para abrir as Caixas Lendarias da primeira geracao.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 2o Geracao',
-      price: 'R$ 14,99',
-      text: 'Versao para a segunda geracao de recompensas lendarias.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 3o Geracao',
-      price: 'R$ 17,99',
-      text: 'Abrir caixas com foco em recompensas da terceira geracao.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 4o Geracao',
-      price: 'R$ 11,99',
-      text: 'Item oficial para as caixas lendarias da quarta geracao.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 5o Geracao',
-      price: 'R$ 17,99',
-      text: 'Chave lendaria da quinta geracao para abrir suas caixas.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 6o Geracao',
-      price: 'R$ 17,99',
-      text: 'Uma das chaves mais valorizadas da loja do Atlas.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 7o Geracao',
-      price: 'R$ 17,99',
-      text: 'Uma das chaves mais valorizadas da loja do Atlas.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 8o Geracao',
-      price: 'R$ 17,99',
-      text: 'Uma das chaves mais valorizadas da loja do Atlas.',
-      accent: 'Lendaria'
-    },
-    {
-      name: 'Chave de Lendario | 9o Geracao',
-      price: 'R$ 17,99',
-      text: 'Uma das chaves mais valorizadas da loja do Atlas.',
-      accent: 'Lendaria'
-    }
-  ];
-
-  protected setActiveSection(section: StoreSection): void {
-    this.activeSection = section;
+  selected = 0;
+  enlarged = { src: '', title: '' };
+  kitImage(name: string): string {
+    const period = name === 'Diário' ? 'diario' : name === 'Semanal' ? 'semanal' : 'mensal';
+    return `/kits/vip-${this.selected + 1}-${period}.png`;
   }
-
-  protected isActiveSection(section: StoreSection): boolean {
-    return this.activeSection === section;
+  openImage(dialog: HTMLDialogElement, name: string): void {
+    this.enlarged = { src: this.kitImage(name), title: `${this.plan.name} — Kit ${name}` };
+    dialog.showModal();
+  }
+  get plan() {
+    return this.plans[this.selected];
   }
 }

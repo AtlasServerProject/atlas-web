@@ -1,85 +1,93 @@
-<main class="how-shell">
-  <header class="how-topbar">
-    <a class="how-brand" href="/" aria-label="Atlas">
-      <span class="how-brand__mark">
-        <img src="logo-atlas.jpeg" alt="" aria-hidden="true" />
-      </span>
-      <span class="how-brand__text">
-        <strong>{{ serverName }}</strong>
-        <small>Como Jogar</small>
-      </span>
-    </a>
-
-    <nav class="how-nav" aria-label="Navegacao principal">
-      @for (item of menu; track item.href) {
-        <a [href]="item.href">{{ item.label }}</a>
-      }
-    </nav>
-  </header>
-
-  <section class="how-hero">
-    <div class="how-hero__content">
-      <p class="eyebrow">Guia para novos jogadores</p>
-      <h1>Comece sua jornada no Atlas em poucos passos.</h1>
-      <p class="lead">
-        Prepare o jogo, baixe a base oficial do servidor, configure o acesso e entre no mundo do Atlas
-        com um caminho claro desde o primeiro login.
-      </p>
-    </div>
-
-    <aside class="how-status">
-      <span class="how-status__tag">IP oficial</span>
-      <strong>{{ serverIp }}</strong>
-      <p>Endereco principal do servidor para a abertura publica.</p>
-    </aside>
-  </section>
-
-  <section class="steps-grid">
-    @for (item of steps; track item.title) {
-      <article class="step-card">
-        <span class="step-card__index">{{ item.step }}</span>
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.text }}</p>
-        <button type="button">{{ item.action }}</button>
-      </article>
-    }
-  </section>
-
-  <section class="downloads-board">
-    <article class="downloads-intro">
-      <p class="eyebrow">Downloads</p>
-      <h2>Escolha o formato ideal para entrar no Atlas.</h2>
-      <p>
-        A pagina foi preparada para receber launcher, modpack e instrucoes oficiais no mesmo fluxo,
-        mantendo a entrada do jogador simples e organizada.
-      </p>
-    </article>
-
-    <div class="downloads-grid">
-      @for (item of downloadOptions; track item.title) {
-        <article class="download-card">
-          <span>{{ item.badge }}</span>
-          <h3>{{ item.title }}</h3>
-          <p>{{ item.text }}</p>
-          <button type="button">{{ item.action }}</button>
-        </article>
-      }
-    </div>
-  </section>
-
-  <section class="guide-panel">
+<section class="section page-intro">
+  <span class="eyebrow">GUIA DO TREINADOR</span>
+  <h1>Seu primeiro passo<br />no <em>Atlas.</em></h1>
+  <p class="lead">
+    Estamos preparando a abertura do Emerald. Enquanto isso, entre na comunidade para acompanhar os
+    testes e receber as orientações oficiais.
+  </p>
+  <p class="notice">
+    O download público do modpack e o endereço de conexão ainda não estão disponíveis neste site.
+  </p>
+</section>
+<section class="section steps">
+  <article>
+    <span>01</span>
     <div>
-      <p class="eyebrow">Primeiros passos</p>
-      <h2>O Atlas foi desenhado para receber novos jogadores com um inicio guiado.</h2>
+      <h2>Entre no Discord</h2>
       <p>
-        Depois de instalar o pacote oficial, entre no servidor, acompanhe o tutorial inicial e avance
-        pelos sistemas principais com foco em exploracao, captura e progressao.
+        É onde a equipe organiza os testes, tira dúvidas e publica os próximos passos. Consulte os
+        canais de regras e como jogar antes de começar.
+      </p>
+      <a
+        class="button"
+        href="https://discord.gg/uUBN4YV6Y"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Acessar a comunidade ↗</a
+      >
+    </div>
+  </article>
+  <article>
+    <span>02</span>
+    <div>
+      <h2>Prepare o Minecraft Java</h2>
+      <p>
+        O Atlas utiliza Minecraft Java 1.21.1 com Fabric e o conjunto de mods do servidor. Para os
+        testes, solicite à equipe o pacote compatível e as instruções de instalação.
+      </p>
+      <p class="muted">Não há launcher próprio ou suporte mobile confirmado para esta etapa.</p>
+    </div>
+  </article>
+  <article>
+    <span>03</span>
+    <div>
+      <h2>Receba as orientações de acesso</h2>
+      <p>
+        Se você participa dos testes, confirme com a equipe o endereço e a versão do pacote. A
+        disponibilidade depende do ambiente de testes estar online.
       </p>
     </div>
-
-    <div class="guide-panel__ip">
-      <span>Servidor</span>
-      <strong>{{ serverIp }}</strong>
+  </article>
+  <article>
+    <span>04</span>
+    <div>
+      <h2>Conheça o Emerald</h2>
+      <p>
+        Após o login, siga para o lobby Emerald e encontre o NPC de acesso ao Survival. Explore,
+        construa e conte à equipe como foi sua experiência.
+      </p>
     </div>
-  </section>
-</main>
+  </article>
+</section>
+<section class="section faq">
+  <span class="eyebrow">ANTES DE PARTIR</span>
+  <h2>Dúvidas frequentes</h2>
+  <details>
+    <summary>O servidor já está aberto ao público?</summary>
+    <p>
+      A abertura pública ainda será anunciada. O projeto está em desenvolvimento e validação com
+      testers.
+    </p>
+  </details>
+  <details>
+    <summary>Onde baixo o modpack?</summary>
+    <p>
+      A distribuição pública ainda está sendo preparada. Durante os testes, peça as instruções à
+      equipe no Discord.
+    </p>
+  </details>
+  <details>
+    <summary>Posso usar qualquer pacote de Cobblemon?</summary>
+    <p>
+      Use o conjunto de mods indicado pela equipe. Versões diferentes podem impedir a conexão ou
+      causar incompatibilidades.
+    </p>
+  </details>
+  <details>
+    <summary>Onde vejo quantos jogadores estão online?</summary>
+    <p>
+      No Discord, consulte a categoria STATUS ou use /online. A contagem indica a disponibilidade do
+      ambiente de testes, não uma abertura pública.
+    </p>
+  </details>
+</section>

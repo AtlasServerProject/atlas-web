@@ -42,3 +42,9 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Local deployment credentials and state
+.netlify/
+.env
+.env.*
+!.env.example

@@ -1,71 +1,43 @@
-<main class="notices-shell">
-  <header class="notices-topbar">
-    <a class="notices-brand" href="/" aria-label="Atlas">
-      <span class="notices-brand__mark">
-        <img src="logo-atlas.jpeg" alt="" aria-hidden="true" />
-      </span>
-      <span class="notices-brand__text">
-        <strong>{{ serverName }}</strong>
-        <small>Notices</small>
-      </span>
-    </a>
-
-    <nav class="notices-nav" aria-label="Navegacao principal">
-      @for (item of menu; track item.href) {
-        <a [href]="item.href">{{ item.label }}</a>
-      }
-    </nav>
-  </header>
-
-  <section class="notices-hero">
-    <div class="notices-hero__content">
-      <p class="eyebrow">Noticias do servidor</p>
-      <h1>Atualizacoes, eventos e avisos oficiais do Atlas.</h1>
-      <p class="lead">
-        Uma central para acompanhar a abertura do servidor, progresso da temporada, mudancas da loja
-        e comunicados importantes da equipe.
-      </p>
-    </div>
-
-    <aside class="notices-status">
-      <span class="status-tag">Servidor</span>
-      <strong>{{ serverIp }}</strong>
-      <p>{{ serverStatus }}</p>
-      <small>Painel de noticias preparado para centralizar os proximos anuncios.</small>
-    </aside>
-  </section>
-
-  <section class="highlights-grid">
-    @for (item of highlights; track item.title) {
-      <article class="highlight-card">
-        <span>{{ item.label }}</span>
-        <h2>{{ item.title }}</h2>
-        <p>{{ item.text }}</p>
-      </article>
-    }
-  </section>
-
-  <section class="notices-board">
-    <article class="board-feature">
-      <p class="eyebrow">Painel oficial</p>
-      <h2>O Atlas agora tem uma pagina propria para acompanhar o que muda no servidor.</h2>
-      <p>
-        Aqui entram avisos de manutencao, novidades da loja, calendario de abertura e recados da equipe
-        em um formato limpo, rapido de escanear e facil de atualizar.
-      </p>
-    </article>
-
-    <div class="board-list">
-      @for (notice of notices; track notice.title) {
-        <article class="notice-card">
-          <div class="notice-card__meta">
-            <span>{{ notice.category }}</span>
-            <small>{{ notice.date }}</small>
-          </div>
-          <h3>{{ notice.title }}</h3>
-          <p>{{ notice.text }}</p>
-        </article>
-      }
-    </div>
-  </section>
-</main>
+<section class="section page-intro">
+  <span class="eyebrow">DIÁRIO DO ATLAS</span>
+  <h1>Um mundo<br />ganhando <em>forma.</em></h1>
+  <p class="lead">
+    Acompanhe o que já construímos e o que vem pela frente. Comunicados de testes e disponibilidade
+    são publicados no Discord.
+  </p>
+</section>
+<section class="section news-list">
+  <article>
+    <div class="news-meta">DESENVOLVIMENTO <time datetime="2026-09-30">30 set. 2026</time></div>
+    <h2>O Emerald já tem um lugar de chegada</h2>
+    <p>
+      O mapa do lobby está concluído. O NPC Survival dá acesso ao menu de teleporte, e os
+      personagens de Tutorial, Caixas, Arena e Mercado já ocupam seus lugares. As funções desses
+      quatro destinos continuam em preparação.
+    </p>
+  </article>
+  <article>
+    <div class="news-meta">COMUNIDADE <time datetime="2026-09-30">30 set. 2026</time></div>
+    <h2>Nosso ponto de encontro está no Discord</h2>
+    <p>
+      O Atlas-bot recebe novos membros, entrega o cargo Membro e permite consultar os jogadores
+      online no Minecraft. A comunidade também tem espaços para dúvidas, sugestões e aventuras.
+    </p>
+    <a
+      class="text-link"
+      href="https://discord.gg/uUBN4YV6Y"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Conheça o Discord ↗</a
+    >
+  </article>
+  <article>
+    <div class="news-meta">PRÓXIMOS PASSOS</div>
+    <h2>Testar a base, preparar o próximo capítulo</h2>
+    <p>
+      Nosso foco é validar os sistemas existentes, definir o tutorial e organizar as regras de
+      entrada. Mercado, eventos e outras experiências serão desenvolvidos em etapas. Ainda não há
+      data de abertura pública anunciada.
+    </p>
+  </article>
+</section>

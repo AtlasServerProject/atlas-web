@@ -1,3 +1,199 @@
 :host {
   display: block;
 }
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 90px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+}
+.about-visual img {
+  position: relative;
+  width: 85%;
+  height: auto;
+  max-width: 370px;
+  border-radius: 32px;
+  border: 1px solid #b6a46944;
+  box-shadow: 0 30px 90px #0006;
+  transform: rotate(-4deg);
+  transition: transform 0.5s;
+}
+.about-visual:hover img {
+  transform: rotate(0);
+}
+.visual-orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #b9e4a122;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, #55713433, transparent 65%);
+}
+.visual-label {
+  position: relative;
+  margin-top: 30px;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+.panorama {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 520px;
+  display: grid;
+  align-items: center;
+  padding: 80px max(30px, calc((100vw - 1200px) / 2));
+  background: #081510;
+}
+.panorama-art {
+  position: absolute;
+  inset: -28px;
+  z-index: -1;
+  transform: translateY(var(--parallax, 0));
+  background:
+    linear-gradient(90deg, #03110de8, #08201499 60%, #09171b55),
+    linear-gradient(0deg, var(--bg), transparent 35%, transparent 65%, var(--bg)),
+    url('/atlas-hero.png') center/cover;
+}
+.panorama h2 {
+  max-width: 700px;
+}
+.panorama p {
+  color: #c8d7cd;
+}
+.art-caption {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  color: #b4c5b9;
+  font-size: 9px;
+}
+.feature-symbol {
+  display: grid;
+  place-items: center;
+  width: 55px;
+  height: 55px;
+  font-size: 32px;
+  border: 1px solid #ceeca52b;
+  border-radius: 14px;
+  color: var(--accent);
+  background: #c8e6a308;
+  margin-bottom: 32px;
+}
+.resource-card {
+  position: relative;
+}
+.resource-card .card-number {
+  margin-bottom: 18px;
+}
+.horizons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  background: radial-gradient(ellipse at right, #29332844, transparent 65%);
+}
+.future-grid {
+  display: grid;
+  gap: 20px;
+}
+.future-card {
+  padding: 35px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: linear-gradient(120deg, #24372866, #16202388);
+}
+.future-card span {
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--gold);
+}
+.future-card h3 {
+  margin: 18px 0;
+}
+.future-card p {
+  font-size: 13px;
+  margin: 0;
+}
+.team-section {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+  border-top: 1px solid var(--line);
+}
+.team-note {
+  padding: 45px;
+  background: radial-gradient(ellipse at top right, #304c2944, transparent), #0f201b;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  transform: rotate(2deg);
+}
+.team-note strong {
+  font-size: clamp(40px, 5vw, 65px);
+  line-height: 1;
+  font-weight: 800;
+}
+.team-note strong em {
+  font-weight: 400;
+}
+.team-note p {
+  margin-top: 30px;
+  font-size: 12px;
+}
+.cta {
+  background:
+    linear-gradient(#06150dd9, #06110fed),
+    url('/atlas-hero.png') center/cover;
+}
+.cta .actions {
+  justify-content: center;
+}
+.cta > div > p {
+  max-width: 580px;
+  margin-inline: auto;
+}
+@media (max-width: 900px) {
+  .about,
+  .horizons,
+  .team-section {
+    gap: 35px;
+  }
+  .about-visual {
+    padding: 10px;
+  }
+}
+@media (max-width: 640px) {
+  .about,
+  .horizons,
+  .team-section {
+    grid-template-columns: 1fr;
+  }
+  .about-visual {
+    max-width: 320px;
+    margin: auto;
+  }
+  .about {
+    gap: 45px;
+  }
+  .panorama {
+    padding: 65px 24px;
+    min-height: 480px;
+  }
+  .team-note {
+    padding: 30px;
+    transform: none;
+  }
+  .future-card {
+    padding: 28px;
+  }
+  .cta .actions {
+    flex-direction: column;
+  }
+}

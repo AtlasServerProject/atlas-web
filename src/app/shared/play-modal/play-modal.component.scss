@@ -1,0 +1,90 @@
+.play-dialog {
+  width: min(530px, calc(100% - 32px));
+  max-height: 90dvh;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: radial-gradient(ellipse at top, #26392e, transparent 65%), var(--bg);
+  color: var(--text);
+  box-shadow: 0 35px 100px #0009;
+  animation: modal-in 0.3s var(--ease);
+}
+.play-dialog::backdrop {
+  background: #030a0bdd;
+  backdrop-filter: blur(7px);
+}
+.play-dialog.closing {
+  animation: modal-out 0.16s ease-in forwards;
+}
+.modal-top,
+.modal-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.modal-top .eyebrow {
+  margin: 0;
+}
+.modal-logo {
+  border-radius: 16px;
+  margin: 18px 0;
+}
+.play-dialog h2 {
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+.address-box {
+  padding: 20px;
+  background: #ffffff05;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 22px 0;
+}
+.address-box span {
+  display: block;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.address-box strong {
+  display: block;
+  overflow-wrap: anywhere;
+  margin: 10px 0;
+  font-size: 18px;
+}
+.address-box p {
+  font-size: 13px;
+  margin-bottom: 0;
+}
+.copy-feedback {
+  font-size: 13px;
+  color: var(--accent);
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes modal-out {
+  to {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+@media (max-width: 430px) {
+  .play-dialog {
+    padding: 22px;
+  }
+  .play-dialog h2 {
+    font-size: 34px;
+  }
+  .modal-actions {
+    flex-wrap: wrap;
+  }
+}

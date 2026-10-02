@@ -1,0 +1,40 @@
+<dialog
+  atlasDialogFocus
+  #dialog
+  class="play-dialog"
+  [class.closing]="closing()"
+  aria-labelledby="play-title"
+  (cancel)="cancel($event)"
+  (click)="backdrop($event)"
+>
+  <div class="modal-top">
+    <span class="eyebrow">SEU PRIMEIRO PASSO</span
+    ><button class="icon-button" aria-label="Fechar acesso ao Atlas" (click)="close()" autofocus>
+      ✕
+    </button>
+  </div>
+  <img class="modal-logo" src="/logo-atlas.jpeg" width="84" height="84" alt="Logo Atlas" />
+  <h2 id="play-title">Entre no <em>Atlas.</em></h2>
+  <p>Minecraft Java 1.21.1 · Fabric · Cobblemon</p>
+  @if (settings.serverAddress()) {
+    <div class="address-box">
+      <span>IP DO SERVIDOR</span><strong>{{ settings.serverAddress() }}</strong>
+    </div>
+    <button class="button" (click)="copy()">Copiar IP <span aria-hidden="true">⧉</span></button>
+  } @else {
+    <div class="address-box">
+      <span>EMERALD · EM DESENVOLVIMENTO</span><strong>Acesso público em preparação</strong>
+      <p>
+        O endereço ainda não foi divulgado. Se você é tester, solicite as orientações à equipe no
+        Discord.
+      </p>
+    </div>
+  }
+  <p class="copy-feedback" role="status">{{ copied() }}</p>
+  <div class="modal-actions">
+    <a class="button button-secondary" routerLink="/how-to-play" (click)="close()">Como jogar →</a
+    ><a class="text-link" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
+      >Discord ↗</a
+    >
+  </div>
+</dialog>

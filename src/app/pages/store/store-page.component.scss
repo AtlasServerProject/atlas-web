@@ -32,16 +32,6 @@
 .plan-card .card-number {
   margin-bottom: 20px;
 }
-.duration {
-  font-size: 24px;
-  font-weight: 500;
-}
-.duration small {
-  display: block;
-  font-size: 12px;
-  color: var(--muted);
-  font-weight: 400;
-}
 .inherit {
   font-size: 13px;
   margin-top: 25px;
@@ -244,4 +234,22 @@ td {
 }
 .purchase-guide h3 {
   font-size: 24px;
+}
+
+.catalog,
+.comparison,
+.kit-section,
+.purchase-guide,
+.faq {
+  padding-inline: 0;
+}
+.purchase-button {
+  margin-bottom: 12px;
+}
+.admin-controls {
+  margin: 0 0 16px;
+}
+.price-block del {
+  color: var(--muted);
+  font-size: 14px;
 }

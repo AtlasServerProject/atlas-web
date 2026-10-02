@@ -1,0 +1,62 @@
+<section class="cinematic-hero" id="inicio" atlasParallax aria-labelledby="hero-title">
+  <div class="hero-media" aria-hidden="true">
+    <img class="hero-poster" src="/atlas-hero.png" alt="" fetchpriority="high" />
+    @if (settings.heroVideo() && !motion.reduced() && !motion.economical() && !failed()) {
+      <video
+        #video
+        autoplay
+        [muted]="true"
+        loop
+        playsinline
+        preload="metadata"
+        poster="/atlas-hero.png"
+        [src]="settings.heroVideo()"
+        [class.loaded]="ready()"
+        (playing)="ready.set(true)"
+        (error)="failed.set(true)"
+      ></video>
+    }
+  </div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="ambient" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="hero-copy">
+    <p class="hero-kicker"><span></span> UM NOVO MUNDO. A SUA HISTÓRIA.</p>
+    <img
+      class="hero-emblem"
+      src="/logo-atlas.jpeg"
+      alt="Logo Atlas Cobblemon"
+      width="655"
+      height="655"
+      fetchpriority="high"
+    />
+    <h1 id="hero-title">ATLAS</h1>
+    <h2>SUA PRÓXIMA AVENTURA<br /><em>COMEÇA AQUI.</em></h2>
+    <p class="hero-motto">
+      Explore <span>•</span> Capture <span>•</span> Batalhe <span>•</span> Conquiste
+    </p>
+    <div class="actions">
+      <button class="button" (click)="play.open()">JOGAR AGORA <span>↗</span></button
+      ><a
+        class="button button-secondary"
+        [href]="settings.discord"
+        target="_blank"
+        rel="noopener noreferrer"
+        >DISCORD <span>↗</span></a
+      >
+    </div>
+    <p class="hero-state">MINECRAFT JAVA 1.21.1 <span>/</span> EMERALD EM DESENVOLVIMENTO</p>
+  </div>
+  <a class="scroll-cue" routerLink="/" fragment="servidor"
+    ><span aria-hidden="true">↓</span>Explore o mundo</a
+  >
+  @if (video() && ready()) {
+    <button
+      class="video-toggle"
+      (click)="toggle()"
+      [attr.aria-label]="paused() ? 'Reproduzir vídeo de fundo' : 'Pausar vídeo de fundo'"
+    >
+      {{ paused() ? '▶ Reproduzir' : 'Ⅱ Pausar vídeo' }}
+    </button>
+  }
+  <span class="hero-coordinate" aria-hidden="true">CAPÍTULO 01 — EMERALD</span>
+</section>

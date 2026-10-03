@@ -81,6 +81,29 @@ export class OrderService {
   async checkout(input: CheckoutInput, key: string) {
     return this.api.post<AtlasOrder>('orders/checkout', input, { 'Idempotency-Key': key });
   }
+  async pay(id: string) {
+    const owner = this.auth.currentUser()?.id;
+    const result = await this.api.post<{ state: string; checkoutUrl: string | null; mode: string }>(
+      'orders/' + encodeURIComponent(id) + '/payment',
+      {},
+    );
+    if (!owner || owner !== this.auth.currentUser()?.id)
+      throw new Error('Sua sessão mudou. Entre novamente.');
+    if (result.state !== 'READY' || !result.checkoutUrl)
+      throw new Error(
+        'O início do pagamento está sendo verificado. Aguarde e consulte este pedido novamente.',
+      );
+    const url = new URL(result.checkoutUrl);
+    if (
+      url.protocol !== 'https:' ||
+      url.username ||
+      url.password ||
+      url.port ||
+      !['www.mercadopago.com.br', 'sandbox.mercadopago.com.br'].includes(url.hostname)
+    )
+      throw new Error('Não foi possível abrir o pagamento.');
+    window.location.assign(url.href);
+  }
   async detail(id: string) {
     return this.api.get<AtlasOrder>('orders/' + encodeURIComponent(id));
   }

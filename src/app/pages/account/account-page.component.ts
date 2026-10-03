@@ -13,6 +13,16 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
     <h1>{{ purchases ? 'Minhas compras' : 'Minha conta' }}</h1>
     @if (purchases) {
       <p>Acompanhe seus pedidos, pagamentos e entregas.</p>
+      <p class="notice">
+        O pagamento é confirmado após a verificação do Mercado Pago. Voltar ao site não confirma a
+        compra.
+      </p>
+      <button class="button secondary" [disabled]="orders.loading()" (click)="orders.load()">
+        Atualizar status
+      </button>
+      @if (paymentError()) {
+        <p role="alert">{{ paymentError() }}</p>
+      }
       <div class="cards">
         @for (order of orders.mine(); track order.id) {
           <article class="card">
@@ -27,6 +37,12 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             <p class="pill">{{ orders.paymentLabel(order.paymentStatus) }}</p>
             <p>{{ orders.deliveryLabel(order.deliveryStatus) }}</p>
             <small>Pedido {{ order.id }}</small>
+            @if (order.paymentStatus === 'PENDING') {
+              <p>PIX ou cartão na página do Mercado Pago.</p>
+              <button class="button" [disabled]="paying() !== ''" (click)="pay(order.id)">
+                {{ paying() === order.id ? 'Preparando pagamento…' : 'Pagar com Mercado Pago' }}
+              </button>
+            }
           </article>
         }
       </div>
@@ -91,6 +107,20 @@ export class AccountPageComponent {
   readonly purchases = inject(ActivatedRoute).snapshot.data['purchases'] === true;
   readonly feedback = signal('');
   readonly sending = signal(false);
+  readonly paying = signal('');
+  readonly paymentError = signal('');
+  async pay(id: string) {
+    if (this.paying()) return;
+    this.paying.set(id);
+    this.paymentError.set('');
+    try {
+      await this.orders.pay(id);
+    } catch (e) {
+      this.paymentError.set(e instanceof Error ? e.message : 'Não foi possível abrir o pagamento.');
+    } finally {
+      this.paying.set('');
+    }
+  }
   async resend() {
     if (this.sending()) return;
     this.sending.set(true);

@@ -6,6 +6,7 @@ import { AuthService } from '../../core/auth.service';
   selector: 'app-recovery-page',
   standalone: true,
   imports: [FormsModule, RouterLink],
+  styleUrls: ['./account-message.scss'],
   template: `<section class="section page-intro">
     <span class="eyebrow">SUA CONTA ATLAS</span>
     <h1>
@@ -13,7 +14,24 @@ import { AuthService } from '../../core/auth.service';
         mode === 'verify' ? 'Confirmar email' : mode === 'reset' ? 'Nova senha' : 'Recuperar senha'
       }}
     </h1>
-    @if (!auth.available()) {
+    @if (done() && mode === 'verify') {
+      <article class="card account-message confirmation-success">
+        <div class="message-symbol" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="none"><path d="m8 16 5 5 11-11" /></svg>
+        </div>
+        <span class="eyebrow">TUDO PRONTO</span>
+        <h2>Bem-vindo ao <em>Atlas.</em></h2>
+        <p role="status">Email confirmado com sucesso!</p>
+        <p>
+          Sua conta está pronta para o próximo capítulo. Entre para acompanhar sua jornada e
+          explorar o universo Atlas Cobblemon.
+        </p>
+        <div class="message-actions">
+          <a class="button" routerLink="/login">Entrar na minha conta</a
+          ><a class="button secondary" routerLink="/loja">Explorar a loja</a>
+        </div>
+      </article>
+    } @else if (!auth.available()) {
       <div class="card auth-form">
         <p class="notice" role="status">
           Cadastro e acesso à conta estão temporariamente indisponíveis. Tente novamente mais tarde.

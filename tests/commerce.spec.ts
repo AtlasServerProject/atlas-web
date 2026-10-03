@@ -46,7 +46,7 @@ async function promotion(page: Page, start: number, end: number) {
 }
 test('USER: erros, sessão, guard, vendas fechadas e logout', async ({ page }) => {
   await page.goto('/login');
-  await page.getByLabel('Email').fill(account().email);
+  await page.getByLabel('Email', { exact: true }).fill(account().email);
   await page.getByLabel('Senha', { exact: true }).fill('wrong');
   await page.getByRole('button', { name: 'Entrar', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('incorretos');
@@ -148,16 +148,17 @@ test('cadastro valida confirmação e cria USER', async ({ page }) => {
   await page.getByLabel('Nickname').fill('NovoPlayer');
   const email = randomUUID() + '@example.invalid';
   const password = randomUUID();
-  await page.getByLabel('Email').fill(email);
+  await page.getByLabel('Email', { exact: true }).fill(email);
   await page.getByLabel('Senha', { exact: true }).fill(password);
   await page.getByLabel('Confirmar senha').fill(randomUUID());
   await page.getByRole('button', { name: 'Criar conta', exact: true }).click();
   await expect(page.getByRole('alert')).toContainText('iguais');
   await page.getByLabel('Confirmar senha').fill(password);
   await page.getByRole('button', { name: 'Criar conta', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('email de confirmação');
+  await expect(page.getByRole('dialog', { name: /Confira seu email/ })).toBeVisible();
+  await page.getByRole('button', { name: 'Entendi' }).click();
   await page.goto('/login');
-  await page.getByLabel('Email').fill(email);
+  await page.getByLabel('Email', { exact: true }).fill(email);
   await page.getByLabel('Senha', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Entrar', exact: true }).click();
   await expect(page).toHaveURL(/conta/);

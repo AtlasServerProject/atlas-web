@@ -41,18 +41,23 @@ test('cadastro, confirmação, recuperação e revogação de sessão em outro n
   const next = randomUUID();
   await page.goto('/cadastro');
   await page.getByLabel('Nickname').fill('Email test');
-  await page.getByLabel('Email').fill(email);
+  await page.getByLabel('Email', { exact: true }).fill(email);
   await page.getByLabel('Senha', { exact: true }).fill(password);
   await page.getByLabel('Confirmar senha').fill(password);
   await page.getByRole('button', { name: 'Criar conta', exact: true }).click();
-  await expect(page.getByRole('status')).toContainText('email de confirmação');
+  const popup = page.getByRole('dialog', { name: /Confira seu email/ });
+  await expect(popup).toBeVisible();
+  await expect(popup).toContainText('caixa de spam ou lixo eletrônico');
+  await expect(popup).toContainText(email);
+  await popup.getByRole('button', { name: 'Entendi' }).click();
+  await expect(popup).not.toBeVisible();
   const verification = await emailLink(email, 'verificar-email');
   await page.goto(verification);
   await expect(page).toHaveURL(/verificar-email$/);
   await page.getByRole('button', { name: 'Confirmar email', exact: true }).click();
-  await expect(page.getByRole('status')).toHaveText('Email confirmado.');
+  await expect(page.getByRole('status')).toHaveText('Email confirmado com sucesso!');
   await page.goto('/login');
-  await page.getByLabel('Email').fill(email);
+  await page.getByLabel('Email', { exact: true }).fill(email);
   await page.getByLabel('Senha', { exact: true }).fill(password);
   await page.getByRole('button', { name: 'Entrar', exact: true }).click();
   await expect(page).toHaveURL(/conta/);
@@ -61,7 +66,7 @@ test('cadastro, confirmação, recuperação e revogação de sessão em outro n
   try {
     const reset = await other.newPage();
     await reset.goto('/recuperar-senha');
-    await reset.getByLabel('Email').fill(email);
+    await reset.getByLabel('Email', { exact: true }).fill(email);
     await reset.getByRole('button', { name: 'Enviar link' }).click();
     await expect(reset.getByRole('status')).toContainText('Se existir uma conta');
     await reset.goto(await emailLink(email, 'redefinir-senha'));
@@ -72,7 +77,7 @@ test('cadastro, confirmação, recuperação e revogação de sessão em outro n
     await expect(reset.getByRole('status')).toContainText('Senha atualizada');
     await page.reload();
     await expect(page).toHaveURL(/login/);
-    await page.getByLabel('Email').fill(email);
+    await page.getByLabel('Email', { exact: true }).fill(email);
     await page.getByLabel('Senha', { exact: true }).fill(next);
     await page.getByRole('button', { name: 'Entrar', exact: true }).click();
     await expect(page).toHaveURL(/conta/);

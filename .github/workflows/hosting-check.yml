@@ -1,0 +1,19 @@
+name: Cloudflare hosting checks
+on:
+  push:
+    paths: ['hosting/**', 'scripts/**', 'wrangler.jsonc', 'package*.json', '.github/workflows/hosting-check.yml']
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.21.0'
+          cache: npm
+      - run: npm ci
+      - run: npm run test:hosting
+      - run: npm run build:pages

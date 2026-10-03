@@ -83,3 +83,7 @@ Componentes acessam AuthService, ProductService, PromotionService e OrderService
 **Os guards e a ocultação de controles são somente UX.** O backend deverá validar a role, proteger endpoints ADMIN, validar promoções e determinar o tempo e o preço vigentes. Checkout jamais deve confiar em preço enviado pelo navegador. Autenticação/roles vêm da API; os dados e ações comerciais simulados não oferecem autoridade comercial.
 
 A suíte de comércio cobre login USER/ADMIN, erro de login, logout, cadastro, sessão, guards, edição de preço, criação/edição/ativação/encerramento/cancelamento de promoções, countdown, compras demonstrativas, foco e Escape. Verifica as novas telas e modais nas oito larguras solicitadas; os testes existentes cobrem a navegação e os kits originais. Validação em Chromium; outros navegadores e dispositivos reais permanecem fora desta execução.
+
+## Migração para Cloudflare Pages (03/10/2026)
+
+Preparada, aguardando autorização da conta e ativação de `atlascobblemon.com.br`. Use `npm run build:pages` (saída `dist/atlas-web/browser`) e `npm run test:hosting`. Pages usa um Worker apenas para `/api/`, com origem fixa `api.atlascobblemon.com.br`; o API/PostgreSQL continua na VM. No painel Pages, conectar o GitHub `AtlasServerProject/atlas-web`, branch main, build `npm run build:pages`, Node 24.21.0. Não criar por Direct Upload se desejar a integração Git nativa. Configuração e ativação do túnel permanente: [CLOUDFLARE.md](../atlas-docs/CLOUDFLARE.md). Não declarar publicado antes do teste HTTPS real.

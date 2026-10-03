@@ -86,6 +86,9 @@ import { DialogFocusDirective } from '../effects/dialog-focus.directive';
       }
       @if (error()) {
         <p role="alert" class="form-error">{{ error() }}</p>
+        <button type="button" class="button secondary" (click)="reloadRevision()">
+          Atualizar revisão e manter formulário
+        </button>
       }
       <div class="actions">
         <button type="button" class="button secondary" (click)="close()">Cancelar</button
@@ -107,6 +110,7 @@ export class ProductEditorComponent {
   product?: Product;
   kind: 'price' | 'promotion' = 'price';
   promotionId?: number;
+  promotionRevision = 0;
   price = 0;
   name = '';
   type = 'percent';
@@ -126,6 +130,7 @@ export class ProductEditorComponent {
     this.product = product;
     this.kind = kind;
     this.promotionId = promotion?.id;
+    this.promotionRevision = promotion?.revision ?? 0;
     this.price = promotion?.promotionalPrice ?? product.price;
     this.name = promotion?.name ?? `Oferta ${product.name}`;
     this.type = promotion ? 'price' : 'percent';
@@ -142,12 +147,19 @@ export class ProductEditorComponent {
   backdrop(event: MouseEvent) {
     if (event.target === this.dialog()?.nativeElement) this.close();
   }
+  reloadRevision() {
+    this.product = this.products.products().find((p) => p.id === this.product?.id);
+    this.promotionRevision =
+      this.promotions.promotions().find((p) => p.id === this.promotionId)?.revision ?? 0;
+    this.error.set('');
+  }
   async save() {
     if (!this.product || !this.auth.isAdmin() || this.busy()) return;
     this.error.set('');
     this.busy.set(true);
     try {
-      if (this.kind === 'price') await this.products.updatePrice(this.product.id, this.price);
+      if (this.kind === 'price')
+        await this.products.updatePrice(this.product.id, this.price, this.product.revision);
       else {
         if (
           this.type === 'percent' &&
@@ -163,6 +175,9 @@ export class ProductEditorComponent {
             endsAt: new Date(this.endsAt).toISOString(),
           },
           this.promotionId,
+          this.type === 'percent' ? Math.round(this.discount * 100) : undefined,
+          this.promotionRevision,
+          this.product.revision,
         );
       }
       this.close();

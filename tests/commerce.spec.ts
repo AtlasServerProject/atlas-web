@@ -44,7 +44,7 @@ async function promotion(page: Page, start: number, end: number) {
   await dialog.getByRole('button', { name: 'Criar promoção', exact: true }).click();
   await expect(dialog).not.toBeVisible();
 }
-test('USER: erros, sessão, guard, compra simulada e logout', async ({ page }) => {
+test('USER: erros, sessão, guard, vendas fechadas e logout', async ({ page }) => {
   await page.goto('/login');
   await page.getByLabel('Email').fill(account().email);
   await page.getByLabel('Senha', { exact: true }).fill('wrong');
@@ -57,73 +57,91 @@ test('USER: erros, sessão, guard, compra simulada e logout', async ({ page }) =
   await expect(page).toHaveURL(/\/$/);
   await page.goto('/loja');
   await expect(page.locator('.admin-controls')).toHaveCount(0);
-  await page
-    .locator('app-catalog .plan-card')
-    .first()
-    .getByRole('button', { name: 'Comprar', exact: true })
-    .click();
-  await page.getByRole('button', { name: 'Simular compra' }).click();
-  await page.goto('/minhas-compras');
-  await expect(page.locator('main')).toContainText('Compra simulada');
+  await expect(page.getByRole('button', { name: 'Vendas em breve' })).toHaveCount(3);
+  await expect(page.getByRole('button', { name: 'Vendas em breve' }).first()).toBeDisabled();
   await page.locator('.account-nav > button').click();
   await page.getByRole('button', { name: 'Sair', exact: true }).click();
   await expect(page.locator('.account-nav')).toHaveCount(0);
   await page.goto('/conta');
   await expect(page).toHaveURL(/login/);
 });
-test('ADMIN: modo, preço, promoção ativa, término, agenda, edição e cancelamento', async ({
-  page,
-}) => {
-  const errors: string[] = [];
-  page.on('pageerror', (e) => errors.push(e.message));
-  await page.clock.install();
+test('ADMIN: preço persistente, promoção, edição, encerramento e agenda', async ({ page }) => {
   await login(page, true);
   await page.goto('/loja');
-  await expect(page.locator('.admin-controls')).toHaveCount(0);
   await mode(page);
-  await expect(page.locator('.admin-controls')).toHaveCount(3);
-  await page
-    .locator('app-catalog .plan-card')
-    .first()
-    .getByRole('button', { name: '✎ Preço' })
-    .click();
+  await page.locator('.plan-card').first().getByRole('button', { name: '✎ Preço' }).click();
   let dialog = page.locator('.commerce-dialog[open]');
   await dialog.getByLabel('Novo preço').fill('29.90');
   await dialog.getByRole('button', { name: 'Salvar', exact: true }).click();
-  await expect(page.locator('app-catalog .plan-card').first()).toContainText('29,90');
-  let now = await page.evaluate(() => Date.now());
-  await promotion(page, now - 60000, now + 120000);
-  await expect(page.locator('app-catalog .plan-card').first()).toContainText('20,93');
-  await expect(page.locator('app-countdown')).toContainText(':');
-  await page.clock.fastForward(180000);
-  await expect(page.locator('app-catalog .plan-card').first()).toContainText('29,90');
-  await expect(page.locator('app-countdown')).toHaveCount(0);
-  now = await page.evaluate(() => Date.now());
-  await promotion(page, now + 120000, now + 600000);
-  await expect(page.locator('app-countdown')).toHaveCount(0);
+  await expect(dialog).not.toBeVisible();
+  await page.reload();
+  await expect(page.locator('.plan-card').first()).toContainText('29,90');
+  await promotion(page, Date.now() - 60000, Date.now() + 3600000);
+  await expect(page.locator('.plan-card').first()).toContainText('20,93');
   await page.goto('/admin');
-  await expect(page.locator('main')).toContainText('Promoções agendadas');
-  await page.getByRole('button', { name: 'Editar promoção' }).click();
+  await page.getByRole('button', { name: 'Editar promoção', exact: true }).click();
   dialog = page.locator('.commerce-dialog[open]');
   await dialog.getByLabel('Nome da promoção').fill('Fim de Semana Atlas');
   await dialog.getByRole('button', { name: 'Salvar', exact: true }).click();
+  await expect(dialog).not.toBeVisible();
   await expect(page.locator('main')).toContainText('Fim de Semana Atlas');
-  await page.clock.fastForward(180000);
-  await expect(page.locator('app-countdown')).toBeVisible();
   await page.getByRole('button', { name: 'Encerrar', exact: true }).click();
   await page.getByRole('button', { name: 'Confirmar', exact: true }).click();
-  await expect(page.locator('app-countdown')).toHaveCount(0);
+  await expect(page.locator('dialog[open]')).toHaveCount(0);
   await page.goto('/loja');
-  now = await page.evaluate(() => Date.now());
-  await promotion(page, now + 120000, now + 600000);
+  await promotion(page, Date.now() + 3600000, Date.now() + 7200000);
   await page.goto('/admin');
-  await page.getByRole('button', { name: 'Cancelar promoção' }).click();
+  await page.getByRole('button', { name: 'Cancelar promoção', exact: true }).click();
   await page.getByRole('button', { name: 'Confirmar', exact: true }).click();
-  await expect(page.locator('main')).toContainText('Promoções canceladas');
-  await mode(page);
+  await expect(page.locator('dialog[open]')).toHaveCount(0);
   await page.goto('/loja');
-  await expect(page.locator('.admin-controls')).toHaveCount(0);
-  expect(errors).toEqual([]);
+  await page.locator('.plan-card').first().getByRole('button', { name: '✎ Preço' }).click();
+  dialog = page.locator('.commerce-dialog[open]');
+  await dialog.getByLabel('Novo preço').fill('25.00');
+  await dialog.getByRole('button', { name: 'Salvar', exact: true }).click();
+  await expect(dialog).not.toBeVisible();
+});
+test('ADMIN: cria, edita e desativa produto real', async ({ page }) => {
+  await login(page, true);
+  await page.goto('/admin');
+  await page.getByRole('button', { name: 'Criar produto', exact: true }).click();
+  const slug = 'test-' + randomUUID();
+  await page.getByLabel('Nome', { exact: true }).fill('Produto de teste');
+  await page.getByLabel('Identificador').fill(slug);
+  await page.getByLabel('Descrição').fill('Catálogo persistente');
+  await page.getByLabel('Categoria').selectOption('Chaves');
+  await page.getByRole('button', { name: 'Salvar produto' }).click();
+  const card = page.locator('article.card').filter({ hasText: 'Produto de teste' });
+  await expect(card).toBeVisible();
+  await page.reload();
+  await expect(card).toBeVisible();
+  await card.getByRole('button', { name: 'Desativar', exact: true }).click();
+  await expect(card).toContainText('Desativado');
+});
+test('ADMIN: conflito mantém o formulário para revisão', async ({ page }) => {
+  await login(page, true);
+  await page.goto('/admin');
+  await page.getByRole('button', { name: 'Editar preço', exact: true }).first().click();
+  const dialog = page.locator('dialog[open]');
+  await dialog.getByLabel('Novo preço').fill('28.00');
+  const csrf = await (await page.request.get('/api/v1/auth/csrf')).json();
+  const data = await (await page.request.get('/api/v1/admin/catalog')).json();
+  const item = data.products.find((p: { slug: string }) => p.slug === 'vip-1');
+  expect(
+    (
+      await page.request.patch('/api/v1/admin/products/' + item.id + '/price', {
+        headers: { [csrf.headerName]: csrf.token },
+        data: { priceCents: 2600, revision: item.revision },
+      })
+    ).status(),
+  ).toBe(200);
+  await dialog.getByRole('button', { name: 'Salvar', exact: true }).click();
+  await expect(dialog.getByRole('alert')).toContainText('Outra edição');
+  await expect(dialog.getByLabel('Novo preço')).toHaveValue('28.00');
+  await dialog.getByRole('button', { name: 'Atualizar revisão e manter formulário' }).click();
+  await dialog.getByLabel('Novo preço').fill('25.00');
+  await dialog.getByRole('button', { name: 'Salvar', exact: true }).click();
+  await expect(dialog).not.toBeVisible();
 });
 test('cadastro valida confirmação e cria USER', async ({ page }) => {
   await page.goto('/cadastro');

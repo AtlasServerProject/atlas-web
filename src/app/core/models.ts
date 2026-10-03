@@ -13,6 +13,9 @@ export const productCategories = ['VIPs', 'Chaves', 'Pacotes', 'Cosméticos'] as
 export type ProductCategory = (typeof productCategories)[number];
 export interface Product {
   id: number;
+  revision?: number;
+  server?: string;
+  purchasable?: boolean;
   name: string;
   slug: string;
   description: string;
@@ -24,6 +27,7 @@ export interface Product {
 export type PromotionStatus = 'SCHEDULED' | 'ACTIVE' | 'FINISHED' | 'CANCELLED';
 export interface Promotion {
   id: number;
+  revision?: number;
   name: string;
   productId: number;
   originalPrice: number;

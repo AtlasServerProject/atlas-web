@@ -1,4 +1,5 @@
 import { provideHttpClient } from '@angular/common/http';
+import { CatalogApiService } from './core/catalog-api.service';
 import { AuthService } from './core/auth.service';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
@@ -15,7 +16,11 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(),
-    provideAppInitializer(() => inject(AuthService).initialize()),
+    provideAppInitializer(() => {
+      const auth = inject(AuthService);
+      const catalog = inject(CatalogApiService);
+      return auth.initialize().then(() => catalog.refresh());
+    }),
     provideRouter(
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' }),

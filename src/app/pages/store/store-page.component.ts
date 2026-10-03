@@ -1,3 +1,4 @@
+import { CheckoutComponent } from '../../shared/commerce/checkout.component';
 import { DialogFocusDirective } from '../../shared/effects/dialog-focus.directive';
 import { ProductService } from '../../core/product.service';
 import { CatalogComponent } from '../../shared/commerce/catalog.component';
@@ -9,7 +10,13 @@ import { Component, inject } from '@angular/core';
 @Component({
   selector: 'app-store-page',
   standalone: true,
-  imports: [DialogFocusDirective, CatalogComponent, CurrencyPipe, CountdownComponent],
+  imports: [
+    DialogFocusDirective,
+    CatalogComponent,
+    CurrencyPipe,
+    CountdownComponent,
+    CheckoutComponent,
+  ],
   templateUrl: './store-page.component.html',
   styleUrls: ['./store-page.component.scss'],
 })

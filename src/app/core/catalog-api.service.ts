@@ -18,6 +18,7 @@ export class CatalogApiService implements OnDestroy {
   private readonly http = inject(HttpClient);
   private readonly auth = inject(AuthService);
   private readonly clock = inject(ClockService);
+  readonly revision = signal(0);
   readonly products = signal<Product[]>([]);
   readonly promotions = signal<Promotion[]>([]);
   readonly loading = signal(false);
@@ -46,6 +47,7 @@ export class CatalogApiService implements OnDestroy {
         );
         if (!Array.isArray(data.products) || !Array.isArray(data.promotions))
           throw new Error('Catálogo indisponível.');
+        this.revision.set(data.revision);
         this.clock.synchronize(data.serverTime, before);
         this.products.set(data.products.map((p) => ({ ...p, price: p.priceCents / 100 })));
         this.promotions.set(

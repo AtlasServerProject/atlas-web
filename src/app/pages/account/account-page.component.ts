@@ -3,31 +3,60 @@ import { DatePipe, CurrencyPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { OrderService } from '../../core/order.service';
+import { MinecraftLinkComponent } from './minecraft-link.component';
 @Component({
   selector: 'app-account-page',
   standalone: true,
-  imports: [DatePipe, CurrencyPipe, RouterLink],
+  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent],
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
     <h1>{{ purchases ? 'Minhas compras' : 'Minha conta' }}</h1>
     @if (purchases) {
-      <p>Histórico demonstrativo desta sessão. Pagamento e entrega não são reais.</p>
+      <p>Acompanhe seus pedidos, pagamentos e entregas.</p>
       <div class="cards">
         @for (order of orders.mine(); track order.id) {
           <article class="card">
-            <h3>{{ order.productName }}</h3>
+            <h3>{{ order.snapshot.productName }}</h3>
             <strong class="product-price">{{
-              order.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+              order.totalCents / 100 | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
             }}</strong>
-            <p>{{ order.purchasedAt | date: 'dd/MM/yyyy HH:mm' : '-0300' }}</p>
-            <span class="pill">Compra simulada · Sem entrega real</span>
+            <p>{{ order.createdAt | date: 'dd/MM/yyyy HH:mm' : '-0300' }}</p>
+            <p>
+              Jogador: <strong>{{ order.snapshot.nickname }}</strong> · Emerald
+            </p>
+            <p class="pill">{{ orders.paymentLabel(order.paymentStatus) }}</p>
+            <p>{{ orders.deliveryLabel(order.deliveryStatus) }}</p>
+            <small>Pedido {{ order.id }}</small>
           </article>
         }
       </div>
-      @if (!orders.mine().length) {
-        <p class="notice">Você ainda não tem compras demonstrativas.</p>
+      @if (orders.loading()) {
+        <p role="status">Consultando pedidos…</p>
+      }
+      @if (orders.error()) {
+        <p role="alert">{{ orders.error() }}</p>
+        <button class="button secondary" (click)="orders.load()">Tentar novamente</button>
+      }
+      @if (!orders.loading() && !orders.error() && !orders.mine().length) {
+        <p class="notice">Você ainda não tem pedidos.</p>
         <a class="button" routerLink="/loja">Explorar a loja</a>
       }
+      <div class="actions">
+        <button
+          class="button secondary"
+          [disabled]="orders.loading() || orders.page() === 0"
+          (click)="orders.load(orders.page() - 1)"
+        >
+          Anterior</button
+        ><span>Página {{ orders.page() + 1 }}</span
+        ><button
+          class="button secondary"
+          [disabled]="orders.loading() || !orders.hasNext()"
+          (click)="orders.load(orders.page() + 1)"
+        >
+          Próxima
+        </button>
+      </div>
     } @else {
       @if (auth.currentUser(); as user) {
         <article class="card account-card">
@@ -47,19 +76,8 @@ import { OrderService } from '../../core/order.service';
               <dt>Perfil</dt>
               <dd>ADMIN</dd>
             }
-            <dt>Minecraft</dt>
-            <dd>{{ user.minecraftNickname || 'Não vinculado' }}</dd>
           </dl>
-          <button
-            class="button secondary"
-            (click)="
-              feedback.set(
-                'A vinculação com Minecraft estará disponível após a integração com o servidor.'
-              )
-            "
-          >
-            Vincular conta
-          </button>
+          <app-minecraft-link />
           <p role="status">{{ feedback() }}</p>
           <a class="text-link" routerLink="/minhas-compras">Minhas compras →</a>
         </article>

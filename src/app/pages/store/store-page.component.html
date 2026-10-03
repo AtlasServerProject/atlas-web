@@ -48,7 +48,7 @@
                 </div>
                 <div>
                   <dt>Disponibilidade</dt>
-                  <dd>Vendas ainda fechadas</dd>
+                  <dd>{{ item.product.purchasable ? 'Disponível' : 'Vendas ainda fechadas' }}</dd>
                 </div>
               </dl>
               <p class="inherit">
@@ -76,7 +76,13 @@
                   </button>
                 </div>
               }
-              <button class="button purchase-button" disabled>Vendas em breve</button>
+              @if (item.product.purchasable) {
+                <button class="button purchase-button" (click)="checkout.open(item.product.id)">
+                  Preparar pedido
+                </button>
+              } @else {
+                <button class="button purchase-button" disabled>Vendas em breve</button>
+              }
               <button
                 type="button"
                 class="button"
@@ -314,3 +320,5 @@
   }
   <p>Print do kit no jogo. Confira na lista os itens aleatórios e as opções de escolha.</p>
 </dialog>
+
+<app-checkout #checkout />

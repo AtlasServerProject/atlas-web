@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './checkout.component';
 import { Component, inject, signal, viewChild } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { AuthService } from '../../core/auth.service';
@@ -9,7 +10,7 @@ import { ProductEditorComponent } from './product-editor.component';
 @Component({
   selector: 'app-catalog',
   standalone: true,
-  imports: [CurrencyPipe, CountdownComponent, ProductEditorComponent],
+  imports: [CurrencyPipe, CountdownComponent, ProductEditorComponent, CheckoutComponent],
   template: `
     <section class="section commerce-catalog" aria-label="Catálogo da loja">
       <span class="eyebrow">EXPLORE A LOJA</span>
@@ -78,7 +79,13 @@ import { ProductEditorComponent } from './product-editor.component';
                     </button>
                   </div>
                 }
-                <button class="button" disabled>Vendas em breve</button>
+                @if (product.purchasable && product.category === 'VIPs') {
+                  <button class="button" (click)="checkout.open(product.id)">
+                    Preparar pedido
+                  </button>
+                } @else {
+                  <button class="button" disabled>Vendas em breve</button>
+                }
               </article>
             }
           }
@@ -90,6 +97,7 @@ import { ProductEditorComponent } from './product-editor.component';
       <ng-content select="[vip-content]" />
     </section>
     <app-product-editor #editor />
+    <app-checkout #checkout />
   `,
 })
 export class CatalogComponent {

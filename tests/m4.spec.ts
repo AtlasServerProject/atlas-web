@@ -22,6 +22,7 @@ test('M4: vínculo comprovado no Core, confirmação web, pedido revisado e hist
   await expect(command).toContainText('/site vincular ');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const code = (await command.innerText()).trim().split(' ').at(-1)!;
+  expect(code).toMatch(/^[0-9]{6}$/);
   const subject = randomUUID();
   const proof = {
     code,

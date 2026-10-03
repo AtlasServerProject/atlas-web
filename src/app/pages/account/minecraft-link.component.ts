@@ -71,7 +71,9 @@ import { DialogFocusDirective } from '../../shared/effects/dialog-focus.directiv
               Confirmar vínculo
             </button>
           } @else {
-            <p>Entre no Emerald, faça login no jogo e execute este comando:</p>
+            <p>
+              Seu código tem 6 dígitos. Entre no Emerald, faça login no jogo e execute este comando:
+            </p>
             @if (links.code()) {
               <code class="link-command">/site vincular {{ links.code() }}</code
               ><button class="button secondary" (click)="copy()">Copiar comando</button>

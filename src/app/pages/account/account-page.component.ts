@@ -3,11 +3,12 @@ import { DatePipe, CurrencyPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { OrderService } from '../../core/order.service';
+import { VipStatusComponent } from './vip-status.component';
 import { MinecraftLinkComponent } from './minecraft-link.component';
 @Component({
   selector: 'app-account-page',
   standalone: true,
-  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent],
+  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent, VipStatusComponent],
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
     <h1>{{ purchases ? 'Minhas compras' : 'Minha conta' }}</h1>
@@ -94,6 +95,7 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             }
           </dl>
           <app-minecraft-link />
+          <app-vip-status />
           <p role="status">{{ feedback() }}</p>
           <a class="text-link" routerLink="/minhas-compras">Minhas compras →</a>
         </article>

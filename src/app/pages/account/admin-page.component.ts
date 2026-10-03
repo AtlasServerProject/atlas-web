@@ -1,3 +1,4 @@
+import { DeliveryAdminComponent } from './delivery-admin.component';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../core/models';
 import { Component, inject, signal } from '@angular/core';
@@ -13,6 +14,7 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
   standalone: true,
   imports: [
     FormsModule,
+    DeliveryAdminComponent,
     CurrencyPipe,
     DatePipe,
     ProductEditorComponent,
@@ -24,6 +26,7 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
       <h1>Cuide do próximo <em>capítulo.</em></h1>
       <p>Gerencie o catálogo e as ofertas do Atlas.</p>
     </section>
+    <app-delivery-admin />
     <section class="section admin-section">
       <h2>Produtos</h2>
       @if (error()) {
@@ -75,7 +78,7 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
             ><input name="active" type="checkbox" [(ngModel)]="d.active" />Exibir no catálogo
             Emerald</label
           >
-          <p>Vendas permanecem fechadas até a integração de entrega.</p>
+          <p>Vendas permanecem fechadas durante a homologação da loja.</p>
           <button class="button" [disabled]="busy()">Salvar produto</button>
           <button type="button" class="button secondary" (click)="draft = undefined">Voltar</button>
           @if (error()) {

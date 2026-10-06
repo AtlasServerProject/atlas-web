@@ -24,7 +24,7 @@ import { ProductEditorComponent } from './product-editor.component';
       @if (products.error()) {
         <div class="catalog-feedback">
           <div>
-            <strong>Catálogo indisponível no momento</strong>
+            <strong>Catálogo disponível para consulta</strong>
             <p role="alert">{{ products.error() }}</p>
           </div>
           <button class="button secondary retry-button" [disabled]="products.loading()" (click)="products.refresh()">
@@ -83,7 +83,7 @@ import { ProductEditorComponent } from './product-editor.component';
                     product.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
                   }}</strong>
                 }
-                @if (auth.adminMode()) {
+                @if (auth.adminMode() && products.available()) {
                   <div class="actions admin-controls">
                     <button class="button secondary" (click)="editor.open(product, 'price')">
                       ✎ Preço</button
@@ -92,7 +92,7 @@ import { ProductEditorComponent } from './product-editor.component';
                     </button>
                   </div>
                 }
-                @if (product.purchasable && product.category === 'VIPs') {
+                @if (products.canPurchase(product) && product.category === 'VIPs') {
                   <button class="button" (click)="checkout.open(product.id)">
                     Revisar contribuição
                   </button>

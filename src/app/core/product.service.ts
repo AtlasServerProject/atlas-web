@@ -9,6 +9,10 @@ export class ProductService {
   readonly plans = vipPlans;
   readonly loading = this.api.loading.asReadonly();
   readonly error = this.api.error.asReadonly();
+  readonly available = this.api.available.asReadonly();
+  canPurchase(product: Product) {
+    return this.available() && !this.loading() && product.active && product.purchasable;
+  }
   refresh() {
     return this.api.refresh();
   }

@@ -1,9 +1,10 @@
 import { Injectable, inject, signal, OnDestroy } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, timeout } from 'rxjs';
 import { AuthService } from './auth.service';
 import { ClockService } from './clock.service';
 import { Product, Promotion } from './models';
+import { mockProducts } from './mock-data';
 interface Snapshot {
   serverTime: string;
   revision: number;
@@ -19,7 +20,9 @@ export class CatalogApiService implements OnDestroy {
   private readonly auth = inject(AuthService);
   private readonly clock = inject(ClockService);
   readonly revision = signal(0);
-  readonly products = signal<Product[]>([]);
+  // Public reference catalog remains readable without the API; never authorizes payment.
+  readonly products = signal<Product[]>(mockProducts.map(product => ({ ...product, purchasable: false })));
+  readonly available = signal(false);
   readonly promotions = signal<Promotion[]>([]);
   readonly loading = signal(false);
   readonly error = signal('');
@@ -43,7 +46,7 @@ export class CatalogApiService implements OnDestroy {
           this.http.get<Snapshot>(
             this.auth.isAdmin() ? '/api/v1/admin/catalog' : '/api/v1/catalog',
             { withCredentials: true },
-          ),
+          ).pipe(timeout(10000)),
         );
         if (!Array.isArray(data.products) || !Array.isArray(data.promotions))
           throw new Error('Catálogo indisponível.');
@@ -60,8 +63,10 @@ export class CatalogApiService implements OnDestroy {
           })),
         );
         this.error.set('');
+        this.available.set(true);
       } catch {
-        this.error.set('Não foi possível atualizar o catálogo. Tente novamente.');
+        this.available.set(false);
+        this.error.set('Você pode consultar os preços e benefícios. O pagamento está temporariamente indisponível; os valores exibidos são de referência e serão confirmados quando o serviço voltar.');
       } finally {
         this.loading.set(false);
         this.flight = undefined;

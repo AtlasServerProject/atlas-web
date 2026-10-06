@@ -1,0 +1,251 @@
+<section class="section vip-detail">
+  <nav class="breadcrumbs" aria-label="Caminho da página">
+    <a routerLink="/store">Loja</a><span aria-hidden="true">/</span
+    ><span>{{ plan()?.name ?? 'VIP não encontrado' }}</span>
+  </nav>
+  @if (plan(); as current) {
+    <div class="detail-layout">
+      <div class="detail-content">
+        <header class="detail-heading">
+          <span class="eyebrow">APOIO AO SERVIDOR · {{ current.rank }}</span>
+          <h1>{{ product()?.name ?? current.name }}</h1>
+          <p class="lead">{{ product()?.description ?? current.description }}</p>
+          <div class="facts">
+            <span>30 dias de benefícios</span><span>{{ tier() * 3 }} tipos de kit</span
+            ><span>Sem renovação automática</span>
+          </div>
+        </header>
+        <section class="card benefits" aria-labelledby="benefits-title">
+          <h2 id="benefits-title">O que este apoio inclui</h2>
+          <p>
+            Acesso aos kits diários, semanais e mensais dos níveis abaixo enquanto o VIP estiver
+            ativo.
+          </p>
+          <ul>
+            @for (level of included(); track level.tier) {
+              <li>
+                <strong>{{ level.name }}</strong> — três kits, cada um com seu próprio intervalo de
+                resgate.
+              </li>
+            }
+          </ul>
+          <p class="muted">
+            Os kits precisam ser resgatados no servidor. O intervalo de resgate não representa
+            entrega automática nem quantidade garantida de resgates em 30 dias.
+          </p>
+        </section>
+        <section class="game-section" aria-labelledby="game-title">
+          <span class="eyebrow">SUA EXPERIÊNCIA NO SERVIDOR</span>
+          <h2 id="game-title">Vantagens no jogo</h2>
+          <div class="advantage-grid">
+            <article class="card">
+              <h3>Mais homes</h3>
+              <strong class="advantage-value">{{ advantages().homes }} homes</strong>
+              <p>Limite total de locais salvos, comparado a 2 homes do jogador comum.</p>
+            </article>
+            <article class="card">
+              <h3>Teleporte mais frequente</h3>
+              <strong class="advantage-value">{{ advantages().homeCooldown }} segundos</strong>
+              <p>
+                Cooldown entre teleportes de home. O aquecimento de 3 segundos continua; mover-se
+                cancela o teleporte.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Mais área protegida</h3>
+              <strong class="advantage-value">{{ advantages().claimArea }} blocos</strong>
+              <p>
+                Área total somada das suas claims no Survival Emerald. O jogador comum tem limite de
+                10.000 blocos.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Voo</h3>
+              <p>
+                Use <code>/fly</code> para ativar ou desativar o voo enquanto seu VIP estiver ativo.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Chat colorido</h3>
+              <p>
+                Personalize suas mensagens com códigos de cor. Exemplo: <code>&amp;aOlá!</code> para
+                uma mensagem verde.
+              </p>
+            </article>
+            <article class="card">
+              <h3>Kits do seu nível e anteriores</h3>
+              <p>
+                {{ tier() * 3 }} tipos de kit disponíveis, com intervalos individuais de 24 horas, 7
+                dias ou 30 dias. Confira todos os itens abaixo.
+              </p>
+            </article>
+          </div>
+          <p class="muted">
+            Os benefícios VIP dependem do nível ativo. Comandos de homes e claims também existem
+            para jogadores comuns; o VIP amplia seus limites.
+          </p>
+        </section>
+        <section class="game-section planned-section" aria-labelledby="commands-title">
+          <span class="eyebrow">COMANDOS VIP</span>
+          <h2 id="commands-title">Comandos do seu VIP</h2>
+          <p>
+            O voo está disponível. Os demais comandos estão planejados; regras, intervalos de uso e
+            níveis com acesso serão informados no lançamento de cada recurso.
+          </p>
+          <dl class="command-list">
+            <div>
+              <dt><code>/fly</code><span class="planned-badge">Disponível</span></dt>
+              <dd>
+                Ativa ou desativa o voo. Disponível para os três níveis VIP, após entrar e se
+                autenticar no servidor.
+              </dd>
+            </div>
+            @for (entry of plannedCommands; track entry.command) {
+              <div>
+                <dt>
+                  <code>{{ entry.command }}</code
+                  ><span class="planned-badge">Em breve</span>
+                </dt>
+                <dd>{{ entry.description }}</dd>
+              </div>
+            }
+            @if (tier() === 3) {
+              <div>
+                <dt><code>/checkspawns</code><span class="planned-badge">Exclusivo VIP 3</span></dt>
+                <dd>Consulta os Pokémon que podem aparecer na região em que você está.</dd>
+              </div>
+            }
+          </dl>
+        </section>
+        <section aria-labelledby="kits-title" class="kits-section">
+          <span class="eyebrow">TODOS OS ITENS INCLUÍDOS</span>
+          <h2 id="kits-title">Conheça os kits</h2>
+          @for (level of included(); track level.tier) {
+            <h3>
+              {{ level.name }}
+              <span>{{ level.tier < tier() ? '· benefício herdado' : '· deste nível' }}</span>
+            </h3>
+            <div class="kit-grid">
+              @for (kit of level.kits; track kit.name; let i = $index) {
+                <article class="card kit-card">
+                  <button
+                    class="kit-preview"
+                    (click)="enlarge(gallery, level.tier, i, kit.name)"
+                    [attr.aria-label]="'Ampliar imagem: ' + level.name + ', kit ' + kit.name"
+                  >
+                    <img
+                      [src]="image(level.tier, i)"
+                      [alt]="'Itens do kit ' + kit.name + ' do ' + level.name"
+                      loading="lazy"
+                    /><span>Ampliar imagem ↗</span>
+                  </button>
+                  <div class="kit-copy">
+                    <h4>Kit {{ kit.name }}</h4>
+                    <p class="interval">Intervalo de resgate: {{ kit.cooldown }}</p>
+                    <p class="kit-command">
+                      Para resgatar: <code>{{ kitCommand(level.tier, i) }}</code>
+                    </p>
+                    <ul>
+                      @for (item of kit.items; track item) {
+                        <li>{{ item }}</li>
+                      }
+                    </ul>
+                  </div>
+                </article>
+              }
+            </div>
+          }
+        </section>
+      </div>
+      <aside class="card support-panel" aria-labelledby="support-title">
+        <span class="eyebrow">CONTRIBUIÇÃO VOLUNTÁRIA</span>
+        <h2 id="support-title">Apoie com {{ current.name }}</h2>
+        @if (product(); as item) {
+          @if (promotions.activeFor(item.id); as offer) {
+            <del>{{ offer.originalPrice | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}</del>
+            <strong class="support-price">{{
+              offer.promotionalPrice | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+            }}</strong>
+            <p>Condição especial termina em <app-countdown [endsAt]="offer.endsAt" /></p>
+          } @else {
+            <strong class="support-price">{{
+              item.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+            }}</strong>
+          }
+          <p>Contribuição única · benefícios por 30 dias</p>
+          @if (products.canPurchase(item)) {
+            <button class="button purchase-button" (click)="checkout.open(item.id)">
+              Apoiar com este VIP
+            </button>
+          } @else {
+            <button class="button purchase-button" disabled>Apoio indisponível</button>
+          }
+        } @else {
+          <p role="status">Este nível não está disponível para contribuição no momento.</p>
+        }
+        @if (products.error()) {
+          <div class="availability" role="status">
+            <p>{{ products.error() }}</p>
+            <button
+              class="button secondary"
+              [disabled]="products.loading()"
+              (click)="products.refresh()"
+            >
+              {{ products.loading() ? 'Atualizando…' : 'Tentar novamente' }}
+            </button>
+          </div>
+        }
+        <p class="muted">
+          Sua doação ajuda na manutenção e no desenvolvimento do Atlas, com os benefícios VIP
+          descritos nesta página.
+        </p>
+        <a routerLink="/store" fragment="comparison-title">Comparar todos os níveis →</a>
+        <hr />
+        <h3>Antes de contribuir</h3>
+        <ul>
+          <li>Entre na conta, confirme seu email e vincule seu Minecraft.</li>
+          <li>Revise o jogador e o valor antes de confirmar.</li>
+          <li>
+            O período começa quando o VIP for ativado no servidor, após a confirmação do pagamento.
+          </li>
+          <li>Se for menor de idade, converse com seu responsável.</li>
+        </ul>
+        <a [href]="settings.discord" target="_blank" rel="noopener noreferrer"
+          >Tire suas dúvidas no Discord ↗</a
+        >
+      </aside>
+    </div>
+    <section class="card independence">
+      <h2>Um apoio à comunidade Atlas</h2>
+      <p>
+        O Atlas é um projeto independente, sem afiliação ou endosso da The Pokémon Company,
+        Nintendo, Mojang ou Microsoft. A contribuição é um apoio ao servidor com benefícios VIP
+        vinculados; não é uma compra de Pokémon nem de produtos oficiais da franquia.
+      </p>
+    </section>
+    <nav class="other-levels" aria-label="Conheça outros níveis VIP">
+      @for (level of products.plans; track level.name; let i = $index) {
+        <a
+          class="button secondary"
+          [routerLink]="['/store/vip', 'vip-' + (i + 1)]"
+          [attr.aria-current]="tier() === i + 1 ? 'page' : null"
+          >{{ level.name }}</a
+        >
+      }
+    </nav>
+  } @else {
+    <h1>VIP não encontrado</h1>
+    <p>Escolha um dos níveis disponíveis para conhecer os benefícios.</p>
+    <a class="button" routerLink="/store">Voltar à loja</a>
+  }
+</section>
+<app-checkout #checkout />
+<dialog #gallery atlasDialogFocus class="kit-gallery" aria-labelledby="gallery-title">
+  <div class="gallery-heading">
+    <h2 id="gallery-title">{{ enlarged.title }}</h2>
+    <button class="button secondary" (click)="gallery.close()">Fechar</button>
+  </div>
+  @if (enlarged.src) {
+    <img [src]="enlarged.src" [alt]="enlarged.title" />
+  }
+</dialog>

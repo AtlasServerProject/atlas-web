@@ -43,7 +43,7 @@ import { OrderService, CheckoutInput } from '../../core/order.service';
         Cancelar
       </button>
       @if (input) {
-        <button class="button" [disabled]="busy()" (click)="submit()">
+        <button class="button" [disabled]="busy() || !catalog.available() || catalog.loading()" (click)="submit()">
           {{ busy() ? 'Preparando contribuição…' : 'Confirmar contribuição' }}</button
         ><button class="button secondary" [disabled]="busy()" (click)="open(input.productId)">
           Atualizar valor e revisar
@@ -54,7 +54,7 @@ import { OrderService, CheckoutInput } from '../../core/order.service';
 })
 export class CheckoutComponent {
   private readonly auth = inject(AuthService);
-  private readonly catalog = inject(CatalogApiService);
+  readonly catalog = inject(CatalogApiService);
   private readonly promotions = inject(PromotionService);
   private readonly links = inject(MinecraftLinkService);
   private readonly orders = inject(OrderService);
@@ -113,6 +113,10 @@ export class CheckoutComponent {
   }
   async submit() {
     if (this.busy() || !this.input) return;
+    if (!this.catalog.available() || this.catalog.loading()) {
+      this.error.set('Pagamento indisponível no momento. Aguarde o serviço voltar e revise a contribuição.');
+      return;
+    }
     this.busy.set(true);
     this.error.set('');
     try {

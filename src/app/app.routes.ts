@@ -8,6 +8,7 @@ import { HomePageComponent } from './pages/home/home-page.component';
 import { HowToPlayPageComponent } from './pages/how-to-play/how-to-play-page.component';
 import { NoticesPageComponent } from './pages/notices/notices-page.component';
 import { StorePageComponent } from './pages/store/store-page.component';
+import { VipDetailPageComponent } from './pages/store/vip-detail-page.component';
 
 export const routes: Routes = [
   {
@@ -31,6 +32,7 @@ export const routes: Routes = [
   { path: '', title: 'Atlas Cobblemon — Sua próxima aventura', component: HomePageComponent },
   { path: 'how-to-play', title: 'Como jogar | Atlas Cobblemon', component: HowToPlayPageComponent },
   { path: 'notices', title: 'Novidades | Atlas Cobblemon', component: NoticesPageComponent },
+  { path: 'store/vip/:slug', component: VipDetailPageComponent },
   { path: 'store', title: 'Loja VIP | Atlas Cobblemon', component: StorePageComponent },
   { path: 'loja', title: 'Loja | Atlas Cobblemon', component: StorePageComponent },
   { path: 'login', title: 'Entrar | Atlas Cobblemon', component: AuthPageComponent },

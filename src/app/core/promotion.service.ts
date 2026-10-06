@@ -27,6 +27,7 @@ export class PromotionService {
     });
   }
   activeFor(id: number) {
+    if (!this.api.available()) return undefined;
     return this.promotions().find((p) => p.productId === id && p.status === 'ACTIVE');
   }
   save(

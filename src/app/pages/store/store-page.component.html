@@ -2,8 +2,8 @@
   <span class="eyebrow">APOIO AO SERVIDOR ATLAS</span>
   <h1>Faça parte.<br />Apoie nossa <em>jornada.</em></h1>
   <p class="lead">
-    Este espaço reúne as formas de apoiar o servidor por meio de uma contribuição voluntária.
-    A proposta é ajudar na manutenção e no desenvolvimento do Atlas.
+    Este espaço reúne as formas de apoiar o servidor por meio de uma contribuição voluntária. A
+    proposta é ajudar na manutenção e no desenvolvimento do Atlas.
   </p>
   <div class="support-message">
     <h2>Uma doação para apoiar o Atlas</h2>
@@ -22,24 +22,63 @@
     <span>✓ Sem renovação automática</span>
   </div>
   <p class="notice">
-    Consulte a disponibilidade de cada nível. A ativação depende da confirmação do pagamento;
-    o período de 30 dias começa quando o VIP for ativado no servidor.
+    Consulte a disponibilidade de cada nível. A ativação depende da confirmação do pagamento; o
+    período de 30 dias começa quando o VIP for ativado no servidor.
   </p>
 </section>
 <section class="section support-guide" aria-labelledby="support-guide-title">
   <span class="eyebrow">COMO APOIAR</span>
   <h2 id="support-guide-title">Entenda antes de contribuir</h2>
   <ol class="support-steps">
-    <li><strong>Compare os níveis</strong><p>Confira a contribuição e os benefícios de cada VIP.</p></li>
-    <li><strong>Consulte os kits</strong><p>Veja os itens e os intervalos de resgate, sem pressa.</p></li>
-    <li><strong>Prepare sua conta</strong><p>Entre, confirme seu email e vincule sua conta Minecraft.</p></li>
-    <li><strong>Revise seu apoio</strong><p>Confira jogador e valor antes de confirmar. Se for menor de idade, converse com seu responsável.</p></li>
+    <li>
+      <strong>Compare os níveis</strong>
+      <p>Confira a contribuição e os benefícios de cada VIP.</p>
+    </li>
+    <li>
+      <strong>Consulte os kits</strong>
+      <p>Veja os itens e os intervalos de resgate, sem pressa.</p>
+    </li>
+    <li>
+      <strong>Prepare sua conta</strong>
+      <p>Entre, confirme seu email e vincule sua conta Minecraft.</p>
+    </li>
+    <li>
+      <strong>Revise seu apoio</strong>
+      <p>
+        Confira jogador e valor antes de confirmar. Se for menor de idade, converse com seu
+        responsável.
+      </p>
+    </li>
   </ol>
   <nav class="support-links" aria-label="Nesta página">
-    <a class="text-link" routerLink="/store" fragment="support-levels" (click)="catalog.category.set('VIPs')">Níveis de apoio ↓</a>
-    <a class="text-link" routerLink="/store" fragment="comparison-title" (click)="catalog.category.set('VIPs')">Comparar benefícios ↓</a>
-    <a class="text-link" routerLink="/store" fragment="kit-details" (click)="catalog.category.set('VIPs')">Consultar kits ↓</a>
-    <a class="text-link" routerLink="/store" fragment="support-faq" (click)="catalog.category.set('VIPs')">Dúvidas frequentes ↓</a>
+    <a
+      class="text-link"
+      routerLink="/store"
+      fragment="support-levels"
+      (click)="catalog.category.set('VIPs')"
+      >Níveis de apoio ↓</a
+    >
+    <a
+      class="text-link"
+      routerLink="/store"
+      fragment="comparison-title"
+      (click)="catalog.category.set('VIPs')"
+      >Comparar benefícios ↓</a
+    >
+    <a
+      class="text-link"
+      routerLink="/store"
+      fragment="kit-details"
+      (click)="catalog.category.set('VIPs')"
+      >Consultar kits ↓</a
+    >
+    <a
+      class="text-link"
+      routerLink="/store"
+      fragment="support-faq"
+      (click)="catalog.category.set('VIPs')"
+      >Dúvidas frequentes ↓</a
+    >
   </nav>
 </section>
 <app-catalog #catalog>
@@ -48,7 +87,10 @@
       <section class="section catalog" id="support-levels" aria-labelledby="support-levels-title">
         <span class="eyebrow">01 · ESCOLHA COMO APOIAR</span>
         <h2 id="support-levels-title">Níveis de apoio VIP</h2>
-        <p>Os valores abaixo correspondem à contribuição de cada nível, com os benefícios descritos por 30 dias.</p>
+        <p>
+          Os valores abaixo correspondem à contribuição de cada nível, com os benefícios descritos
+          por 30 dias.
+        </p>
         <div class="cards">
           @for (item of plans; track item.name; let i = $index) {
             <article class="card plan-card" [class.selected]="selected === item.tier - 1">
@@ -82,7 +124,11 @@
                 </div>
                 <div>
                   <dt>Disponibilidade</dt>
-                  <dd>{{ item.product.purchasable ? 'Apoio disponível' : 'Apoio indisponível' }}</dd>
+                  <dd>
+                    {{
+                      products.canPurchase(item.product) ? 'Apoio disponível' : 'Somente consulta'
+                    }}
+                  </dd>
                 </div>
               </dl>
               <p class="inherit">
@@ -94,7 +140,7 @@
                   Kits do VIP 3 + acesso aos kits VIP 1 e VIP 2.
                 }
               </p>
-              @if (auth.adminMode()) {
+              @if (auth.adminMode() && products.available()) {
                 <div class="actions admin-controls">
                   <button
                     class="button secondary"
@@ -110,22 +156,19 @@
                   </button>
                 </div>
               }
-              @if (item.product.purchasable) {
+              @if (products.canPurchase(item.product)) {
                 <button class="button purchase-button" (click)="checkout.open(item.product.id)">
                   Apoiar com este VIP
                 </button>
               } @else {
                 <button class="button purchase-button" disabled>Apoio indisponível</button>
               }
-              <button
-                type="button"
+              <a
                 class="button"
-                [attr.aria-pressed]="selected === item.tier - 1"
-                aria-controls="kit-details"
-                (click)="selected = item.tier - 1"
+                [routerLink]="['/store/vip', 'vip-' + item.tier]"
               >
-                {{ selected === item.tier - 1 ? 'Visualizando kits' : 'Ver benefícios e kits' }}
-              </button>
+                Visualizar kit
+              </a>
             </article>
           }
         </div>
@@ -133,7 +176,12 @@
       <section class="section comparison" aria-labelledby="comparison-title">
         <span class="eyebrow">02 · COMPARE OS BENEFÍCIOS</span>
         <h2 id="comparison-title">O que cada nível de apoio inclui</h2>
-        <div class="table-scroll" tabindex="0" role="region" aria-label="Comparação dos níveis de apoio VIP">
+        <div
+          class="table-scroll"
+          tabindex="0"
+          role="region"
+          aria-label="Comparação dos níveis de apoio VIP"
+        >
           <table>
             <caption>
               Acesso aos kits por nível — cada kit tem seu próprio intervalo de resgate
@@ -254,9 +302,9 @@
           <article class="card">
             <h3>2. Os kits</h3>
             <p>
-              São benefícios vinculados ao nível de apoio VIP, sem cobrança separada. As
-              quantidades são por resgate, e o print ilustra o conteúdo. Itens aleatórios não
-              garantem o exemplar mostrado na imagem.
+              São benefícios vinculados ao nível de apoio VIP, sem cobrança separada. As quantidades
+              são por resgate, e o print ilustra o conteúdo. Itens aleatórios não garantem o
+              exemplar mostrado na imagem.
             </p>
           </article>
           <article class="card">
@@ -277,22 +325,24 @@
         <h2>Antes de apoiar o Atlas</h2>
         <details open>
           <summary>Estou comprando Pokémon?</summary>
-          <p>Não. A proposta deste espaço é uma doação de apoio ao servidor Atlas. Os níveis VIP
-            têm benefícios vinculados à contribuição, descritos nesta página. Não são produtos
-            oficiais nem uma oferta de venda de Pokémon.</p>
+          <p>
+            Não. A proposta deste espaço é uma doação de apoio ao servidor Atlas. Os níveis VIP têm
+            benefícios vinculados à contribuição, descritos nesta página. Não são produtos oficiais
+            nem uma oferta de venda de Pokémon.
+          </p>
         </details>
         <details>
           <summary>Pago pelos kits além do VIP?</summary>
           <p>
-            Não. Os kits correspondentes ao seu nível já fazem parte dos benefícios. Não há cobrança por cada
-            kit separadamente; precisa respeitar o intervalo de resgate de cada um.
+            Não. Os kits correspondentes ao seu nível já fazem parte dos benefícios. Não há cobrança
+            por cada kit separadamente; precisa respeitar o intervalo de resgate de cada um.
           </p>
         </details>
         <details>
           <summary>As chaves fazem parte do VIP?</summary>
           <p>
-            Não. As chaves não estão incluídas nos benefícios VIP. Consulte a disponibilidade
-            e as condições da categoria antes de considerar outra contribuição.
+            Não. As chaves não estão incluídas nos benefícios VIP. Consulte a disponibilidade e as
+            condições da categoria antes de considerar outra contribuição.
           </p>
         </details>
         <details>
@@ -306,8 +356,8 @@
           <summary>Já posso contribuir?</summary>
           <p>
             Confira o botão do nível escolhido: quando o apoio estiver disponível, você poderá
-            revisar a contribuição. É necessário entrar na conta, confirmar o email e vincular
-            sua conta Minecraft. Um botão indisponível não permite iniciar o pagamento.
+            revisar a contribuição. É necessário entrar na conta, confirmar o email e vincular sua
+            conta Minecraft. Um botão indisponível não permite iniciar o pagamento.
           </p>
         </details>
         <details>
@@ -330,11 +380,7 @@
             Fale com a equipe no Discord antes de decidir. O catálogo e os benefícios ainda estão em
             revisão.
           </p>
-          <a
-            class="text-link"
-            [href]="settings.discord"
-            target="_blank"
-            rel="noopener noreferrer"
+          <a class="text-link" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
             >Acessar o Discord ↗</a
           >
         </details>

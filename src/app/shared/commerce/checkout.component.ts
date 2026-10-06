@@ -17,7 +17,9 @@ import { OrderService, CheckoutInput } from '../../core/order.service';
     class="commerce-dialog"
     aria-labelledby="checkout-title"
   >
-    <h2 id="checkout-title">Confira seu pedido</h2>
+    <h2 id="checkout-title">Revise seu apoio ao Atlas</h2>
+    <p>Contribuição voluntária de apoio ao servidor, com os benefícios VIP descritos.
+      Não se trata de uma compra de Pokémon ou de produtos oficiais.</p>
     @if (input) {
       <h3>{{ name }}</h3>
       <p>Emerald · 30 dias · 1 período</p>
@@ -42,7 +44,7 @@ import { OrderService, CheckoutInput } from '../../core/order.service';
       </button>
       @if (input) {
         <button class="button" [disabled]="busy()" (click)="submit()">
-          {{ busy() ? 'Criando pedido…' : 'Confirmar pedido' }}</button
+          {{ busy() ? 'Preparando contribuição…' : 'Confirmar contribuição' }}</button
         ><button class="button secondary" [disabled]="busy()" (click)="open(input.productId)">
           Atualizar valor e revisar
         </button>
@@ -76,9 +78,9 @@ export class CheckoutComponent {
     this.owner = this.auth.currentUser()?.id || '';
     if (!this.dialog()?.nativeElement.open) this.dialog()?.nativeElement.showModal();
     try {
-      if (!this.owner) throw new Error('Entre na sua conta para criar um pedido.');
+      if (!this.owner) throw new Error('Entre na sua conta para contribuir.');
       if (!this.auth.currentUser()?.emailVerified)
-        throw new Error('Confirme seu email antes de criar um pedido.');
+        throw new Error('Confirme seu email antes de contribuir.');
       await this.links.refresh();
       await this.catalog.refresh();
       if (this.catalog.error()) throw new Error(this.catalog.error());
@@ -86,10 +88,10 @@ export class CheckoutComponent {
         throw new Error('Sua sessão mudou. Entre novamente.');
       const link = this.links.status().current;
       if (!link || this.links.error())
-        throw new Error('Vincule sua conta Minecraft antes de criar um pedido.');
+        throw new Error('Vincule sua conta Minecraft antes de contribuir.');
       const product = this.catalog.products().find((p) => p.id === id);
       if (!product?.active || !product.purchasable || product.category !== 'VIPs')
-        throw new Error('As vendas deste produto ainda estão fechadas.');
+        throw new Error('Este nível de apoio está indisponível no momento.');
       this.name = product.name;
       this.nickname = link.nickname;
       this.key = crypto.randomUUID();
@@ -104,7 +106,7 @@ export class CheckoutComponent {
         ),
       };
     } catch (e) {
-      this.error.set(e instanceof Error ? e.message : 'Não foi possível preparar o pedido.');
+      this.error.set(e instanceof Error ? e.message : 'Não foi possível preparar a contribuição.');
     } finally {
       this.busy.set(false);
     }
@@ -121,7 +123,7 @@ export class CheckoutComponent {
       this.close();
       await this.router.navigateByUrl('/minhas-compras');
     } catch (e) {
-      this.error.set(e instanceof Error ? e.message : 'Não foi possível criar o pedido.');
+      this.error.set(e instanceof Error ? e.message : 'Não foi possível registrar a contribuição.');
     } finally {
       this.busy.set(false);
     }

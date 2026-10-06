@@ -39,12 +39,6 @@ export class NavbarComponent implements OnDestroy {
   readonly scrolled = signal(false);
   readonly section = signal('inicio');
   readonly menu = viewChild<ElementRef<HTMLDialogElement>>('menu');
-  readonly sections = [
-    { id: 'inicio', label: 'Início' },
-    { id: 'servidor', label: 'Servidor' },
-    { id: 'recursos', label: 'Recursos' },
-    { id: 'equipe', label: 'Equipe' },
-  ];
   private observer?: IntersectionObserver;
   private frame = 0;
   private readonly onScroll = () => {
@@ -77,7 +71,7 @@ export class NavbarComponent implements OnDestroy {
       },
       { rootMargin: '-15% 0px -55% 0px', threshold: 0 },
     );
-    for (const id of ['inicio', 'servidor', 'recursos', 'equipe', 'discord']) {
+    for (const id of ['inicio', 'quem-somos', 'discord']) {
       const element = document.getElementById(id);
       if (element) this.observer.observe(element);
     }

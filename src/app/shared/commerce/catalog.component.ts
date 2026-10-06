@@ -10,19 +10,31 @@ import { ProductEditorComponent } from './product-editor.component';
 @Component({
   selector: 'app-catalog',
   standalone: true,
+  styleUrl: './catalog.component.scss',
   imports: [CurrencyPipe, CountdownComponent, ProductEditorComponent, CheckoutComponent],
   template: `
-    <section class="section commerce-catalog" aria-label="Catálogo da loja">
-      <span class="eyebrow">EXPLORE A LOJA</span>
-      <h2>Escolha sua próxima <em>conquista.</em></h2>
+    <section class="section commerce-catalog" aria-label="Formas de apoio ao servidor">
+      <div class="catalog-heading">
+        <span class="eyebrow">FORMAS DE APOIO</span>
+        <h2>Conheça os <em>benefícios.</em></h2>
+      </div>
       @if (products.loading()) {
-        <p role="status">Atualizando catálogo…</p>
+        <p class="catalog-loading" role="status">Atualizando catálogo…</p>
       }
       @if (products.error()) {
-        <p role="alert">{{ products.error() }}</p>
-        <button class="button secondary" (click)="products.refresh()">Tentar novamente</button>
+        <div class="catalog-feedback">
+          <div>
+            <strong>Catálogo indisponível no momento</strong>
+            <p role="alert">{{ products.error() }}</p>
+          </div>
+          <button class="button secondary retry-button" [disabled]="products.loading()" (click)="products.refresh()">
+            {{ products.loading() ? 'Atualizando…' : 'Tentar novamente' }}
+          </button>
+        </div>
       }
-      <div class="category-tabs" aria-label="Categorias">
+      <div class="catalog-filters">
+        <span class="filter-label" id="catalog-category-label">Categorias de benefícios</span>
+        <div class="category-tabs" role="group" aria-labelledby="catalog-category-label">
         @for (cat of categories; track cat) {
           <button
             class="button secondary"
@@ -32,6 +44,7 @@ import { ProductEditorComponent } from './product-editor.component';
             {{ cat }}
           </button>
         }
+        </div>
       </div>
       @if (category() !== 'VIPs' || extraVips()) {
         <div class="cards">
@@ -81,17 +94,17 @@ import { ProductEditorComponent } from './product-editor.component';
                 }
                 @if (product.purchasable && product.category === 'VIPs') {
                   <button class="button" (click)="checkout.open(product.id)">
-                    Preparar pedido
+                    Revisar contribuição
                   </button>
                 } @else {
-                  <button class="button" disabled>Vendas em breve</button>
+                  <button class="button" disabled>Apoio indisponível</button>
                 }
               </article>
             }
           }
         </div>
         @if (!hasProducts()) {
-          <p class="notice">Novos produtos desta categoria chegarão em breve.</p>
+          <p class="notice">Não há benefícios disponíveis nesta categoria no momento.</p>
         }
       }
       <ng-content select="[vip-content]" />

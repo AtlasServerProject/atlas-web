@@ -1,0 +1,130 @@
+:host {
+  display: block;
+}
+
+.catalog-heading {
+  margin-bottom: 28px;
+}
+
+.catalog-heading h2 {
+  margin: 16px 0 0;
+}
+
+.catalog-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 20px 24px;
+  margin-bottom: 28px;
+  border: 1px solid #c3a2ff33;
+  border-left: 3px solid var(--gold);
+  border-radius: 12px;
+  background: #c3a2ff08;
+}
+
+.catalog-feedback strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.catalog-feedback p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.catalog-feedback .retry-button {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 12px 20px;
+  font-size: 13px;
+}
+
+.catalog-loading {
+  margin: 0 0 24px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.catalog-filters {
+  padding-bottom: 28px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.filter-label {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.category-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+}
+
+.category-tabs .button {
+  min-width: 104px;
+  min-height: 46px;
+  padding: 12px 20px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #ffffff03;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.category-tabs .button:hover {
+  color: var(--text);
+  border-color: #78ddff66;
+  background: #78ddff0a;
+  transform: none;
+}
+
+.category-tabs .button[aria-pressed='true'] {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: #78ddff14;
+}
+
+.category-tabs .button:focus-visible,
+.retry-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .catalog-feedback {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .category-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .category-tabs .button {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-tabs .button {
+    transition: none;
+  }
+}

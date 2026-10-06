@@ -1,43 +1,118 @@
-<section class="section page-intro">
-  <span class="eyebrow">DIÁRIO DO ATLAS</span>
-  <h1>Um mundo<br />ganhando <em>forma.</em></h1>
+<section class="section page-intro updates-intro">
+  <span class="eyebrow">NOVIDADES · PATCH NOTES</span>
+  <h1>O Atlas evolui.<br />Você acompanha <em>cada passo.</em></h1>
   <p class="lead">
-    Acompanhe o que já construímos e o que vem pela frente. Comunicados de testes e disponibilidade
-    são publicados no Discord.
+    As mudanças que importam para sua aventura: novos recursos, melhorias e o que ainda está em
+    testes.
+  </p>
+  <div class="release-status">
+    <span class="pill">Emerald em desenvolvimento</span>
+    <p>
+      Sem data de abertura pública anunciada. Função implementada não significa acesso público
+      liberado; acompanhe os comunicados no Discord.
+    </p>
+  </div>
+  <p class="review-date">
+    Documentação consultada em <time datetime="2026-10-06">06 out. 2026</time> · Última versão
+    registrada: 1.30.3
   </p>
 </section>
-<section class="section news-list">
-  <article atlasReveal="up">
-    <div class="news-meta">DESENVOLVIMENTO <time datetime="2026-09-30">30 set. 2026</time></div>
-    <h2>O Emerald já tem um lugar de chegada</h2>
-    <p>
-      O mapa do lobby está concluído. O NPC Survival dá acesso ao menu de teleporte, e os
-      personagens de Tutorial, Caixas, Arena e Mercado já ocupam seus lugares. As funções desses
-      quatro destinos continuam em preparação.
-    </p>
-  </article>
-  <article atlasReveal="up">
-    <div class="news-meta">COMUNIDADE <time datetime="2026-09-30">30 set. 2026</time></div>
-    <h2>Nosso ponto de encontro está no Discord</h2>
-    <p>
-      O Atlas-bot recebe novos membros, entrega o cargo Membro e permite consultar os jogadores
-      online no Minecraft. A comunidade também tem espaços para dúvidas, sugestões e aventuras.
-    </p>
-    <a
-      class="text-link"
-      href="https://discord.gg/uUBN4YV6Y"
-      target="_blank"
-      rel="noopener noreferrer"
-      >Conheça o Discord ↗</a
-    >
-  </article>
-  <article atlasReveal="up">
-    <div class="news-meta">PRÓXIMOS PASSOS</div>
-    <h2>Testar a base, preparar o próximo capítulo</h2>
-    <p>
-      Nosso foco é validar os sistemas existentes, definir o tutorial e organizar as regras de
-      entrada. Mercado, eventos e outras experiências serão desenvolvidos em etapas. Ainda não há
-      data de abertura pública anunciada.
-    </p>
-  </article>
+<section class="section updates-content" aria-labelledby="updates-title">
+  <div class="updates-toolbar">
+    <div>
+      <span class="eyebrow">HISTÓRICO PARA JOGADORES</span>
+      <h2 id="updates-title">Notas de atualização</h2>
+    </div>
+    <div class="updates-filters" role="group" aria-label="Filtrar atualizações">
+      @for (item of categories; track item) {
+        <button
+          type="button"
+          [attr.aria-pressed]="category() === item"
+          (click)="category.set(item)"
+        >
+          {{ item }}
+        </button>
+      }
+    </div>
+  </div>
+  <p class="updates-count" role="status">
+    {{ notes().length }} registros · versões recentes primeiro, seguidas do resumo da base
+  </p>
+  <div class="patch-list">
+    @for (note of notes(); track note.id) {
+      <article class="patch-card" [attr.aria-labelledby]="note.id">
+        <div class="patch-meta">
+          <span class="patch-version">{{ note.version }}</span
+          ><span>{{ note.category }}</span>
+          @if (note.date) {
+            <time [attr.datetime]="note.date">{{ note.dateLabel }}</time>
+          } @else {
+            <span>{{ note.dateLabel }}</span>
+          }
+        </div>
+        <h3 [id]="note.id" class="patch-anchor">{{ note.title }}</h3>
+        <p class="patch-summary">{{ note.summary }}</p>
+        <ul>
+          @for (change of note.changes; track change) {
+            <li>{{ change }}</li>
+          }
+        </ul>
+        @if (note.notice) {
+          <div class="patch-notice">
+            <strong>Estado e validação</strong>
+            <p>{{ note.notice }}</p>
+          </div>
+        }
+        <details class="patch-sources">
+          <summary>Referências desta atualização</summary>
+          <div>
+            @for (source of note.sources; track source.path) {
+              <a
+                class="text-link"
+                [href]="
+                  'https://github.com/AtlasServerProject/atlas-docs/blob/8badf7b00e12d1f6fbc17c0d504d6816adec37fa/' +
+                  source.path
+                "
+                target="_blank"
+                rel="noopener noreferrer"
+                >{{ source.label }} ↗</a
+              >
+            }
+          </div>
+        </details>
+      </article>
+    }
+  </div>
+</section>
+<section class="section upcoming" aria-labelledby="upcoming-title">
+  <span class="eyebrow">EM PREPARAÇÃO · SEM PRAZO PROMETIDO</span>
+  <h2 id="upcoming-title">O que ainda vem pela frente</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Entrada no Emerald</h3>
+      <p>
+        Definição das instruções finais, regras, modpack e acesso público. Tutorial, caixas, arena e
+        mercado seguem com conteúdo ou funções pendentes.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Apoio ao servidor</h3>
+      <p>
+        Homologação do pagamento e do ciclo VIP, conferência dos benefícios em jogo e preparação do
+        atendimento antes de abrir contribuições pagas.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Novas experiências</h3>
+      <p>
+        Mercado, missões e eventos fazem parte do planejamento. Só entrarão nas notas como entregues
+        quando houver registro de implementação e validação.
+      </p>
+    </article>
+  </div>
+  <div class="actions">
+    <a class="button" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
+      >Acompanhar no Discord ↗</a
+    ><a class="button secondary" routerLink="/how-to-play">Consultar como jogar</a>
+  </div>
 </section>

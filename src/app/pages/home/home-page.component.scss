@@ -13,6 +13,24 @@
   place-items: center;
   padding: 32px;
 }
+.about-details {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 32px;
+}
+.about-details h3 {
+  margin: 16px 0;
+  font-size: clamp(22px, 3vw, 30px);
+}
+.about-details p {
+  max-width: 900px;
+}
+.about-parents {
+  padding: clamp(24px, 4vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: #0f201b;
+}
 .about-visual img {
   position: relative;
   width: 85%;
@@ -74,24 +92,6 @@
   color: #b4c5b9;
   font-size: 9px;
 }
-.feature-symbol {
-  display: grid;
-  place-items: center;
-  width: 55px;
-  height: 55px;
-  font-size: 32px;
-  border: 1px solid #ceeca52b;
-  border-radius: 14px;
-  color: var(--accent);
-  background: #c8e6a308;
-  margin-bottom: 32px;
-}
-.resource-card {
-  position: relative;
-}
-.resource-card .card-number {
-  margin-bottom: 18px;
-}
 .horizons {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,32 +121,6 @@
   font-size: 13px;
   margin: 0;
 }
-.team-section {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
-  align-items: center;
-  border-top: 1px solid var(--line);
-}
-.team-note {
-  padding: 45px;
-  background: radial-gradient(ellipse at top right, #304c2944, transparent), #0f201b;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  transform: rotate(2deg);
-}
-.team-note strong {
-  font-size: clamp(40px, 5vw, 65px);
-  line-height: 1;
-  font-weight: 800;
-}
-.team-note strong em {
-  font-weight: 400;
-}
-.team-note p {
-  margin-top: 30px;
-  font-size: 12px;
-}
 .cta {
   background:
     linear-gradient(#06150dd9, #06110fed),
@@ -161,8 +135,7 @@
 }
 @media (max-width: 900px) {
   .about,
-  .horizons,
-  .team-section {
+  .horizons {
     gap: 35px;
   }
   .about-visual {
@@ -171,8 +144,7 @@
 }
 @media (max-width: 640px) {
   .about,
-  .horizons,
-  .team-section {
+  .horizons {
     grid-template-columns: 1fr;
   }
   .about-visual {
@@ -185,10 +157,6 @@
   .panorama {
     padding: 65px 24px;
     min-height: 480px;
-  }
-  .team-note {
-    padding: 30px;
-    transform: none;
   }
   .future-card {
     padding: 28px;

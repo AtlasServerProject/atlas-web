@@ -4,8 +4,8 @@
 .email-confirm-dialog,
 .account-message {
   padding: clamp(24px, 5vw, 40px);
-  background: radial-gradient(circle at 100% 0, #c9ef8d12, transparent 55%), #0e211a;
-  border-color: #c9ef8d38;
+  background: radial-gradient(circle at 100% 0, #78ddff12, transparent 55%), #111b35;
+  border-color: #78ddff38;
   h2 {
     margin: 18px 0;
     font-size: clamp(28px, 5vw, 38px);
@@ -38,9 +38,9 @@
   width: 68px;
   height: 68px;
   margin-bottom: 24px;
-  border: 1px solid #c9ef8d60;
+  border: 1px solid #78ddff60;
   border-radius: 20px;
-  background: #c9ef8d12;
+  background: #78ddff12;
   color: var(--accent);
   svg {
     width: 34px;
@@ -61,8 +61,8 @@
   margin: 24px 0;
   padding: 16px;
   border-radius: 12px;
-  background: #c9ef8d0c;
-  border: 1px solid #c9ef8d26;
+  background: #78ddff0c;
+  border: 1px solid #78ddff26;
   span {
     color: var(--accent);
   }

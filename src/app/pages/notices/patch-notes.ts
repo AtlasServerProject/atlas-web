@@ -1,0 +1,139 @@
+export type PatchCategory = 'Gameplay' | 'Conta e apoio' | 'Comunidade';
+interface PatchNote {
+  id: string;
+  version: string;
+  date?: string;
+  dateLabel: string;
+  category: PatchCategory;
+  title: string;
+  summary: string;
+  changes: string[];
+  notice?: string;
+  sources: { label: string; path: string }[];
+}
+
+// Editorial summaries from atlas-docs main, commit 8badf7b.
+// Add new entries first; keep original release dates and validation limits.
+export const patchNotes: PatchNote[] = [
+  {
+    id: 'vip-kits',
+    version: '1.30.2–1.30.3',
+    date: '2026-10-04',
+    dateLabel: '04 out. 2026',
+    category: 'Conta e apoio',
+    title: 'Seu VIP e seus kits, mais fáceis de consultar',
+    summary: 'Comandos mais claros para acompanhar o tempo do VIP e encontrar o kit de cada nível.',
+    changes: [
+      'Use /vip para consultar seu nível ativo, tempo restante e saldos de níveis inferiores pausados. Cargos VIP atribuídos manualmente não aparecem como saldo de apoio.',
+      'Os kits agora têm comandos por nível: /kit vip1diario, /kit vip1semanal e /kit vip1mensal. Para os níveis 2 e 3, troque vip1 por vip2 ou vip3.',
+      'Os atalhos antigos continuam funcionando. Conteúdo, permissões e intervalos de resgate permanecem os mesmos; trocar o comando não libera um resgate extra.',
+    ],
+    notice:
+      'Os comandos foram documentados como implementados. Isso não anuncia a abertura do apoio pago.',
+    sources: [
+      { label: 'VIP', path: 'versions/v1.30.2.md' },
+      { label: 'Kits', path: 'versions/v1.30.3.md' },
+    ],
+  },
+  {
+    id: 'vip-time',
+    version: '1.30.0',
+    date: '2026-10-03',
+    dateLabel: '03 out. 2026',
+    category: 'Conta e apoio',
+    title: 'Preparação do ciclo de benefícios VIP',
+    summary: 'O sistema passou a controlar ativação, pausa e retomada do tempo dos benefícios.',
+    changes: [
+      'Um VIP superior pausa o saldo de um nível inferior. Quando o superior termina, o tempo restante do inferior pode ser retomado.',
+      'Uma nova contribuição para o mesmo nível soma tempo ao saldo correspondente.',
+      'Minha conta apresenta o VIP atual e os saldos pausados; a ativação depende da confirmação do pagamento e da entrega ao servidor.',
+    ],
+    notice:
+      'Apoio pago ainda fechado na documentação. Entrega real, pausa, retomada e expiração precisam de homologação completa. Os testes de 04/10 confirmaram permissões de kits e voo com cargos manuais, sem comprovar o ciclo comercial.',
+    sources: [
+      { label: 'Ciclo VIP', path: 'versions/v1.30.0.md' },
+      { label: 'Validações e pendências', path: 'M6-BACKEND.md' },
+    ],
+  },
+  {
+    id: 'discord',
+    version: 'Comunidade',
+    date: '2026-09-30',
+    dateLabel: '30 set. 2026',
+    category: 'Comunidade',
+    title: 'Discord como ponto de encontro',
+    summary: 'A comunidade ganhou ferramentas para receber jogadores e acompanhar o servidor.',
+    changes: [
+      'O bot foi preparado para dar boas-vindas e atribuir o cargo Membro a quem chega.',
+      'Consultas e contadores ajudam a acompanhar jogadores online no Minecraft. A atualização dos contadores é periódica, não instantânea.',
+      'O Discord continua sendo o canal para dúvidas, sugestões e comunicados sobre testes e acesso.',
+    ],
+    notice:
+      'A validação de entrada e comandos com uma conta real ainda está pendente. Cargos Minecraft e Discord não são sincronizados automaticamente.',
+    sources: [{ label: 'Comunidade e bot', path: 'ATLAS-BOT.md' }],
+  },
+  {
+    id: 'cleanup',
+    version: '1.29.21',
+    date: '2026-09-29',
+    dateLabel: '29 set. 2026',
+    category: 'Gameplay',
+    title: 'Limpeza de itens em todas as dimensões carregadas',
+    summary: 'A limpeza passou a alcançar lobbys, Survival, Nether e End na mesma execução.',
+    changes: [
+      'O ciclo automático acontece a cada 15 minutos, com avisos de 60, 30 e 10 segundos de antecedência.',
+      'Itens no chão podem ser removidos mesmo que tenham sido jogados recentemente. Recolha seus itens antes da limpeza.',
+      'Use /dropados para consultar a recuperação de itens quando o sistema conseguir identificar o proprietário.',
+      'As regras preservam Pokémon de jogadores, em batalha ou ocupados, vinculados a pastures e espécies da lista protegida. Pokémon selvagens elegíveis podem ser removidos.',
+    ],
+    notice:
+      'A remoção de itens foi testada em duas dimensões. A observação do ciclo automático e a validação das proteções de Pokémon em jogo ainda estão pendentes.',
+    sources: [
+      { label: 'Limpeza global', path: 'versions/v1.29.21.md' },
+      { label: 'Regras de limpeza', path: 'ANTILAG.md' },
+    ],
+  },
+  {
+    id: 'homes',
+    version: '1.29.16',
+    date: '2026-09-27',
+    dateLabel: '27 set. 2026',
+    category: 'Gameplay',
+    title: 'Suas homes em um menu visual',
+    summary: 'Ficou mais fácil organizar seus lugares favoritos e voltar para casa.',
+    changes: [
+      'Use /homes para abrir o menu: clique esquerdo para teleportar e Shift + clique esquerdo para escolher a home principal.',
+      'Criação, atualização e exclusão contam com confirmação. O menu mostra limites do cargo e tempo restante entre teleportes.',
+      '/home e /sethome continuam disponíveis. Para dar um nome personalizado, use /sethome <nome>.',
+      'O teleporte tem preparação de três segundos; mover-se cancela a viagem. Um destino obstruído não deve aplicar o intervalo de espera.',
+    ],
+    notice:
+      'O guia registra aprovação do menu em jogo em 27/09. Testes de regressão de limites, cliques e destinos continuam listados.',
+    sources: [
+      { label: 'Homes', path: 'HOME-SYSTEM.md' },
+      { label: 'Versão', path: 'versions/v1.29.16.md' },
+    ],
+  },
+  {
+    id: 'base',
+    version: 'Resumo da base',
+    dateLabel: 'Consolidado em 06 out. 2026',
+    category: 'Gameplay',
+    title: 'Explorar, construir e proteger suas conquistas',
+    summary: 'Um panorama dos sistemas já documentados do Emerald, para quem está chegando agora.',
+    changes: [
+      'O Survival Emerald tem uma área de 12.000 × 12.000 blocos. /rtp oferece destinos no Overworld, Nether e End, com busca de local seguro e cancelamento por movimento.',
+      'Proteja terrenos no Survival Emerald usando dois cantos selecionados com uma pá dourada. Inspecione a área com um graveto e consulte suas áreas com /claimslist.',
+      'Você controla quem pode acessar, abrir baús ou construir usando /accesstrust, /containertrust e /trust. /untrust remove a confiança concedida.',
+      'A ligação entre site e Minecraft usa um código de seis dígitos válido por cinco minutos: execute /site vincular <codigo> no Emerald e confirme o jogador no site. Não compartilhe o código.',
+    ],
+    notice:
+      'Este é um resumo de sistemas entregues em versões anteriores, não uma nova atualização do jogo. A vinculação e os fluxos de viagem ainda têm cenários de teste pendentes. Não há data de abertura pública anunciada.',
+    sources: [
+      { label: 'Survival', path: 'SURVIVAL-EMERALD.md' },
+      { label: 'Exploração', path: 'versions/v1.28.8.md' },
+      { label: 'Claims', path: 'CLAIMS.md' },
+      { label: 'Vinculação', path: 'M4-BACKEND.md' },
+    ],
+  },
+];

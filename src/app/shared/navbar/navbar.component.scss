@@ -7,10 +7,10 @@
     background 0.3s,
     border-color 0.3s,
     box-shadow 0.3s;
-  background: linear-gradient(#06101270, transparent);
+  background: linear-gradient(#080d2070, transparent);
 }
 .site-header.solid {
-  background: #071210ed;
+  background: #080d20ed;
   backdrop-filter: blur(18px);
   border-color: var(--line);
   box-shadow: 0 8px 35px #0002;
@@ -96,7 +96,7 @@
   max-height: 100dvh;
   width: min(390px, calc(100% - 30px));
   max-width: none;
-  background: #0c1b18f5;
+  background: #111b35f5;
   color: var(--text);
   border: 0;
   border-left: 1px solid var(--line);
@@ -105,7 +105,7 @@
   backdrop-filter: blur(16px);
 }
 .mobile-menu::backdrop {
-  background: #020908b3;
+  background: #05091bb3;
 }
 .menu-heading {
   display: flex;
@@ -218,7 +218,7 @@
   right: 0;
   width: 235px;
   padding: 12px;
-  background: #10231f;
+  background: #111b35;
   border: 1px solid var(--line);
   border-radius: 12px;
   box-shadow: var(--shadow);
@@ -236,7 +236,7 @@
 }
 .account-dropdown a:hover,
 .account-dropdown button:hover {
-  background: #c5eb8511;
+  background: #78ddff11;
 }
 .account-dropdown hr {
   border: 0;
@@ -246,7 +246,7 @@
   position: absolute;
   right: 20px;
   top: 100%;
-  background: #18301f;
+  background: #253151;
   border: 1px solid var(--line);
   border-radius: 0 0 8px 8px;
   padding: 3px 12px;

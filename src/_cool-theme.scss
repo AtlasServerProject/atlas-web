@@ -1,0 +1,166 @@
+// Shared cool palette inspired by the Atlas logo.
+body:not(.disable-cool-theme) {
+  --bg: #080d20;
+  --panel: #111b35;
+  --line: #92b7f02b;
+  --text: #f1f5ff;
+  --muted: #b3c2dc;
+  --accent: #78ddff;
+  --gold: #c3a2ff;
+  background: radial-gradient(ellipse at 100% 20%, #5550bc1a, transparent 45%), var(--bg);
+
+  .button {
+    background: linear-gradient(120deg, #8ae5ff, #7eb7ff);
+    border-color: #a5eaff;
+    color: #0a1731;
+    box-shadow: 0 8px 28px #2387dd18;
+  }
+
+  .button:hover {
+    background: #b0eeff;
+    box-shadow: 0 10px 32px #44baff30;
+  }
+
+  .button-secondary,
+  .button.secondary {
+    background: #121d3ac4;
+    color: var(--text);
+    border-color: #9abafa66;
+    box-shadow: none;
+  }
+
+  .button-secondary:hover,
+  .button.secondary:hover {
+    background: #293a60;
+    border-color: var(--accent);
+  }
+
+  .site-header {
+    background: linear-gradient(#080d2070, transparent);
+  }
+
+  .site-header.solid {
+    background: #080d20ed;
+  }
+
+  .mobile-menu,
+  .account-dropdown,
+  .commerce-dialog {
+    background: #111b35f5;
+  }
+
+  .site-footer {
+    background: linear-gradient(#0c142b, #070c1b);
+  }
+
+  .cinematic-hero {
+    background: var(--bg);
+  }
+
+  .hero-media img,
+  .hero-media video {
+    filter: saturate(0.75) hue-rotate(25deg);
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, #080d2060, #102144a6 40%, #080d20ed 90%, var(--bg)),
+      linear-gradient(110deg, #101e4399, #30165633 65%, #071a3299);
+  }
+
+  .hero-copy h1 {
+    color: #f1f6ff;
+    text-shadow: 0 8px 45px #03081799;
+  }
+
+  .hero-copy h2 em {
+    background-image: linear-gradient(100deg, #a5edff, #78c6ff 55%, #c7a3ff);
+  }
+
+  .hero-emblem {
+    border-color: #94bcff66;
+    box-shadow: 0 18px 65px #060a1c99, 0 0 45px #8055da22;
+  }
+
+  .hero-kicker,
+  .hero-motto,
+  .scroll-cue {
+    color: #d2e0f7;
+  }
+
+  .hero-motto span {
+    color: #c3a2ff;
+  }
+
+  .hero-state,
+  .hero-coordinate {
+    color: #abbcd9;
+  }
+
+  .ambient i {
+    background: #98e5ff;
+    box-shadow: 0 0 18px #8bb5ff;
+  }
+
+  .video-toggle {
+    background: #0d1734cc;
+    color: #d2e0f7;
+    border-color: var(--line);
+  }
+
+  .feature-strip {
+    background: #101a30;
+    border-color: var(--line);
+    color: var(--muted);
+  }
+
+  .about-visual img {
+    border-color: #a2baff44;
+    box-shadow: 0 30px 90px #04091a99;
+  }
+
+  .visual-orbit {
+    border-color: #9aafff33;
+    background: radial-gradient(ellipse, #6854bc33, transparent 65%);
+  }
+
+  .about-parents {
+    background: linear-gradient(120deg, #12203b, #171a36);
+  }
+
+  .panorama {
+    background: #0b142b;
+  }
+
+  .panorama-art {
+    background:
+      linear-gradient(90deg, #08132aed, #18284eaa 60%, #2a1b4b88),
+      linear-gradient(0deg, var(--bg), transparent 35%, transparent 65%, var(--bg)),
+      url('/atlas-hero.png') center/cover;
+  }
+
+  .panorama p,
+  .art-caption {
+    color: var(--muted);
+  }
+
+  .horizons {
+    background: radial-gradient(ellipse at right, #5944a62b, transparent 65%);
+  }
+
+  .future-card {
+    background: linear-gradient(120deg, #162847, #221c3c);
+  }
+
+  .cta {
+    background:
+      linear-gradient(#101d3ce6, #100e2bed),
+      url('/atlas-hero.png') center/cover;
+  }
+
+  .pill {
+    background: #8eb5ff12;
+    border-color: var(--line);
+    color: var(--accent);
+  }
+}

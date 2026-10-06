@@ -7,21 +7,27 @@ import { AuthService } from '../../core/auth.service';
   selector: 'app-auth-page',
   standalone: true,
   imports: [FormsModule, RouterLink, DialogFocusDirective],
-  styleUrls: ['./account-message.scss'],
-  template: ` <section class="section page-intro">
+  styleUrls: ['./account-message.scss', './auth-page.component.scss'],
+  template: ` <section class="section page-intro auth-page">
+    <div class="auth-heading">
       <span class="eyebrow">SUA JORNADA ATLAS</span>
       <h1>{{ register ? 'Criar conta' : 'Bem-vindo de volta.' }}</h1>
-      <p>Seu próximo capítulo começa aqui.</p>
+      <p>{{ register ? 'Faça parte da comunidade e comece sua história no Atlas.' : 'Entre para acompanhar sua conta e seus apoios ao Atlas.' }}</p>
+    </div>
       @if (!auth.available()) {
         <div class="card auth-form">
           <p class="notice" role="status">
             Cadastro e acesso à conta estão temporariamente indisponíveis. Tente novamente mais
             tarde.
           </p>
-          <a class="text-link" routerLink="/loja">Voltar para a loja</a>
+          <a class="text-link" routerLink="/store">Voltar para a loja</a>
         </div>
       } @else {
-        <form class="card auth-form" (ngSubmit)="submit()">
+        <form #authForm="ngForm" class="card auth-form" (ngSubmit)="submit()">
+          <nav class="auth-tabs" aria-label="Acesso à conta">
+            <a routerLink="/login" [class.selected]="!register" [attr.aria-current]="!register ? 'page' : null">Entrar</a>
+            <a routerLink="/cadastro" [class.selected]="register" [attr.aria-current]="register ? 'page' : null">Criar conta</a>
+          </nav>
           @if (register) {
             <label
               >Nickname<input
@@ -29,6 +35,7 @@ import { AuthService } from '../../core/auth.service';
                 autocomplete="nickname"
                 required
                 maxlength="32"
+                placeholder="Como você quer ser chamado?"
                 [(ngModel)]="nickname"
             /></label>
           }
@@ -39,17 +46,19 @@ import { AuthService } from '../../core/auth.service';
               autocomplete="email"
               required
               maxlength="254"
+              placeholder="voce@exemplo.com"
               [(ngModel)]="email"
           /></label>
           <label
-            >Senha<input
+            >Senha<span class="password-field"><input
               name="password"
-              type="password"
+              [type]="showPassword() ? 'text' : 'password'"
               [attr.autocomplete]="register ? 'new-password' : 'current-password'"
               required
               [minlength]="register ? 8 : 1"
+              [placeholder]="register ? 'Crie uma senha com 8 ou mais caracteres' : 'Digite sua senha'"
               [(ngModel)]="password"
-          /></label>
+          /><button type="button" class="password-toggle" [attr.aria-label]="showPassword() ? 'Ocultar senha' : 'Mostrar senha'" [attr.aria-pressed]="showPassword()" (click)="showPassword.set(!showPassword())">{{ showPassword() ? 'Ocultar' : 'Mostrar' }}</button></span></label>
           @if (register) {
             <label
               >Confirmar senha<input
@@ -58,22 +67,25 @@ import { AuthService } from '../../core/auth.service';
                 autocomplete="new-password"
                 required
                 minlength="8"
+                placeholder="Digite sua senha novamente"
                 [(ngModel)]="confirm" /></label
             ><small>Use pelo menos 8 caracteres.</small>
           }
           @if (error()) {
             <p class="form-error" role="alert">{{ error() }}</p>
           }
-          <button class="button" [disabled]="loading()">
+          @if (!register) {
+            <a class="text-link forgot-password" routerLink="/recuperar-senha">Esqueci minha senha</a>
+          }
+          <button type="submit" class="button submit-button" [disabled]="loading() || authForm.invalid">
             {{ loading() ? 'Aguarde…' : register ? 'Criar conta' : 'Entrar' }}
           </button>
-          <a class="text-link" [routerLink]="register ? '/login' : '/cadastro'">{{
-            register ? 'Já tenho uma conta' : 'Criar conta'
-          }}</a>
-          @if (!register) {
-            <a class="text-link" routerLink="/recuperar-senha">Esqueci minha senha</a>
+          <p class="auth-switch">{{ register ? 'Já faz parte do Atlas?' : 'Ainda não tem uma conta?' }}
+            <a class="text-link" [routerLink]="register ? '/login' : '/cadastro'">{{ register ? 'Entrar' : 'Criar conta' }}</a>
+          </p>
+          @if (feedback()) {
+            <p class="auth-feedback" role="status">{{ feedback() }}</p>
           }
-          <p role="status">{{ feedback() }}</p>
         </form>
       }
     </section>
@@ -122,6 +134,7 @@ import { AuthService } from '../../core/auth.service';
     </dialog>`,
 })
 export class AuthPageComponent {
+  readonly showPassword = signal(false);
   readonly auth = inject(AuthService);
   private readonly router = inject(Router);
   private readonly emailDialog = viewChild<ElementRef<HTMLDialogElement>>('emailDialog');
@@ -138,7 +151,7 @@ export class AuthPageComponent {
   readonly error = signal('');
   readonly feedback = signal('');
   async submit() {
-    if (this.loading()) return;
+    if (this.loading() || !this.auth.available()) return;
     this.error.set('');
     if (this.register && this.password !== this.confirm) {
       this.error.set('As senhas precisam ser iguais.');

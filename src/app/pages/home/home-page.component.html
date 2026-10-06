@@ -4,7 +4,7 @@
   ><span><b>02 / CONSTRUA</b> Seu espaço, sua história</span
   ><span><b>03 / COMPARTILHE</b> Uma comunidade brasileira</span>
 </div>
-<section id="servidor" class="section about">
+<section id="quem-somos" class="section about" aria-labelledby="about-title">
   <div class="about-visual" atlasReveal="left">
     <div class="visual-orbit" aria-hidden="true"></div>
     <img
@@ -17,16 +17,53 @@
   </div>
   <div atlasReveal="right">
     <span class="eyebrow">CONHEÇA O ATLAS</span>
-    <h2>A liberdade de criar.<br />A emoção de <em>descobrir.</em></h2>
+    <h2 id="about-title">Quem <em>Somos</em></h2>
     <p>
-      O Emerald reúne a liberdade do Minecraft e a descoberta de Pokémon. Explore, encontre seu time
-      e construa sua história ao lado de outros treinadores.
+      O Atlas nasceu da vontade de criar um espaço onde a criatividade do Minecraft e a descoberta
+      de Pokémon se encontram. Queremos construir uma comunidade em que cada jogador possa explorar,
+      desenvolver suas ideias e compartilhar aventuras com respeito pelos outros.
     </p>
     <p>
-      A base já está construída; os próximos capítulos estão sendo preparados com a comunidade. O
-      mapa do lobby está concluído e o acesso ao Survival está preparado.
+      Hoje, o projeto é desenvolvido e administrado por mim, <strong>Victor Gabriel</strong>,
+      conhecido no jogo como <strong>“VFSomente”</strong>. Cuido da preparação do servidor e de sua
+      evolução, ouvindo quem participa para construir o Atlas aos poucos, com responsabilidade e
+      transparência.
     </p>
-    <a class="text-link" routerLink="/notices">Conheça os próximos capítulos <span>→</span></a>
+  </div>
+  <div class="about-details">
+    <article class="about-foundations" atlasReveal="up">
+      <span class="eyebrow">O QUE NOS GUIA</span>
+      <h3>Nossos fundamentos</h3>
+      <p>
+        Respeito, criatividade e cooperação orientam o que queremos construir. Nossa proposta é
+        incentivar uma convivência sem discriminação, intimidação ou assédio, valorizar as conquistas
+        dos jogadores e comunicar com clareza as regras e as mudanças do projeto.
+      </p>
+    </article>
+    <article class="about-parents" atlasReveal="up" aria-labelledby="parents-title">
+      <span class="eyebrow">DIÁLOGO E RESPONSABILIDADE</span>
+      <h3 id="parents-title">Uma mensagem aos pais e responsáveis</h3>
+      <p>
+        Sabemos que conhecer o ambiente em que seus filhos jogam é importante. Nosso compromisso é
+        tratar a convivência e os relatos de problemas com seriedade, estabelecer regras claras e
+        orientar os jogadores a proteger suas informações pessoais.
+      </p>
+      <p>
+        O Atlas está em desenvolvimento e, atualmente, conta com uma única pessoa na administração.
+        Por isso, não podemos prometer acompanhamento constante das conversas nem um ambiente livre
+        de riscos. A participação dos responsáveis continua sendo essencial: acompanhem as
+        interações, conversem sobre limites de tempo e orientem seus filhos a não compartilhar nome
+        completo, endereço, escola, telefone, senhas ou fotos com outros jogadores.
+      </p>
+      <p>
+        Queremos que a confiança no Atlas seja construída com diálogo e atitudes responsáveis.
+        Pais e responsáveis também podem entrar em contato pelo Discord do projeto para conhecer
+        melhor a proposta, tirar dúvidas ou relatar uma preocupação.
+      </p>
+      <a class="text-link" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
+        >Conversar no Discord <span>↗</span></a
+      >
+    </article>
   </div>
 </section>
 <section class="panorama" atlasParallax aria-label="Explore o Emerald">
@@ -41,62 +78,6 @@
     <button class="button button-secondary" (click)="play.open()">Explore o Atlas ↗</button>
   </div>
   <small class="art-caption">Arte ilustrativa do universo Atlas</small>
-</section>
-<section class="section" id="recursos">
-  <div class="section-heading" atlasReveal="up">
-    <div>
-      <span class="eyebrow">CONSTRUA SUA HISTÓRIA</span>
-      <h2>Mais que capturar.<br />Um lugar para <em>ficar.</em></h2>
-    </div>
-    <p>
-      Recursos para explorar com liberdade, proteger suas conquistas e encontrar seu lugar no
-      Emerald.
-    </p>
-  </div>
-  <div class="cards">
-    <article class="card resource-card" atlasReveal="up">
-      <span class="feature-symbol" aria-hidden="true"
-        ><svg
-          viewBox="0 0 24 24"
-          width="30"
-          height="30"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.5"
-        >
-          <circle cx="12" cy="12" r="9" />
-          <path d="m16 8-2 6-6 2 2-6Z" /></svg></span
-      ><span class="card-number">01 — EXPLORAÇÃO</span>
-      <h3>Encontre seu caminho</h3>
-      <p>
-        Saia do lobby pelo acesso ao Survival e descubra novos lugares com o teleporte aleatório.
-        Cada jornada começa de um jeito.
-      </p>
-      <span class="tag">Survival + RTP</span>
-    </article>
-    <article class="card resource-card" atlasReveal="up" [revealDelay]="100">
-      <span class="feature-symbol" aria-hidden="true">⌂</span
-      ><span class="card-number">02 — SEU ESPAÇO</span>
-      <h3>Crie raízes no mundo</h3>
-      <p>
-        Proteja suas construções com claims, salve seus lugares favoritos e volte para casa pelo
-        menu de homes.
-      </p>
-      <span class="tag">Claims + Homes</span>
-    </article>
-    <article class="card resource-card" atlasReveal="up" [revealDelay]="200">
-      <span class="feature-symbol" aria-hidden="true">◇</span
-      ><span class="card-number">03 — COMUNIDADE</span>
-      <h3>A aventura fica melhor junto</h3>
-      <p>
-        Compartilhe descobertas, acompanhe os testes e encontre outros treinadores no Discord
-        oficial do Atlas.
-      </p>
-      <a class="text-link" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
-        >Participar ↗</a
-      >
-    </article>
-  </div>
 </section>
 <section class="section horizons">
   <div atlasReveal="left">
@@ -123,28 +104,6 @@
       <h3>Ginásios & eventos</h3>
       <p>Outras formas de fazer história no Atlas.</p>
     </article>
-  </div>
-</section>
-<section class="section team-section" id="equipe">
-  <div atlasReveal="up">
-    <span class="eyebrow">FEITO POR QUEM JOGA</span>
-    <h2>Um mundo construído<br /><em>em comunidade.</em></h2>
-    <p>
-      A equipe do Atlas prepara cada etapa junto dos testers. Suas sugestões e descobertas ajudam a
-      construir um servidor com identidade própria.
-    </p>
-    <p>
-      Fale com a equipe no Discord para tirar dúvidas, acompanhar os testes e compartilhar sua
-      experiência.
-    </p>
-    <a class="text-link" [href]="settings.discord" target="_blank" rel="noopener noreferrer"
-      >Conhecer a comunidade ↗</a
-    >
-  </div>
-  <div class="team-note" atlasReveal="scale">
-    <span class="eyebrow">NOSSO PONTO DE ENCONTRO</span><strong>ATLAS<br /><em>+ VOCÊ</em></strong>
-    <p>Dúvidas · Sugestões · Aventuras · Trocas</p>
-    <span class="pill">Discord disponível</span>
   </div>
 </section>
 <section class="cta" id="discord">

@@ -11,12 +11,12 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
   imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent, VipStatusComponent],
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
-    <h1>{{ purchases ? 'Minhas compras' : 'Minha conta' }}</h1>
+    <h1>{{ purchases ? 'Meus apoios' : 'Minha conta' }}</h1>
     @if (purchases) {
-      <p>Acompanhe seus pedidos, pagamentos e entregas.</p>
+      <p>Acompanhe suas contribuições, pagamentos e a ativação dos benefícios VIP.</p>
       <p class="notice">
         O pagamento é confirmado após a verificação do Mercado Pago. Voltar ao site não confirma a
-        compra.
+        contribuição.
       </p>
       <button class="button secondary" [disabled]="orders.loading()" (click)="orders.load()">
         Atualizar status
@@ -37,7 +37,7 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             </p>
             <p class="pill">{{ orders.paymentLabel(order.paymentStatus) }}</p>
             <p>{{ orders.deliveryLabel(order.deliveryStatus) }}</p>
-            <small>Pedido {{ order.id }}</small>
+            <small>Registro de apoio {{ order.id }}</small>
             @if (order.paymentStatus === 'PENDING') {
               <p>PIX ou cartão na página do Mercado Pago.</p>
               <button class="button" [disabled]="paying() !== ''" (click)="pay(order.id)">
@@ -48,15 +48,15 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
         }
       </div>
       @if (orders.loading()) {
-        <p role="status">Consultando pedidos…</p>
+        <p role="status">Consultando contribuições…</p>
       }
       @if (orders.error()) {
         <p role="alert">{{ orders.error() }}</p>
         <button class="button secondary" (click)="orders.load()">Tentar novamente</button>
       }
       @if (!orders.loading() && !orders.error() && !orders.mine().length) {
-        <p class="notice">Você ainda não tem pedidos.</p>
-        <a class="button" routerLink="/loja">Explorar a loja</a>
+        <p class="notice">Você ainda não tem contribuições registradas.</p>
+        <a class="button" routerLink="/store">Conhecer as formas de apoio</a>
       }
       <div class="actions">
         <button
@@ -97,7 +97,7 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
           <app-minecraft-link />
           <app-vip-status />
           <p role="status">{{ feedback() }}</p>
-          <a class="text-link" routerLink="/minhas-compras">Minhas compras →</a>
+          <a class="text-link" routerLink="/minhas-compras">Meus apoios →</a>
         </article>
       }
     }

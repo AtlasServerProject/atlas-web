@@ -4,13 +4,13 @@
   padding: 30px;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  background: radial-gradient(ellipse at top, #26392e, transparent 65%), var(--bg);
+  background: radial-gradient(ellipse at top, #223456, transparent 65%), var(--bg);
   color: var(--text);
   box-shadow: 0 35px 100px #0009;
   animation: modal-in 0.3s var(--ease);
 }
 .play-dialog::backdrop {
-  background: #030a0bdd;
+  background: #080d20dd;
   backdrop-filter: blur(7px);
 }
 .play-dialog.closing {

@@ -1,12 +1,14 @@
+@use './cool-theme';
+
 :root {
   color-scheme: dark;
-  --bg: #07120f;
-  --panel: #12251f;
-  --line: #a5c8b123;
-  --text: #f5f3e9;
-  --muted: #b0c0b6;
-  --accent: #c5eb85;
-  --gold: #d9bd7a;
+  --bg: #080d20;
+  --panel: #111b35;
+  --line: #92b7f023;
+  --text: #f1f5ff;
+  --muted: #b3c2dc;
+  --accent: #78ddff;
+  --gold: #c3a2ff;
   --radius-sm: 8px;
   --radius-md: 16px;
   --radius-lg: 24px;
@@ -24,7 +26,7 @@ html {
 }
 body {
   margin: 0;
-  background: radial-gradient(ellipse at 100% 20%, #1c372022, transparent 40%), var(--bg);
+  background: radial-gradient(ellipse at 100% 20%, #5550bc22, transparent 40%), var(--bg);
   color: var(--text);
   font:
     16px/1.75 'Trebuchet MS',
@@ -93,9 +95,9 @@ p {
   justify-content: center;
   gap: 25px;
   min-height: 48px;
-  background: linear-gradient(120deg, #d5f4a5, #b6df7c);
-  color: #132414;
-  border: 1px solid #dcfbb5;
+  background: linear-gradient(120deg, #8ae5ff, #7eb7ff);
+  color: #0a1731;
+  border: 1px solid #a5eaff;
   border-radius: var(--radius-sm);
   padding: 15px 24px;
   font-size: 13px;
@@ -109,8 +111,8 @@ p {
 }
 .button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px #b6df7c25;
-  background: #d6f6a6;
+  box-shadow: 0 8px 32px #7eb7ff25;
+  background: #b0eeff;
 }
 .button:active {
   transform: translateY(0) scale(0.98);
@@ -122,13 +124,13 @@ p {
 }
 .button-secondary {
   color: var(--text);
-  background: #07181088;
-  border: 1px solid #ddeac150;
+  background: #121d3a88;
+  border: 1px solid #9abafa50;
   backdrop-filter: blur(8px);
 }
 .button-secondary:hover {
-  background: #28432a88;
-  box-shadow: 0 8px 30px #bddf8420;
+  background: #293a6088;
+  box-shadow: 0 8px 30px #44baff20;
 }
 .icon-button {
   display: grid;
@@ -145,7 +147,7 @@ p {
   font-size: 14px;
   color: var(--accent);
   text-decoration: underline;
-  text-decoration-color: #c5eb8555;
+  text-decoration-color: #78ddff55;
   text-underline-offset: 7px;
   transition: text-decoration-color 0.3s;
 }
@@ -171,12 +173,12 @@ p {
   display: inline-flex;
   gap: 9px;
   align-items: center;
-  border: 1px solid #58764d;
+  border: 1px solid #566b9d;
   border-radius: 40px;
   padding: 5px 12px;
   font-size: 11px;
-  color: #d1e2be;
-  background: #132319bb;
+  color: #d2e0f7;
+  background: #14203abb;
 }
 .dot {
   width: 6px;
@@ -241,7 +243,7 @@ p {
 }
 .card {
   padding: 32px;
-  background: linear-gradient(135deg, #1c31257a, #0d211bba);
+  background: linear-gradient(135deg, #1d2c507a, #131c39ba);
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
@@ -253,7 +255,7 @@ p {
 }
 .card:hover {
   transform: translateY(-5px);
-  border-color: #b0df754d;
+  border-color: #78ddff4d;
   box-shadow: 0 25px 60px #0005;
 }
 .card-number {
@@ -268,7 +270,7 @@ p {
 }
 .tag {
   display: inline-block;
-  color: #cadac2;
+  color: #c0cee8;
   border-top: 1px solid var(--line);
   padding-top: 18px;
   margin-top: 10px;
@@ -276,7 +278,7 @@ p {
 }
 .cta {
   text-align: center;
-  background: radial-gradient(ellipse at bottom, #2f4329, transparent 70%);
+  background: radial-gradient(ellipse at bottom, #2a2855, transparent 70%);
   padding: 100px 24px;
   border-block: 1px solid var(--line);
 }
@@ -288,7 +290,7 @@ p {
   padding-top: 170px;
   padding-bottom: 40px;
   position: relative;
-  background: radial-gradient(ellipse at top right, #3357393a, transparent 70%);
+  background: radial-gradient(ellipse at top right, #3b43803a, transparent 70%);
 }
 .page-intro h1 {
   font-size: clamp(3rem, 5vw, 5rem);
@@ -520,7 +522,7 @@ p {
 
 /* Account and commerce extend the shared Emerald design tokens. */
 .button.secondary {
-  background: #14291f;
+  background: #162442;
   color: var(--accent);
   border: 1px solid var(--line);
 }
@@ -545,9 +547,9 @@ select {
   min-width: 0;
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid #a5c8b155;
+  border: 1px solid #92b7f055;
   border-radius: 8px;
-  background: #07120f;
+  background: #080d20;
   color: var(--text);
 }
 input:focus-visible,
@@ -566,13 +568,13 @@ select:focus-visible {
   padding: 28px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: #10231ff5;
+  background: #111b35f5;
   color: var(--text);
   box-shadow: var(--shadow);
   animation: route-in 0.25s var(--ease);
 }
 .commerce-dialog::backdrop {
-  background: #020908b3;
+  background: #05091bb3;
   backdrop-filter: blur(5px);
 }
 .commerce-dialog label {
@@ -592,7 +594,7 @@ select:focus-visible {
 }
 .category-tabs [aria-pressed='true'] {
   border-color: var(--accent);
-  background: #29432c;
+  background: #263d62;
 }
 .product-card {
   display: flex;
@@ -604,7 +606,7 @@ select:focus-visible {
   height: 155px;
   object-fit: contain;
   border-radius: 10px;
-  background: #07120f;
+  background: #080d20;
 }
 .product-card .eyebrow {
   margin: 0;

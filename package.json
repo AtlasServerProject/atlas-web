@@ -2,6 +2,9 @@
   "name": "atlas-web",
   "version": "0.0.0",
   "scripts": {
+    "updates:export": "node scripts/export-updates.mjs",
+    "prestart": "npm run updates:export",
+    "prebuild": "npm run updates:export",
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",

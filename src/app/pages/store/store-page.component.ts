@@ -7,10 +7,13 @@ import { PromotionService } from '../../core/promotion.service';
 import { CurrencyPipe } from '@angular/common';
 import { CountdownComponent } from '../../shared/commerce/countdown.component';
 import { Component, inject } from '@angular/core';
+import { SiteSettings } from '../../shared/site-settings.service';
+import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-store-page',
   standalone: true,
   imports: [
+    RouterLink,
     DialogFocusDirective,
     CatalogComponent,
     CurrencyPipe,
@@ -21,6 +24,7 @@ import { Component, inject } from '@angular/core';
   styleUrls: ['./store-page.component.scss'],
 })
 export class StorePageComponent {
+  readonly settings = inject(SiteSettings);
   readonly auth = inject(AuthService);
   readonly promotions = inject(PromotionService);
   readonly products = inject(ProductService);

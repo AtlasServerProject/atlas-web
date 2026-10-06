@@ -1,6 +1,65 @@
 :host {
   display: block;
 }
+.support-message {
+  padding: clamp(24px, 4vw, 36px);
+  margin: 28px 0;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-lg);
+  background: var(--panel);
+  max-width: 960px;
+}
+.support-message h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  margin-top: 0;
+}
+.support-message p:last-child {
+  margin-bottom: 0;
+  font-size: 13px;
+}
+.support-guide {
+  padding-top: 0;
+  padding-bottom: 40px;
+}
+.support-steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  padding-left: 24px;
+}
+.support-steps li {
+  padding: 12px;
+}
+.support-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+.support-steps p {
+  font-size: 14px;
+  margin-bottom: 0;
+}
+.support-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 24px;
+}
+.catalog,
+.comparison h2,
+.faq {
+  scroll-margin-top: 140px;
+}
+@media (max-width: 900px) {
+  .support-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 640px) {
+  .support-steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
 .terms {
   display: flex;
   gap: 12px;
@@ -85,7 +144,7 @@
   display: block;
   width: 100%;
   border: 1px solid var(--line);
-  background: #0b1513;
+  background: #0d1730;
   padding: 12px;
   border-radius: 6px;
   cursor: zoom-in;
@@ -133,7 +192,7 @@
 }
 .kit-dialog button {
   background: var(--accent);
-  color: #142017;
+  color: #0a1731;
   border: 0;
   border-radius: 5px;
   padding: 10px 15px;

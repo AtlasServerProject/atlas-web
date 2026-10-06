@@ -6,20 +6,15 @@
       ></a
     >
     <nav class="desktop-nav" aria-label="Navegação principal">
-      @for (item of sections; track item.id) {
-        <a
-          routerLink="/"
-          [fragment]="item.id"
-          [class.active]="home() && section() === item.id"
-          [attr.aria-current]="home() && section() === item.id ? 'location' : null"
-          >{{ item.label }}</a
-        >
-      }
-      <a routerLink="/how-to-play" routerLinkActive="active" ariaCurrentWhenActive="page"
-        >Como jogar</a
-      ><a routerLink="/notices" routerLinkActive="active" ariaCurrentWhenActive="page">Novidades</a
-      ><a routerLink="/store" routerLinkActive="active" ariaCurrentWhenActive="page">Loja</a>
-      <a routerLink="/" fragment="recursos">Conteúdo</a>
+      <a routerLink="/" fragment="inicio"
+        [class.active]="home() && section() === 'inicio'"
+        [attr.aria-current]="home() && section() === 'inicio' ? 'location' : null">Início</a>
+      <a routerLink="/notices" routerLinkActive="active" ariaCurrentWhenActive="page">Novidades</a>
+      <a routerLink="/how-to-play" routerLinkActive="active" ariaCurrentWhenActive="page">Como jogar</a>
+      <a routerLink="/store" routerLinkActive="active" ariaCurrentWhenActive="page">Loja</a>
+      <a routerLink="/" fragment="quem-somos"
+        [class.active]="home() && section() === 'quem-somos'"
+        [attr.aria-current]="home() && section() === 'quem-somos' ? 'location' : null">Quem Somos</a>
       @if (auth.isAdmin()) {
         <a routerLink="/admin" routerLinkActive="active">Admin</a>
       }
@@ -38,7 +33,7 @@
           @if (accountOpen()) {
             <div id="account-dropdown" class="account-dropdown" (focusout)="accountBlur($event)">
               <a routerLink="/conta">Minha conta</a
-              ><a routerLink="/minhas-compras">Minhas compras</a>
+              ><a routerLink="/minhas-compras">Meus apoios</a>
               @if (auth.isAdmin()) {
                 <hr />
                 <button (click)="auth.toggleAdminMode()">
@@ -81,22 +76,17 @@
     ><button class="icon-button" (click)="close()" aria-label="Fechar menu" autofocus>✕</button>
   </div>
   <nav aria-label="Navegação mobile">
-    @for (item of sections; track item.id) {
-      <a
-        routerLink="/"
-        [fragment]="item.id"
-        (click)="close()"
-        [class.active]="home() && section() === item.id"
-        >{{ item.label }} <span>↗</span></a
-      >
-    }
-    <a routerLink="/how-to-play" (click)="close()">Como jogar <span>↗</span></a
-    ><a routerLink="/notices" (click)="close()">Novidades <span>↗</span></a
-    ><a routerLink="/store" (click)="close()">Loja <span>↗</span></a>
+    <a routerLink="/" fragment="inicio" (click)="close()"
+      [class.active]="home() && section() === 'inicio'">Início <span>↗</span></a>
+    <a routerLink="/notices" (click)="close()">Novidades <span>↗</span></a>
+    <a routerLink="/how-to-play" (click)="close()">Como jogar <span>↗</span></a>
+    <a routerLink="/store" (click)="close()">Loja <span>↗</span></a>
+    <a routerLink="/" fragment="quem-somos" (click)="close()"
+      [class.active]="home() && section() === 'quem-somos'">Quem Somos <span>↗</span></a>
   </nav>
   <nav aria-label="Conta">
     @if (auth.isAuthenticated()) {
-      <a routerLink="/conta">Minha conta</a><a routerLink="/minhas-compras">Minhas compras</a>
+      <a routerLink="/conta">Minha conta</a><a routerLink="/minhas-compras">Meus apoios</a>
       @if (auth.isAdmin()) {
         <a routerLink="/admin">Administração</a
         ><button class="button secondary" (click)="auth.toggleAdminMode()">

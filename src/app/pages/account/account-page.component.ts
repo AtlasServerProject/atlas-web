@@ -3,16 +3,18 @@ import { DatePipe, CurrencyPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/auth.service';
 import { OrderService } from '../../core/order.service';
+import { PurchaseMailboxComponent } from './purchase-mailbox.component';
 import { VipStatusComponent } from './vip-status.component';
 import { MinecraftLinkComponent } from './minecraft-link.component';
 @Component({
   selector: 'app-account-page',
   standalone: true,
-  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent, VipStatusComponent],
+  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent, VipStatusComponent, PurchaseMailboxComponent],
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
     <h1>{{ purchases ? 'Meus apoios' : 'Minha conta' }}</h1>
     @if (purchases) {
+      <app-purchase-mailbox />
       <p>Acompanhe suas contribuições, pagamentos e a ativação dos benefícios VIP.</p>
       <p class="notice">
         O pagamento é confirmado após a verificação do Mercado Pago. Voltar ao site não confirma a
@@ -95,7 +97,7 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             }
           </dl>
           <app-minecraft-link />
-          <app-vip-status />
+          <app-vip-status /><app-purchase-mailbox />
           <p role="status">{{ feedback() }}</p>
           <a class="text-link" routerLink="/minhas-compras">Meus apoios →</a>
         </article>

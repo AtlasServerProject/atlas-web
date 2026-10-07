@@ -89,8 +89,7 @@
           <span class="eyebrow">COMANDOS VIP</span>
           <h2 id="commands-title">Comandos do seu VIP</h2>
           <p>
-            O voo está disponível. Os demais comandos estão planejados; regras, intervalos de uso e
-            níveis com acesso serão informados no lançamento de cada recurso.
+            Os comandos abaixo estão disponíveis para VIP 1, VIP 2 e VIP 3. A consulta de spawns é exclusiva do VIP 3. Os destinos de área VIP e lojas ainda serão configurados.
           </p>
           <dl class="command-list">
             <div>
@@ -100,11 +99,11 @@
                 autenticar no servidor.
               </dd>
             </div>
-            @for (entry of plannedCommands; track entry.command) {
+            @for (entry of vipCommands; track entry.command) {
               <div>
                 <dt>
                   <code>{{ entry.command }}</code
-                  ><span class="planned-badge">Em breve</span>
+                  ><span class="planned-badge">{{ entry.prepared ? 'Destino em breve' : 'Disponível' }}</span>
                 </dt>
                 <dd>{{ entry.description }}</dd>
               </div>
@@ -206,7 +205,7 @@
           <li>Entre na conta, confirme seu email e vincule seu Minecraft.</li>
           <li>Revise o jogador e o valor antes de confirmar.</li>
           <li>
-            O período começa quando o VIP for ativado no servidor, após a confirmação do pagamento.
+            Após o pagamento, a compra fica no correio. Use /compras no Minecraft e confirme quando quiser iniciar os dias do VIP.
           </li>
           <li>Se for menor de idade, converse com seu responsável.</li>
         </ul>

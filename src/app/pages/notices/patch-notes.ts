@@ -15,6 +15,10 @@ interface PatchNote {
 // Editorial summaries from atlas-docs main, commit 8badf7b.
 // Add new entries first; keep original release dates and validation limits.
 export const patchNotes: PatchNote[] = [
+ { id: 'correio-comandos-vip', version: '1.30.11', date: '2026-10-07', dateLabel: '07 out. 2026', category: 'Conta e apoio', title: 'Correio de compras e novos comandos VIP',
+ summary: 'Guarde seu apoio no /compras e escolha quando ativar o VIP. Novas utilidades e personalização para os três níveis.',
+ changes: ['Pagamento aprovado deixa o VIP no correio. Use /compras, selecione a compra e confirme: os 30 dias começam na ativação. Histórico e confirmação evitam ativação duplicada.', 'VIP 1, VIP 2 e VIP 3 recebem /craft, /trash, /repair, /pc, /pokeheal, /hatch, /pokecolor, /setcolor, /nick e /hat. /checkspawns é exclusivo do VIP 3.', '/repair e /hatch têm intervalo de 10 minutos; /pokeheal, de 1 minuto. PC, cura e eclosão não podem ser usados durante batalha.', '/warp vip e /lojas estão preparados, aguardando definição dos destinos pela equipe.'],
+ notice: 'Vendas reais continuam fechadas durante a homologação. Chaves entrarão no correio quando forem integradas à loja.', sources: [{label: 'Correio e comandos', path:'versions/v1.30.11.md'}] },
   {
     id: 'vip-kits',
     version: '1.30.2–1.30.3',

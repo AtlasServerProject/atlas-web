@@ -34,18 +34,18 @@ export class VipDetailPageComponent {
     homeCooldown: [15, 10, 5][this.tier() - 1],
     claimArea: [20000, 30000, 50000][this.tier() - 1]?.toLocaleString('pt-BR'),
   }));
-  readonly plannedCommands = [
+  readonly vipCommands = [
     { command: '/craft', description: 'Abrir a mesa de trabalho de onde estiver.' },
     { command: '/trash', description: 'Abrir uma lixeira para descartar itens.' },
-    { command: '/repair', description: 'Reparar ferramentas.' },
+    { command: '/repair', description: 'Reparar o item danificado da mão. Intervalo de 10 minutos.' },
     { command: '/pc', description: 'Acessar o PC de Pokémon remotamente.' },
-    { command: '/pokeheal', description: 'Curar os Pokémon da sua equipe.' },
-    { command: '/hatch', description: 'Facilitar a eclosão de ovos.' },
-    { command: '/warp vip', description: 'Acessar uma área exclusiva para VIPs.' },
-    { command: '/lojas', description: 'Acessar lojas de jogadores e os recursos de loja VIP.' },
-    { command: '/pokecolor', description: 'Personalizar a cor dos nomes dos seus Pokémon.' },
-    { command: '/setcolor', description: 'Escolher a cor das suas mensagens no chat por comando.' },
-    { command: '/nick', description: 'Personalizar seu apelido no servidor.' },
+    { command: '/pokeheal', description: 'Curar sua equipe fora de batalha. Intervalo de 1 minuto.' },
+    { command: '/hatch', description: 'Concluir o tempo de um ovo do Cobbreeding na mão. Intervalo de 10 minutos.' },
+    { command: '/warp vip', description: 'Comando preparado; a área VIP será configurada futuramente.', prepared: true },
+    { command: '/lojas', description: 'Comando preparado; área e sistema de lojas ainda serão configurados.', prepared: true },
+    { command: '/pokecolor <1–6> <cor>', description: 'Personalizar a cor dos nomes dos seus Pokémon.' },
+    { command: '/setcolor <cor>', description: 'Escolher a cor das suas mensagens no chat por comando.' },
+    { command: '/nick <apelido>', description: 'Personalizar seu apelido no chat. Use /nick off para remover.' },
     { command: '/hat', description: 'Usar um item como chapéu.' },
   ];
   readonly product = computed(() =>

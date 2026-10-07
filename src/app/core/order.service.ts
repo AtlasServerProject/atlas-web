@@ -127,7 +127,7 @@ export class OrderService {
       (
         {
           WAITING: 'Aguardando confirmação do pagamento',
-          PROCESSING: 'Preparando entrega',
+          PROCESSING: 'Compra no correio; consulte /compras',
           DELIVERED: 'Entregue',
           RETRY: 'Nova tentativa de entrega',
           REVIEW: 'Entrega em análise',

@@ -52,6 +52,7 @@ import { AuthService } from '../../core/auth.service';
           <label
             >Senha<span class="password-field"><input
               name="password"
+              aria-label="Senha"
               [type]="showPassword() ? 'text' : 'password'"
               [attr.autocomplete]="register ? 'new-password' : 'current-password'"
               required

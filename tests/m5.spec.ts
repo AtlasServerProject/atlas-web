@@ -50,7 +50,7 @@ test('M5: checkout pendente, erro recuperável, redirect restrito e confirmaçã
   order.deliveryStatus = 'PROCESSING';
   await page.getByRole('button', { name: 'Atualizar status', exact: true }).click();
   await expect(page.getByText('Pagamento confirmado', { exact: true })).toBeVisible();
-  await expect(page.getByText('Preparando entrega', { exact: true })).toBeVisible();
+  await expect(page.getByText('Compra no correio; consulte /compras', { exact: true })).toBeVisible();
   await expect(pay).not.toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   order.paymentStatus = 'PENDING';

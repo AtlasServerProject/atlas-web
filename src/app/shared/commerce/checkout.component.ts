@@ -30,10 +30,15 @@ import { OrderService, CheckoutInput } from '../../core/order.service';
         input.expectedCents / 100 | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
       }}</strong>
       <p>
-        O prazo do VIP começa quando ele for ativado no servidor. A entrega depende da confirmação
-        do pagamento.
+        Após a confirmação do pagamento, o VIP fica no /compras. O prazo começa quando você
+        confirmar a ativação no Minecraft.
       </p>
     }
+  <p class="notice">
+    <strong>Reembolsos:</strong> após a compra do VIP, não oferecemos reembolso, exceto quando
+    exigido por lei. Confira o plano, o valor e o jogador antes de confirmar. Em caso de problema
+    com o pagamento ou a entrega, entre em contato com a equipe Atlas.
+  </p>
     @if (error()) {
       <p role="alert">{{ error() }}</p>
       <a class="text-link" routerLink="/conta" (click)="close()">Conferir minha conta</a>

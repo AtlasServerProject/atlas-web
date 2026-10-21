@@ -64,8 +64,8 @@ body:not(.disable-cool-theme) {
 
   .hero-overlay {
     background:
-      linear-gradient(180deg, #080d2060, #102144a6 40%, #080d20ed 90%, var(--bg)),
-      linear-gradient(110deg, #101e4399, #30165633 65%, #071a3299);
+      linear-gradient(180deg, #080d2038, #10214455 40%, #080d20cc 90%, var(--bg)),
+      linear-gradient(110deg, #101e4333, #30165611 65%, #071a3244);
   }
 
   .hero-copy h1 {
@@ -114,9 +114,8 @@ body:not(.disable-cool-theme) {
     color: var(--muted);
   }
 
-  .about-visual img {
-    border-color: #a2baff44;
-    box-shadow: 0 30px 90px #04091a99;
+  .about-visual app-cobblemon-model {
+    filter: drop-shadow(0 24px 32px #04091a99);
   }
 
   .visual-orbit {
@@ -136,7 +135,7 @@ body:not(.disable-cool-theme) {
     background:
       linear-gradient(90deg, #08132aed, #18284eaa 60%, #2a1b4b88),
       linear-gradient(0deg, var(--bg), transparent 35%, transparent 65%, var(--bg)),
-      url('/atlas-hero.png') center/cover;
+      transparent;
   }
 
   .panorama p,
@@ -152,11 +151,7 @@ body:not(.disable-cool-theme) {
     background: linear-gradient(120deg, #162847, #221c3c);
   }
 
-  .cta {
-    background:
-      linear-gradient(#101d3ce6, #100e2bed),
-      url('/atlas-hero.png') center/cover;
-  }
+  .cta { background: transparent; }
 
   .pill {
     background: #8eb5ff12;

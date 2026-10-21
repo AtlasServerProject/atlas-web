@@ -1,5 +1,6 @@
 @use './cool-theme';
 
+@import url('./admin-dashboard.css');
 :root {
   color-scheme: dark;
   --bg: #080d20;
@@ -201,13 +202,23 @@ p {
 .feature-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 1248px;
-  margin: auto;
-  padding: 28px 0;
+  width: calc(100% - 80px);
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
   border-bottom: 1px solid var(--line);
   gap: 20px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--muted);
+}
+.feature-strip > span {
+  min-width: 0;
+  padding-inline: 16px;
+}
+.feature-strip > span + span {
+  border-left: 1px solid var(--line);
 }
 .feature-strip b {
   color: var(--accent);
@@ -434,7 +445,8 @@ p {
 }
 @media (max-width: 1000px) {
   .feature-strip {
-    margin-inline: 30px;
+    width: calc(100% - 60px);
+    padding-inline: 16px;
   }
   .card {
     padding: 24px;
@@ -452,9 +464,18 @@ p {
     font-size: 16px;
   }
   .feature-strip {
-    margin: 0 20px;
-    gap: 12px;
-    font-size: 10px;
+    width: calc(100% - 40px);
+    margin: 20px auto 0;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px;
+    font-size: 14px;
+  }
+  .feature-strip > span { padding: 0; }
+  .feature-strip > span + span {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
   }
   .feature-strip b {
     font-size: 8px;
@@ -662,5 +683,18 @@ select:focus-visible {
   .commerce-catalog .cards,
   .admin-section .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media print {
+  app-navbar,
+  app-footer,
+  app-play-modal,
+  .skip-link {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
   }
 }

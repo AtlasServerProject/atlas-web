@@ -1,5 +1,6 @@
+import { TicketsPageComponent } from './pages/account/tickets-page.component';
 import { RecoveryPageComponent } from './pages/account/recovery-page.component';
-import { adminGuard, authGuard } from './core/guards';
+import { adminGuard, authGuard, supportGuard } from './core/guards';
 import { AuthPageComponent } from './pages/account/auth-page.component';
 import { AccountPageComponent } from './pages/account/account-page.component';
 import { AdminPageComponent } from './pages/account/admin-page.component';
@@ -9,6 +10,7 @@ import { HowToPlayPageComponent } from './pages/how-to-play/how-to-play-page.com
 import { NoticesPageComponent } from './pages/notices/notices-page.component';
 import { StorePageComponent } from './pages/store/store-page.component';
 import { VipDetailPageComponent } from './pages/store/vip-detail-page.component';
+import { OrderReceiptComponent } from './pages/account/order-receipt.component';
 
 export const routes: Routes = [
   {
@@ -56,10 +58,29 @@ export const routes: Routes = [
     data: { purchases: true },
   },
   {
+    path: 'minhas-compras/:id/comprovante',
+    title: 'Comprovante da compra | Atlas Cobblemon',
+    component: OrderReceiptComponent,
+    canActivate: [authGuard],
+  },
+  {
     path: 'admin',
     title: 'Admin | Atlas Cobblemon',
     component: AdminPageComponent,
     canActivate: [adminGuard],
+  },
+  {
+    path: 'tickets',
+    title: 'Meus tickets | Atlas',
+    component: TicketsPageComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'admin/tickets',
+    title: 'Atendimento | Atlas',
+    component: TicketsPageComponent,
+    canActivate: [supportGuard],
+    data: { admin: true },
   },
   { path: '**', redirectTo: '' },
 ];

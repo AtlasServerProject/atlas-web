@@ -7,13 +7,8 @@
 <section id="quem-somos" class="section about" aria-labelledby="about-title">
   <div class="about-visual" atlasReveal="left">
     <div class="visual-orbit" aria-hidden="true"></div>
-    <img
-      src="/logo-atlas.jpeg"
-      width="655"
-      height="655"
-      loading="lazy"
-      alt="Emblema Atlas com Pokémon e detalhes de blocos"
-    /><span class="visual-label">UMA NOVA JORNADA / EMERALD</span>
+    <app-cobblemon-model />
+    <span class="visual-label">UMA NOVA JORNADA / EMERALD</span>
   </div>
   <div atlasReveal="right">
     <span class="eyebrow">CONHEÇA O ATLAS</span>
@@ -67,6 +62,7 @@
   </div>
 </section>
 <section class="panorama" atlasParallax aria-label="Explore o Emerald">
+  <app-background-video src="/media/atlas-surf-hq.mp4" poster="/media/atlas-surf-hq.jpg" />
   <div class="panorama-art" aria-hidden="true"></div>
   <div class="panorama-copy" atlasReveal="fade">
     <span class="eyebrow">PRIMEIRO DESTINO · EMERALD</span>
@@ -77,7 +73,7 @@
     </p>
     <button class="button button-secondary" (click)="play.open()">Explore o Atlas ↗</button>
   </div>
-  <small class="art-caption">Arte ilustrativa do universo Atlas</small>
+  <small class="art-caption">Cenas do Cobblemon · vídeo ilustrativo</small>
 </section>
 <section class="section horizons">
   <div atlasReveal="left">
@@ -107,6 +103,7 @@
   </div>
 </section>
 <section class="cta" id="discord">
+  <app-background-video src="/media/atlas-lighthouse-hq.mp4" poster="/media/atlas-lighthouse-hq.jpg" />
   <div atlasReveal="up">
     <span class="eyebrow">SEU PRÓXIMO CAPÍTULO</span>
     <h2>Pronto para começar<br />sua <em>aventura?</em></h2>

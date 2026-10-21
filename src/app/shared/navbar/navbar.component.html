@@ -34,6 +34,10 @@
             <div id="account-dropdown" class="account-dropdown" (focusout)="accountBlur($event)">
               <a routerLink="/conta">Minha conta</a
               ><a routerLink="/minhas-compras">Meus apoios</a>
+              <a routerLink="/tickets">Meus tickets</a>
+              @if (auth.canSupport()) {
+                <a routerLink="/admin/tickets">Atendimento da equipe</a>
+              }
               @if (auth.isAdmin()) {
                 <hr />
                 <button (click)="auth.toggleAdminMode()">
@@ -87,6 +91,10 @@
   <nav aria-label="Conta">
     @if (auth.isAuthenticated()) {
       <a routerLink="/conta">Minha conta</a><a routerLink="/minhas-compras">Meus apoios</a>
+      <a routerLink="/tickets">Meus tickets</a>
+      @if (auth.canSupport()) {
+        <a routerLink="/admin/tickets">Atendimento da equipe</a>
+      }
       @if (auth.isAdmin()) {
         <a routerLink="/admin">Administração</a
         ><button class="button secondary" (click)="auth.toggleAdminMode()">

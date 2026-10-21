@@ -15,6 +15,9 @@ export class AuthService {
   readonly currentUser = this.userState.asReadonly();
   readonly isAuthenticated = computed(() => !!this.currentUser());
   readonly isAdmin = computed(() => this.hasRole('ADMIN'));
+  readonly canSupport = computed(
+    () => this.hasRole('ADMIN') || this.hasRole('SUPPORT') || this.hasRole('MODERATOR'),
+  );
   readonly adminMode = computed(() => this.isAdmin() && this.mode());
   readonly currentUser$ = toObservable(this.currentUser);
   readonly isAuthenticated$ = toObservable(this.isAuthenticated);
@@ -33,7 +36,11 @@ export class AuthService {
         await firstValueFrom(this.http.get<User>('/api/v1/users/me', { withCredentials: true })),
       );
       const user = this.currentUser();
-      if (!user || typeof user.id !== 'string' || !['USER', 'ADMIN'].includes(user.role)) {
+      if (
+        !user ||
+        typeof user.id !== 'string' ||
+        !['USER', 'SUPPORT', 'MODERATOR', 'ADMIN'].includes(user.role)
+      ) {
         this.userState.set(null);
         throw new Error('Resposta de conta inválida.');
       }

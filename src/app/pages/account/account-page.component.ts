@@ -8,25 +8,56 @@ import { VipStatusComponent } from './vip-status.component';
 import { MinecraftLinkComponent } from './minecraft-link.component';
 @Component({
   selector: 'app-account-page',
+  styles: `
+    .purchase-refresh {
+      margin-bottom: 24px;
+    }
+    .purchase-cards {
+      align-items: start;
+    }
+    .purchase-cards .card {
+      min-width: 0;
+    }
+    .purchase-cards small {
+      display: block;
+      overflow-wrap: anywhere;
+      margin-bottom: 16px;
+    }
+    .purchase-cards .button {
+      margin-top: 12px;
+    }
+  `,
   standalone: true,
-  imports: [DatePipe, CurrencyPipe, RouterLink, MinecraftLinkComponent, VipStatusComponent, PurchaseMailboxComponent],
+  imports: [
+    DatePipe,
+    CurrencyPipe,
+    RouterLink,
+    MinecraftLinkComponent,
+    VipStatusComponent,
+    PurchaseMailboxComponent,
+  ],
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
     <h1>{{ purchases ? 'Meus apoios' : 'Minha conta' }}</h1>
     @if (purchases) {
       <app-purchase-mailbox />
-      <p>Acompanhe suas contribuições, pagamentos e a ativação dos benefícios VIP.</p>
+      <p>Acompanhe seus pedidos, pagamentos e entregas.</p>
+      <a class="button secondary" routerLink="/tickets">Meus tickets</a>
       <p class="notice">
         O pagamento é confirmado após a verificação do Mercado Pago. Voltar ao site não confirma a
         contribuição.
       </p>
-      <button class="button secondary" [disabled]="orders.loading()" (click)="orders.load()">
+      <button
+        class="button secondary purchase-refresh"
+        [disabled]="orders.loading()"
+        (click)="orders.load()"
+      >
         Atualizar status
       </button>
       @if (paymentError()) {
         <p role="alert">{{ paymentError() }}</p>
       }
-      <div class="cards">
+      <div class="cards purchase-cards">
         @for (order of orders.mine(); track order.id) {
           <article class="card">
             <h3>{{ order.snapshot.productName }}</h3>
@@ -40,6 +71,23 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             <p class="pill">{{ orders.paymentLabel(order.paymentStatus) }}</p>
             <p>{{ orders.deliveryLabel(order.deliveryStatus) }}</p>
             <small>Registro de apoio {{ order.id }}</small>
+            <a class="button secondary" routerLink="/tickets" [queryParams]="{ pedido: order.id }"
+              >Preciso de ajuda</a
+            >
+            @if (['PAID', 'REFUNDED', 'CHARGEBACK'].includes(order.paymentStatus)) {
+              <a
+                class="button secondary"
+                [routerLink]="['/minhas-compras', order.id, 'comprovante']"
+                >Ver comprovante</a
+              >
+              <button
+                class="button secondary"
+                [disabled]="downloading() !== ''"
+                (click)="download(order.id)"
+              >
+                {{ downloading() === order.id ? 'Preparando PDF…' : 'Baixar comprovante (PDF)' }}
+              </button>
+            }
             @if (order.paymentStatus === 'PENDING') {
               <p>PIX ou cartão na página do Mercado Pago.</p>
               <button class="button" [disabled]="paying() !== ''" (click)="pay(order.id)">
@@ -91,13 +139,22 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
             <dd>{{ user.email }}</dd>
             <dt>Data da conta</dt>
             <dd>{{ user.createdAt | date: 'dd/MM/yyyy' }}</dd>
-            @if (auth.isAdmin()) {
+            @if (auth.canSupport()) {
               <dt>Perfil</dt>
-              <dd>ADMIN</dd>
+              <dd>
+                {{ user.role === 'ADMIN' ? 'ADM' : user.role === 'MODERATOR' ? 'MOD' : 'SUP' }}
+              </dd>
             }
           </dl>
+          @if (auth.canSupport()) {
+            <a class="button secondary" routerLink="/admin/tickets">Atendimento da equipe</a>
+          }
           <app-minecraft-link />
-          <app-vip-status /><app-purchase-mailbox />
+          <app-vip-status /><app-purchase-mailbox /><a
+            class="button secondary"
+            routerLink="/tickets"
+            >Meus tickets</a
+          >
           <p role="status">{{ feedback() }}</p>
           <a class="text-link" routerLink="/minhas-compras">Meus apoios →</a>
         </article>
@@ -113,6 +170,21 @@ export class AccountPageComponent {
   readonly sending = signal(false);
   readonly paying = signal('');
   readonly paymentError = signal('');
+  readonly downloading = signal('');
+  async download(id: string) {
+    if (this.downloading()) return;
+    this.downloading.set(id);
+    this.paymentError.set('');
+    try {
+      await this.orders.downloadReceipt(id);
+    } catch (e) {
+      this.paymentError.set(
+        e instanceof Error ? e.message : 'Não foi possível baixar o comprovante.',
+      );
+    } finally {
+      this.downloading.set('');
+    }
+  }
   async pay(id: string) {
     if (this.paying()) return;
     this.paying.set(id);

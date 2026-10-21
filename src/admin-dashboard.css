@@ -1,0 +1,436 @@
+/* 1. Reset / variables — admin-only tokens preserve the public site's identity. */
+:root {
+  --admin-blue: #77bcff;
+  --admin-green: #b9eb87;
+  --admin-focus: #8ad6ff;
+}
+app-admin-page {
+  display: block;
+}
+.admin-dashboard {
+  color-scheme: dark;
+  --dash-bg: #0c151d;
+  --dash-panel: #141f2a;
+  --dash-raised: #1a2936;
+  --dash-text: #ecf3fa;
+  --dash-muted: #a5b7c7;
+  --dash-line: #b5d2ea24;
+  --dash-accent: var(--admin-green);
+  --dash-accent-ink: #142313;
+  --dash-error: #ffb1b1;
+  color: var(--dash-text);
+  background: var(--dash-bg);
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  border: 1px solid var(--dash-line);
+  border-radius: 20px;
+  margin: 24px auto 64px;
+  max-width: 1500px;
+  width: calc(100% - 48px);
+  overflow-wrap: anywhere;
+}
+
+.admin-dashboard :is(h1, h2, h3) {
+  color: var(--dash-text);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+.admin-dashboard .admin-header h1 {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin: 8px 0 12px;
+}
+.admin-dashboard h2 {
+  font-size: 1.35rem;
+  margin-bottom: 18px;
+}
+.admin-dashboard h3 {
+  font-size: 1.05rem;
+  margin-bottom: 10px;
+}
+.admin-dashboard :is(p, small, dt) {
+  color: var(--dash-muted);
+}
+.admin-dashboard :is(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--admin-focus);
+  outline-offset: 3px;
+}
+.admin-dashboard [id] {
+  scroll-margin-top: 120px;
+}
+
+/* 2. Layout — sidebar / header */
+.admin-dashboard {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  align-items: start;
+}
+.admin-sidebar {
+  position: sticky;
+  top: 110px;
+  padding: 28px 20px;
+}
+.admin-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.admin-brand > img {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  background: var(--dash-raised);
+  color: var(--dash-accent);
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.admin-brand strong {
+  display: block;
+  letter-spacing: 0.16em;
+}
+.admin-brand small {
+  display: block;
+  font-size: 0.72rem;
+}
+.admin-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.admin-nav a {
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--dash-muted);
+  font-weight: 550;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+.admin-nav a:hover {
+  background: var(--dash-raised);
+  color: var(--dash-text);
+}
+.admin-workspace {
+  min-width: 0;
+  border-left: 1px solid var(--dash-line);
+  padding: clamp(18px, 3vw, 36px);
+}
+.admin-dashboard .section {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 26px;
+  padding: 26px;
+  background: var(--dash-panel);
+  border: 1px solid var(--dash-line);
+  border-radius: 14px;
+}
+.admin-dashboard .admin-header {
+  padding: 0 0 22px;
+  border: 0;
+  background: transparent;
+}
+.admin-header .eyebrow {
+  color: var(--dash-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+.admin-menu-toggle {
+  display: none !important;
+}
+.admin-dashboard .admin-support-link {
+  padding: 16px 22px;
+}
+
+/* 3. Cards / dashboard — subtle block geometry and real catalog metrics. */
+.admin-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.admin-metric {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 22px 16px;
+  border: 1px solid var(--dash-line);
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--dash-panel), var(--dash-raised));
+}
+.metric-icon {
+  color: var(--dash-accent);
+  font-size: 24px;
+}
+.admin-metric div > span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--dash-muted);
+}
+.admin-metric strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+.admin-dashboard .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.admin-dashboard .card {
+  min-width: 0;
+  background: var(--dash-raised);
+  border: 1px solid var(--dash-line);
+  border-radius: 10px;
+  padding: 22px;
+  box-shadow: none;
+}
+.admin-dashboard .card:hover {
+  border-color: color-mix(in srgb, var(--dash-accent) 40%, var(--dash-line));
+}
+.admin-dashboard .product-price {
+  display: block;
+  color: var(--dash-accent);
+  font-size: 1.55rem;
+  margin: 12px 0;
+  font-variant-numeric: tabular-nums;
+}
+.admin-dashboard .promotion-heading {
+  margin-top: 34px;
+  padding-top: 20px;
+  border-top: 1px solid var(--dash-line);
+}
+
+/* 4. Tables / forms */
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 20px 0;
+  table-layout: fixed;
+  border: 1px solid var(--dash-line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.admin-dashboard :is(th, td) {
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--dash-line);
+  overflow-wrap: anywhere;
+}
+.admin-dashboard th {
+  background: var(--dash-raised);
+  color: var(--dash-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.admin-dashboard tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--dash-raised) 55%, transparent);
+}
+.admin-dashboard tbody tr:hover {
+  background: var(--dash-raised);
+}
+.admin-dashboard tbody tr:last-child td {
+  border-bottom: 0;
+}
+.admin-dashboard form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+.admin-dashboard label {
+  display: grid;
+  gap: 7px;
+  font-size: 0.9rem;
+  color: var(--dash-text);
+}
+.admin-dashboard :is(input:not([type='checkbox']), select, textarea) {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--dash-line);
+  border-radius: 8px;
+  background: var(--dash-bg);
+  color: var(--dash-text);
+  font: inherit;
+  padding: 11px 13px;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.admin-dashboard textarea {
+  min-height: 105px;
+  resize: vertical;
+}
+.admin-dashboard :is(input, select, textarea):focus {
+  border-color: var(--admin-focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--admin-focus) 15%, transparent);
+}
+.admin-dashboard :is(input, textarea).ng-invalid.ng-touched {
+  border-color: var(--dash-error);
+}
+.admin-dashboard input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--dash-accent);
+}
+.admin-dashboard label:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.admin-dashboard [role='alert'] {
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--dash-error) 45%, transparent);
+  color: var(--dash-error);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--dash-error) 7%, transparent);
+}
+.admin-dashboard .notice {
+  background: var(--dash-bg);
+  color: var(--dash-muted);
+  border-color: var(--dash-line);
+}
+
+/* 5. Components / buttons — keyboard, disabled and loading feedback */
+.admin-dashboard .button {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.4;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: var(--dash-accent-ink);
+  background: var(--dash-accent);
+  box-shadow: none;
+  transition:
+    filter 0.18s,
+    transform 0.18s,
+    border-color 0.18s;
+}
+.admin-dashboard .button.secondary {
+  color: var(--dash-text);
+  background: var(--dash-raised);
+  border-color: var(--dash-line);
+}
+.admin-dashboard .button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+  border-color: var(--dash-accent);
+}
+.admin-dashboard .button:active:not(:disabled) {
+  transform: translateY(0);
+  filter: brightness(0.95);
+}
+.admin-dashboard .button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+.admin-dashboard .actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.admin-dashboard .actions > span {
+  color: var(--dash-muted);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+}
+.admin-dashboard [role='status'] {
+  color: var(--dash-muted);
+  padding: 10px 0;
+}
+.admin-dashboard [aria-busy='true'] {
+  cursor: progress;
+}
+.admin-dashboard .commerce-dialog {
+  background: var(--dash-panel);
+  color: var(--dash-text);
+  border: 1px solid var(--dash-line);
+  border-radius: 14px;
+  max-width: min(560px, calc(100vw - 32px));
+}
+
+/* 6. Responsive layouts — desktop, tablet, mobile */
+@media (max-width: 1100px) {
+  .admin-dashboard {
+    grid-template-columns: 195px minmax(0, 1fr);
+    width: calc(100% - 28px);
+  }
+  .admin-sidebar {
+    padding: 22px 12px;
+  }
+  .admin-metrics {
+    grid-template-columns: 1fr;
+  }
+  .admin-metric {
+    padding: 15px 20px;
+  }
+  .admin-metric div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    gap: 12px;
+  }
+}
+@media (max-width: 760px) {
+  .admin-dashboard {
+    grid-template-columns: 1fr;
+    width: calc(100% - 20px);
+    margin-top: 16px;
+    border-radius: 12px;
+  }
+  .admin-sidebar {
+    position: static;
+    padding: 18px;
+    border-bottom: 1px solid var(--dash-line);
+  }
+  .admin-brand {
+    margin-bottom: 14px;
+  }
+  .admin-menu-toggle {
+    display: inline-flex !important;
+  }
+  .admin-nav {
+    display: none;
+    margin-top: 12px;
+  }
+  .admin-sidebar.is-open .admin-nav {
+    display: flex;
+  }
+  .admin-workspace {
+    border-left: 0;
+    padding: 18px 12px;
+  }
+  .admin-dashboard .section {
+    padding: 20px 16px;
+  }
+  .admin-dashboard .admin-header {
+    padding: 0 4px 14px;
+  }
+  .admin-dashboard .card {
+    padding: 18px;
+  }
+  .admin-dashboard :is(th, td) {
+    padding: 12px 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .admin-dashboard * {
+    transition: none !important;
+    scroll-behavior: auto;
+  }
+}

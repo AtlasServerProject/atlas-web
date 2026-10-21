@@ -1,0 +1,36 @@
+ATLAS COBBLEMON — LEIA-ME DE INSTALAÇÃO
+
+DOWNLOAD OFICIAL DO MODPACK E DOS RECURSOS
+https://drive.google.com/drive/folders/1SMYUUUn1nnJtcw_9fqzsX-7LYiZjHhot?usp=drive_link
+
+1. MINECRAFT
+Use Minecraft Java 1.21.1 com Fabric. Crie uma instalação separada no launcher.
+Confirme com a equipe a versão do Fabric, se necessário.
+Inicie essa instalação uma vez e feche o jogo antes de copiar os arquivos.
+
+2. MODPACK COMPLETO
+O modpack oficial já inclui mods, Atlas Textures e o pacote de sons.
+Baixe o pacote completo no Google Drive e extraia para a instalação do Atlas,
+mantendo a estrutura das pastas fornecidas: mods em mods; texturas e sons
+em resourcepacks. Os arquivos .jar devem ficar diretamente em mods.
+Não deixe mods/mods e não misture mods de outros pacotes.
+
+3. TEXTURAS E SONS INCLUÍDOS
+Não é necessário baixar texturas ou sons separadamente.
+Mantenha os ZIPs desses recursos em resourcepacks SEM EXTRAIR.
+No jogo, abra Opções > Pacotes de recursos, ative Atlas Textures e o pacote
+de sons incluído e confirme. Evite versões antigas ou duplicadas ativas.
+Atlas Textures reúne interface Cobblemon, ícones do minimapa e sprites do GTS.
+
+4. CONEXÃO
+Abra Multijogador > Adicionar servidor.
+Nome: Atlas
+Endereço do servidor principal: stapling-gpo.tun.ply.gg
+Siga as instruções de login no jogo e entre no Emerald.
+O projeto está em testes; confirme a disponibilidade com a equipe.
+
+AJUDA E ATUALIZAÇÕES
+Guia: https://www.atlascobblemon.com.br/how-to-play
+Discord: https://discord.gg/uUBN4YV6Y
+Se ocorrer um erro, envie a mensagem ou o log da instalação à equipe.
+Nunca envie sua senha.

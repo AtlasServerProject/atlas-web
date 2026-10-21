@@ -6,3 +6,6 @@ export const adminGuard: CanActivateFn = () =>
   inject(AuthService).isAdmin() || inject(Router).createUrlTree(['/']);
 export const authGuard: CanActivateFn = () =>
   inject(AuthService).isAuthenticated() || inject(Router).createUrlTree(['/login']);
+
+export const supportGuard: CanActivateFn = () =>
+  inject(AuthService).canSupport() || inject(Router).createUrlTree(['/']);

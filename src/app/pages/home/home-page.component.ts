@@ -1,3 +1,5 @@
+import { BackgroundVideoComponent } from '../../shared/background-video/background-video.component';
+import { CobblemonModelComponent } from '../../shared/cobblemon-model/cobblemon-model.component';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { HeroComponent } from '../../shared/hero/hero.component';
@@ -8,7 +10,7 @@ import { SiteSettings } from '../../shared/site-settings.service';
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [RouterLink, HeroComponent, ScrollRevealDirective, ParallaxDirective],
+  imports: [BackgroundVideoComponent, CobblemonModelComponent, RouterLink, HeroComponent, ScrollRevealDirective, ParallaxDirective],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
 })

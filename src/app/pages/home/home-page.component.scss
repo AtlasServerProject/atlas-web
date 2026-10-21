@@ -31,19 +31,9 @@
   border-radius: var(--radius-lg);
   background: #0f201b;
 }
-.about-visual img {
+.about-visual app-cobblemon-model {
   position: relative;
-  width: 85%;
-  height: auto;
-  max-width: 370px;
-  border-radius: 32px;
-  border: 1px solid #b6a46944;
-  box-shadow: 0 30px 90px #0006;
-  transform: rotate(-4deg);
-  transition: transform 0.5s;
-}
-.about-visual:hover img {
-  transform: rotate(0);
+  filter: drop-shadow(0 24px 28px #0006);
 }
 .visual-orbit {
   position: absolute;
@@ -77,7 +67,7 @@
   background:
     linear-gradient(90deg, #03110de8, #08201499 60%, #09171b55),
     linear-gradient(0deg, var(--bg), transparent 35%, transparent 65%, var(--bg)),
-    url('/atlas-hero.png') center/cover;
+    transparent;
 }
 .panorama h2 {
   max-width: 700px;
@@ -88,7 +78,7 @@
 .art-caption {
   position: absolute;
   bottom: 20px;
-  right: 25px;
+  left: 25px;
   color: #b4c5b9;
   font-size: 9px;
 }
@@ -122,9 +112,18 @@
   margin: 0;
 }
 .cta {
-  background:
-    linear-gradient(#06150dd9, #06110fed),
-    url('/atlas-hero.png') center/cover;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: transparent;
+}
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(#101d3ca8, #100e2bdf);
+  pointer-events: none;
 }
 .cta .actions {
   justify-content: center;
@@ -148,9 +147,18 @@
     grid-template-columns: 1fr;
   }
   .about-visual {
-    max-width: 320px;
+    width: 100%;
+    max-width: 340px;
+    box-sizing: border-box;
+    padding: 0;
     margin: auto;
   }
+  .visual-orbit {
+    inset: 0 0 auto;
+    aspect-ratio: 1;
+    box-sizing: border-box;
+  }
+  .visual-label { margin-top: 24px; }
   .about {
     gap: 45px;
   }
@@ -163,5 +171,18 @@
   }
   .cta .actions {
     flex-direction: column;
+  }
+}
+
+.panorama-art { pointer-events: none; }
+.panorama-copy, .cta > div { pointer-events: none; }
+.panorama-copy button, .cta .actions { pointer-events: auto; }
+
+@media (min-width: 901px) {
+  .cta {
+    --background-video-position: 50% 100%;
+    min-height: clamp(640px, 52vw, 1000px);
+    display: grid;
+    place-items: center;
   }
 }

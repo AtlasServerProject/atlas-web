@@ -27,11 +27,11 @@ Para publicar via CLI autenticada: `npx netlify-cli login`, depois `npx netlify-
 
 ### Publicação ativa
 
-Produção: https://atlas-cobblemon.netlify.app. Deploy manual do build compilado; integração automática por Git ainda não configurada. Novas alterações exigem build e deploy. Registro da publicação e validação em `atlas-docs/ATLAS-WEB.md`. O endereço público do site não é o endereço de conexão Minecraft.
+Produção: https://atlas-cobblemon.netlify.app. Deploy manual do build compilado; integração automática por Git ainda não configurada. Novas alterações exigem build e deploy. Registro da publicação e validação em `atlas-docs/SITE-DISCORD.md`. O endereço público do site não é o endereço de conexão Minecraft.
 
 ## Loja VIP
 
-VIP 1: R$ 25,00; VIP 2: R$ 35,00; VIP 3: R$ 50,00. Valores por 30 dias, sem renovação automática, sujeitos a alteração até a abertura das vendas. Kits incluídos, sem venda avulsa. Chaves serão produtos separados futuramente. Nove prints originais e ampliação em dialog nativo. Catálogo em pré-lançamento: pagamento e ativação ainda indisponíveis. Especificação comercial em atlas-docs/LOJA.md.
+VIP 1: R$ 25,00; VIP 2: R$ 35,00; VIP 3: R$ 50,00. Valores por 30 dias, sem renovação automática, sujeitos a alteração até a abertura das vendas. Kits incluídos, sem venda avulsa. Chaves serão produtos separados futuramente. Nove prints originais e ampliação em dialog nativo. Catálogo em pré-lançamento: pagamento e ativação ainda indisponíveis. Especificação comercial em atlas-docs/PAGAMENTOS.md.
 
 ## Interface e configuração pública
 
@@ -50,7 +50,7 @@ Compile com `npm run build` e execute `python3 scripts/verify-local.py --web-tes
 
 Após atualizações compatíveis, a auditoria npm ainda reporta 10 alertas em dependências Angular/toolchain, incluindo severidades alta e crítica. A remediação continua pendente e deve ser validada antes de adicionar autenticação/pagamento; não considerar a auditoria limpa.
 
-Especificação da integração comercial futura: `atlas-docs/LOJA-BACKEND.md`.
+Especificação da integração comercial futura: `atlas-docs/PAGAMENTOS.md`.
 
 
 ## Conta, loja e administração (demonstração frontend)
@@ -86,4 +86,4 @@ A suíte de comércio cobre login USER/ADMIN, erro de login, logout, cadastro, s
 
 ## Migração para Cloudflare Pages (03/10/2026)
 
-Preparada, aguardando autorização da conta e ativação de `atlascobblemon.com.br`. Use `npm run build:pages` (saída `dist/atlas-web/browser`) e `npm run test:hosting`. Pages usa um Worker apenas para `/api/`, com origem fixa `api.atlascobblemon.com.br`; o API/PostgreSQL continua na VM. No painel Pages, conectar o GitHub `AtlasServerProject/atlas-web`, branch main, build `npm run build:pages`, Node 24.21.0. Não criar por Direct Upload se desejar a integração Git nativa. Configuração e ativação do túnel permanente: [CLOUDFLARE.md](../atlas-docs/CLOUDFLARE.md). Não declarar publicado antes do teste HTTPS real.
+Preparada, aguardando autorização da conta e ativação de `atlascobblemon.com.br`. Use `npm run build:pages` (saída `dist/atlas-web/browser`) e `npm run test:hosting`. Pages usa um Worker apenas para `/api/`, com origem fixa `api.atlascobblemon.com.br`; o API/PostgreSQL continua na VM. No painel Pages, conectar o GitHub `AtlasServerProject/atlas-web`, branch main, build `npm run build:pages`, Node 24.21.0. Não criar por Direct Upload se desejar a integração Git nativa. Configuração e ativação do túnel permanente: [CLOUDFLARE.md](../atlas-docs/OPERACAO.md). Não declarar publicado antes do teste HTTPS real.

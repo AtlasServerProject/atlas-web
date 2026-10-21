@@ -33,6 +33,10 @@ interface OrdersPage {
   size: number;
   hasNext: boolean;
 }
+export interface OrderReceipt {
+  order: AtlasOrder;
+  payments: { id: string; status: string; updatedAt: string; mode: string; duplicate: boolean }[];
+}
 @Injectable({ providedIn: 'root' })
 export class OrderService {
   private readonly auth = inject(AuthService);
@@ -106,6 +110,23 @@ export class OrderService {
   }
   async detail(id: string) {
     return this.api.get<AtlasOrder>('orders/' + encodeURIComponent(id));
+  }
+  async receipt(id: string) {
+    const owner = this.auth.currentUser()?.id;
+    const receipt = await this.api.get<OrderReceipt>(
+      'orders/' + encodeURIComponent(id) + '/receipt',
+    );
+    if (!owner || owner !== this.auth.currentUser()?.id)
+      throw new Error('Sua sessão mudou. Entre novamente.');
+    return receipt;
+  }
+  async downloadReceipt(id: string) {
+    const owner = this.auth.currentUser()?.id;
+    const receipt = await this.receipt(id);
+    const { createReceiptPdf } = await import('./receipt-pdf');
+    if (!owner || owner !== this.auth.currentUser()?.id)
+      throw new Error('Sua sessão mudou. Entre novamente.');
+    createReceiptPdf(receipt).save('comprovante-atlas-' + receipt.order.id + '.pdf');
   }
   paymentLabel(status: string) {
     return (

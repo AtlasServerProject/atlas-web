@@ -1,4 +1,4 @@
-export type UserRole = 'USER' | 'ADMIN';
+export type UserRole = 'USER' | 'SUPPORT' | 'MODERATOR' | 'ADMIN';
 export interface User {
   id: string;
   emailVerified: boolean;

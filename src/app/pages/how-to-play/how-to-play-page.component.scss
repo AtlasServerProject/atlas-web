@@ -1,3 +1,9 @@
-:host {
-  display: block;
-}
+:host { display: block; }
+.guide-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 16px; }
+.resource-list { padding: 16px 16px 16px 36px; margin: 18px 0; border: 1px solid var(--border); border-radius: 12px; background: rgba(185,235,135,.04); }
+.resource-list li { padding: 6px 0; overflow-wrap: anywhere; }
+.server-address { display: flex; flex-direction: column; gap: 8px; padding: 20px; margin: 18px 0; background: rgba(185,235,135,.07); border: 1px solid rgba(185,235,135,.25); border-radius: 12px; }
+.server-address span { font-size: .8rem; text-transform: uppercase; letter-spacing: .1em; }
+.server-address code { font-size: clamp(1rem, 3vw, 1.45rem); color: #b9eb87; user-select: all; overflow-wrap: anywhere; }
+.faq > .button { margin-top: 24px; }
+@media (max-width: 600px) { .guide-actions .button { width: 100%; text-align: center; } }

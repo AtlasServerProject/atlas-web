@@ -1,0 +1,5 @@
+Torterra model and texture: Cobblemon project, extracted unchanged from Cobblemon-fabric-1.7.3+1.21.1.jar.
+Source: https://cobblemon.com/
+License supplied by the model authors is preserved in LICENSE.
+The adjacent torterra-preview.png is a rendered view of these assets.
+Pokémon belongs to its respective rights holders.

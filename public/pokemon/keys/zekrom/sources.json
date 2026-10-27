@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0644_zekrom/0_zekrom_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0644_zekrom/zekrom.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0644_zekrom/zekrom.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0644_zekrom/zekrom.png",
+      "sha256": "9afa64cceb7c1ff9f77e45c1386ee71a889c2b69477b3fdcb5d027f11cf8afb1"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0644_zekrom/zekrom_shiny.png",
+      "sha256": "5e66d78c4aee447ecc5d2251603ef87a712f364416ae9c5417489f2e4ab21b9a"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0644_zekrom/zekrom_emissive.png",
+      "sha256": "56d79df6ec2453f5edf824c2585aa473f57fa4afc91f7c33f6cd7670ea79e3d4"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0644_zekrom/zekrom_emissive_shiny.png",
+      "sha256": "261781cb0e08dc8f9b045f8abe6eb314bb192e59a0c8d92d9bac9203b192b66a"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.zekrom.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0644_zekrom/zekrom.animation.json"
+    }
+  ]
+}

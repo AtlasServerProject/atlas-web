@@ -1,4 +1,4 @@
-import { Injectable, inject, signal, effect } from '@angular/core';
+import { Injectable, inject, signal, DestroyRef } from '@angular/core';
 import { AuthService } from './auth.service';
 import { CommerceClient } from './commerce-client.service';
 export interface MinecraftLink {
@@ -33,7 +33,7 @@ export class MinecraftLinkService {
   private owner = '';
   private generation = 0;
   constructor() {
-    effect(() => {
+    const reset = () => {
       const id = this.auth.currentUser()?.id || '';
       if (id !== this.owner) {
         this.owner = id;
@@ -44,7 +44,10 @@ export class MinecraftLinkService {
         this.busy.set(false);
         if (id) void this.refresh();
       }
-    });
+    };
+    const subscription = this.auth.sessionChanges.subscribe(reset);
+    inject(DestroyRef).onDestroy(() => subscription.unsubscribe());
+    reset();
   }
   async refresh() {
     const owner = this.owner;

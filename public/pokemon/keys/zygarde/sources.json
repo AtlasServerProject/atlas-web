@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0718_zygarde/1_zygarde_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0718_zygarde/zygarde.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0718_zygarde/zygarde.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0718_zygarde/zygarde.png",
+      "sha256": "fd66800e37ab6007c5bccd85bb43cf1cf9f92c72b9ac48acbe2d31082ff517ea"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0718_zygarde/zygarde_shiny.png",
+      "sha256": "67154c4791c9a1982400780660e785ebab24841dc117f27cebcc7f378b0e3db6"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.zygarde.walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0718_zygarde/zygarde.animation.json"
+    }
+  ]
+}

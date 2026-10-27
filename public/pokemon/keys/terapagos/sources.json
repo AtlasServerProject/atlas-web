@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1024_terapagos/0_terapagos_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1024_terapagos/terapagos.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1024_terapagos/terapagos.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1024_terapagos/terapagos.png",
+      "sha256": "19ab6fb5d6bc3a24b1c43139c879f0fb21864aae66b6e6160134269c1c4b5225"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1024_terapagos/terapagos_shiny.png",
+      "sha256": "d87e09b275e814e59a5cf33429b70331d1021367061109446c77100bcd929b63"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.terapagos.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1024_terapagos/terapagos.animation.json"
+    }
+  ]
+}

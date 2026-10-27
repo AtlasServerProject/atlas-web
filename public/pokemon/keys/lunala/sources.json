@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0792_lunala/0_lunala_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0792_lunala/lunala.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0792_lunala/lunala.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0792_lunala/lunala.png",
+      "sha256": "842654dcd06c1a58ceef7570ae957df87ea21b9f2863920907d891e6dff3459f"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0792_lunala/lunala_shiny.png",
+      "sha256": "0a2e5789d9606e0f421b51d3ad17b18dcd7d66cd2aeb39c40fe457cb006f6bea"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0792_lunala/lunala_emissive.png",
+      "sha256": "37d2ffe5fc0b095e7ecf2d9671875a7871b1564c20d517292f6b2c904a221094"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0792_lunala/lunala_shiny_emissive.png",
+      "sha256": "70d386c046da55369139a9bbba486039d63c9e96fa989d76628c435301cb4e1b"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.lunala.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0792_lunala/lunala.animation.json"
+    }
+  ]
+}

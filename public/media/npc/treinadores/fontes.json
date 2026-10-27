@@ -1,0 +1,63 @@
+{
+  "author": "Jakotens",
+  "source": "https://modrinth.com/resourcepack/jakotens-pokmon-trainer-cosmetics",
+  "version": "9IKheljC",
+  "selected": [
+    {
+      "file": "red_frlg.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "8ddeec40d863418fea24348fa8ed4d3beabd643aabe59b007044e9ae05a623aa"
+    },
+    {
+      "file": "leaf_frlg.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "3574e590d5ec1f778750a18c804373a9be0be82d392fe7d3ccf327647dc6a3ca"
+    },
+    {
+      "file": "brendan_emerald.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5aceb71de596fa448f3c0d3dc220cd5a68db389acbce899fed9b4ee0aaaeaf0c"
+    },
+    {
+      "file": "may_rs.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "fbfe5621d2a9ca9b9c8a9b7a0cf57b83ef8b786b16706d05ddde5975fb72b618"
+    },
+    {
+      "file": "dawn_dp.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c94531e42b6471f26f5c52146966c30609263af936720b96372ba9d37e5a6f5e"
+    },
+    {
+      "file": "blue_frlg.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "c171e5d758b1860439bdb7df7578dc2caec63167f837bb2b907b8b83db58e97a"
+    },
+    {
+      "file": "serena_xy.png",
+      "size": [
+        64,
+        64
+      ],
+      "sha256": "5adcadd4f87bb923e65d8e710b5ff8ff3a314d61bf7f2a8660b1fc62d3af53ee"
+    }
+  ]
+}

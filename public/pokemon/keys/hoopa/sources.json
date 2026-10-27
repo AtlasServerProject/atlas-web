@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0720_hoopa/0_hoopa_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0720_hoopa/hoopa_confined.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0720_hoopa/hoopa_confined.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0720_hoopa/hoopa.png",
+      "sha256": "b476a9a70a3670db1e7761d9c10a308bc2cb24bd66e2b78453db37e8666f0257"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0720_hoopa/hoopa_shiny.png",
+      "sha256": "2b69cdae0ef02c4970053895beaf7323a946f3bdaa0f71a122f669f24cd889c3"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.hoopa_confined.walk_ground",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0720_hoopa/hoopa_confined.animation.json"
+    }
+  ]
+}

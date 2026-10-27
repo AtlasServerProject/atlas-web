@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0809_melmetal/0_melmetal_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0809_melmetal/melmetal.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0809_melmetal/melmetal.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0809_melmetal/melmetal.png",
+      "sha256": "5f2de2efb2fd09e1c611d37d09a1fd739f19dc28cec107d423b42cf0a1843f46"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0809_melmetal/melmetal_shiny.png",
+      "sha256": "e12f9e416f0161e64f72d43388f2b7f7f034a0e11e8dbaa29178060384c9821e"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.melmetal.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0809_melmetal/melmetal.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0250_hooh/0_hooh_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0250_hooh/ho_oh.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0250_hooh/hooh.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0250_hooh/ho_oh.png",
+      "sha256": "f3424a1cd6ee902a65929079ca15a48fb50a26185c180ac170838a93c8a149e0"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0250_hooh/ho_oh_shiny.png",
+      "sha256": "632fa886d86b7f981c43026853e158f3274ef13eda61c36d04af444924772aff"
+    },
+    "normal-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0250_hooh/ho_oh_emissive.png",
+      "sha256": "75049de6510ef4f8b34fd7fda51c24d41c3e8c043cce56f0443456342e974397"
+    },
+    "shiny-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0250_hooh/ho_oh_emissive_shiny.png",
+      "sha256": "5fe194870f90e6de541372a8f29821973b48c408e5a248e9b01f0a6da336632f"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.hooh.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0250_hooh/hooh.animation.json"
+    }
+  ]
+}

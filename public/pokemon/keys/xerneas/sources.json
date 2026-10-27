@@ -1,0 +1,32 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0716_xerneas/0_xerneas_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0716_xerneas/xerneas_neutral.geo.json"
+  },
+  "poser": {
+    "compiled": "cobblemon:xerneas"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0716_xerneas/xerneas_neutral.png",
+      "sha256": "52bb6e0098fdae9145de09fcc0259a23267ed5c6d6407f973427ed60574a7a8b"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0716_xerneas/xerneas_neutral_shiny.png",
+      "sha256": "9a08b9ab65aa24fdad151ec144e9b74b14878a0b45b318dc04835e4915e172fa"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.xerneas.ground_walk",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0716_xerneas/xerneas.animation.json"
+    }
+  ]
+}

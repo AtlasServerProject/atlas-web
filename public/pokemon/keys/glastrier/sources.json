@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0896_glastrier/0_glastrier_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0896_glastrier/glastrier.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0896_glastrier/glastrier.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0896_glastrier/glastrier.png",
+      "sha256": "d844b36b9695324390628d83bb15cdd352d981c5cf8c79445833971032c91079"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0896_glastrier/glastrier_shiny.png",
+      "sha256": "433d47379f11122ae2c9a7901a82cb9debc1281f2356746e3aa4af2f2444ed41"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.glastrier.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0896_glastrier/glastrier.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0638_cobalion/0_cobalion_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0638_cobalion/cobalion.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0638_cobalion/cobalion.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0638_cobalion/cobalion.png",
+      "sha256": "8b3fad766e6a45b20e3620453b5aa20a994b423296334024f01ec10dab93ac11"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0638_cobalion/cobalion_shiny.png",
+      "sha256": "4f378c98c4d78bf0a099cfb750d35d59564c5304941d6f39eb5daca3f552c067"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.cobalion.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0638_cobalion/cobalion.animation.json"
+    }
+  ]
+}

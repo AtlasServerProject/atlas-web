@@ -1,6 +1,14 @@
+import { createHash } from 'node:crypto';
 import { readFile, writeFile, copyFile, rm } from 'node:fs/promises';
 const output = new URL('../dist/atlas-web/browser/', import.meta.url);
-await readFile(new URL('index.html', output));
+let html = await readFile(new URL('index.html', output), 'utf8');
+// Keep Angular's generated stylesheet loader compatible with a CSP without inline scripts.
+for (const match of [...html.matchAll(/<script>([\s\S]*?)<\/script>/g)]) {
+  const filename = 'bootstrap-' + createHash('sha256').update(match[1]).digest('hex').slice(0,16) + '.js';
+  await writeFile(new URL(filename, output), match[1]);
+  html = html.replace(match[0], `<script src="/${filename}"></script>`);
+}
+await writeFile(new URL('index.html', output), html);
 await copyFile(
   new URL('../hosting/cloudflare/worker.mjs', import.meta.url),
   new URL('_worker.js', output),

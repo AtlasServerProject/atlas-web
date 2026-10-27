@@ -1,0 +1,8 @@
+Original assets: Cobblemon and Mega Showdown, with original authors retaining rights.
+Cobblemon: https://gitlab.com/cable-mc/cobblemon-assets
+Mega Showdown: https://github.com/yajatkaul/CobblemonMegaShowdown/blob/main/LICENSE.md
+Mega Showdown asset license: CC BY-NC-SA 4.0; commercial use requires explicit written authorization.
+An archived copy of the original Mega Showdown license is in licenses/Mega-Showdown-v2.1.md.
+Per-model source paths and unchanged asset hashes are in sources.json.
+Models and animation data are preserved; the web adapter interprets them at runtime.
+Pokémon belongs to its respective rights holders.

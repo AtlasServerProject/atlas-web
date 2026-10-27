@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0150_mewtwo/0_mewtwo_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0150_mewtwo/mewtwo.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0150_mewtwo/mewtwo.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0150_mewtwo/mewtwo.png",
+      "sha256": "9068875e03fef028e967a72ffa16cfc5f73ad3b3d10034b677623ee44971b920"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0150_mewtwo/mewtwo_shiny.png",
+      "sha256": "a3338a9b09377d32f9bacc311e11cf89b1f69af194759113dee1f665cd68fa19"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.mewtwo.ground_idle",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0150_mewtwo/mewtwo.animation.json"
+    }
+  ]
+}

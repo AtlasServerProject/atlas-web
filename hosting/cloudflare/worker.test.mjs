@@ -142,3 +142,16 @@ test('upstream outage hides gateway error details and returns API 503', async ()
     },
   );
 });
+
+test('caller cannot forge visitor or signed gateway headers', async () => {
+ await usingFetch(async (_url, options) => {
+   assert.equal(options.headers.get('x-real-ip'), '203.0.113.42');
+   for (const name of ['x-atlas-verified-ip','x-atlas-ip-time','x-atlas-ip-signature','forwarded']) assert.equal(options.headers.get(name), null);
+   return new Response('{}');
+ }, async () => {
+   assert.equal((await worker.fetch(request('/api/v1/users/me', {headers:{'cf-connecting-ip':'203.0.113.42','x-real-ip':'198.51.100.1','x-atlas-verified-ip':'198.51.100.2','x-atlas-ip-time':'1234567890','x-atlas-ip-signature':'forged','forwarded':'for=evil'}}), {})).status, 200);
+ });
+});
+test('missing trusted visitor identity does not fall back to attacker x-real-ip', async () => {
+ await usingFetch(async (_url, options) => {assert.equal(options.headers.get('x-real-ip'), null);return new Response('{}');}, async () => { await worker.fetch(request('/api/v1/users/me',{headers:{'x-real-ip':'198.51.100.1'}}),{}); });
+});

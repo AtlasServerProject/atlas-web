@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0721_volcanion/0_volcanion_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0721_volcanion/volcanion.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0721_volcanion/volcanion.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0721_volcanion/volcanion.png",
+      "sha256": "547b1c03f2df8cd7c811bdc0132dea11fca6732023b9a24edaa5dccd7205e95b"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0721_volcanion/volcanion_shiny.png",
+      "sha256": "c3ea101814cac7f6eb7b2f7f42a4c87176e2c2677a16704e9a30155b972db5ba"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.volcanion.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0721_volcanion/volcanion.animation.json"
+    }
+  ]
+}

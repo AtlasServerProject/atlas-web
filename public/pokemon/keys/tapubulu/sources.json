@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0787_tapubulu/0_tapubulu_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0787_tapubulu/tapubulu.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0787_tapubulu/tapubulu.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0787_tapubulu/tapubulu.png",
+      "sha256": "b0732ff6df0f287e4d0a062e64887aa74ec67f25045c3cd07280048281a97b36"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0787_tapubulu/tapubulu_shiny.png",
+      "sha256": "765cbb47bb5568b2e3585422f1c64fcadb903f58fd8038863d2d89006b808b25"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0787_tapubulu/tapubulu_emissive.png",
+      "sha256": "a881b8013ebaa94b1e70cb69bec344d0031ca1dccdf2e61b20fb7a803eb4c22f"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0787_tapubulu/tapubulu_shiny_emissive.png",
+      "sha256": "df4d9a83bb5c84e85f118bd527871497f3af8409e06634bdfe1cb0a2ddb06afc"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.tapubulu.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0787_tapubulu/tapubulu.animation.json"
+    }
+  ]
+}

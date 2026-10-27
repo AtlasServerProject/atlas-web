@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0486_regigigas/0_regigigas_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0486_regigigas/regigigas.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0486_regigigas/regigigas.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0486_regigigas/regigigas.png",
+      "sha256": "0c3d139a412a5d3c45fba5c38a02918d7e3c22927d658a3e30535329ea056cc1"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0486_regigigas/regigigas_shiny.png",
+      "sha256": "d34fb690a55911e8346fe1b271f061f7ad582ea11d3bfcf2370f4287a496c281"
+    },
+    "normal-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0486_regigigas/regigigas_emissive.png",
+      "sha256": "fb6c933b3e1470e8678e7332586e5c6dad3c0504bdb85ca515e07dca29a47111"
+    },
+    "shiny-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0486_regigigas/regigigas_emissive.png",
+      "sha256": "fb6c933b3e1470e8678e7332586e5c6dad3c0504bdb85ca515e07dca29a47111"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.regigigas.ground_idle",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0486_regigigas/regigigas.animation.json"
+    }
+  ]
+}

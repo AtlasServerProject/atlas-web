@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0889_zamazenta/0_zamazenta_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0889_zamazenta/zamazenta.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0889_zamazenta/zamazenta.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0889_zamazenta/zamazenta.png",
+      "sha256": "c6aeebb8e8e8062899fdf5727fc698cfd12e4f9c77d2e2ceedc05a1b038810be"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0889_zamazenta/zamazenta_shiny.png",
+      "sha256": "cf8834dc7600190173ab008bdc08122ea6e96a2d514e43a5927cb526f44e5344"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.zamazenta.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0889_zamazenta/zamazenta.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0773_silvally/0_silvally_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0773_silvally/silvally.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0773_silvally/silvally.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0773_silvally/silvally.png",
+      "sha256": "5729534fbe88d355abcbaaa527d395f35dca6bb00da1adbddcf2c9ecd1e5219a"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0773_silvally/silvally_shiny.png",
+      "sha256": "a7108804234859dd9ece5cae89a8223b3a62babfdeaa9d44b5d49d20e889c615"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0773_silvally/silvally_emmisive.png",
+      "sha256": "46723de44701a6e277fcc801b5ef62b5c968b69b5d96d3746fe7bca969c779c2"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.silvally.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0773_silvally/silvally.animation.json"
+    }
+  ]
+}

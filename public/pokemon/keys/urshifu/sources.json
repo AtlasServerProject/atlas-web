@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0892_urshifu/0_urshifu_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0892_urshifu/urshifu.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0892_urshifu/urshifu.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0892_urshifu/urshifu.png",
+      "sha256": "2bc3b5a9b16d35518053826e045f8ed0712005307b86981f86f1db31dec29815"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0892_urshifu/urshifu_shiny.png",
+      "sha256": "4995143ffa2e39e35662e12f3feeaa83c294480e86d111ac867a0da1ec4ebda4"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.urshifu.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0892_urshifu/urshifu.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1002_chienpao/0_chienpao_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1002_chienpao/chienpao.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1002_chienpao/chienpao.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1002_chienpao/chienpao.png",
+      "sha256": "e6c61f8585e6bedb910aa68016413a5b0fde9154f5a014056d4274aec9ca2ef3"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1002_chienpao/chienpao_shiny.png",
+      "sha256": "c46a22023653b27e4655673aa4c367f6d1246fb084a207e5b73beefd449f342c"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1002_chienpao/chienpao_emissive.png",
+      "sha256": "0360761c017fed2c01dab937604510d7e59cd303ff7c1794517be82da1f1bb1f"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1002_chienpao/chienpao_emissive.png",
+      "sha256": "0360761c017fed2c01dab937604510d7e59cd303ff7c1794517be82da1f1bb1f"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.chienpao.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1002_chienpao/chienpao.animation.json"
+    }
+  ]
+}

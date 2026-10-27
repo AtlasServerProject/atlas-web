@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0648_meloetta/0_meloetta_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0648_meloetta/meloetta.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0648_meloetta/meloetta.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0648_meloetta/meloetta.png",
+      "sha256": "d86d0a4d1bd6faa7e869fb7768e089aed41903c73372fe9ae165ccafc5a1201e"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0648_meloetta/meloetta_shiny.png",
+      "sha256": "08d81413fb309f6a4796b45fe3fdc931505856554098421c3a8d13eb440bd0a9"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.meloetta.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0648_meloetta/meloetta.animation.json"
+    }
+  ]
+}

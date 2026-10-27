@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0791_solgaleo/0_solgaleo_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0791_solgaleo/solgaleo.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0791_solgaleo/solgaleo.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0791_solgaleo/solgaleo.png",
+      "sha256": "41d4acae298d39c61333a3edb2f3ce2e202d0c6703a65b01746474a671ddda08"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0791_solgaleo/solgaleo_shiny.png",
+      "sha256": "a5f5acfbf0280a63c94fd1c0ceb747a1c5dc0fed8d71d136da653116d05e048d"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0791_solgaleo/solgaleo_emissive.png",
+      "sha256": "8a87dfdb749024b6c12927b2db2ec235f894525ccc34d995d13e1fbf2310f8c8"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0791_solgaleo/solgaleo_emissive.png",
+      "sha256": "8a87dfdb749024b6c12927b2db2ec235f894525ccc34d995d13e1fbf2310f8c8"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.solgaleo.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0791_solgaleo/solgaleo.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0145_zapdos/0_zapdos_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0145_zapdos/zapdos.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0145_zapdos/zapdos.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0145_zapdos/zapdos.png",
+      "sha256": "887f7e95fb4b9a224c1ed3ad8783d02d90ffb0938b110b1612df2778aacff23e"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0145_zapdos/zapdos_shiny.png",
+      "sha256": "65e8124aa1884d560e9d70e561763659f28daef306e6ad9c80617ab9e56d0474"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.zapdos.air_fly",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0145_zapdos/zapdos.animation.json"
+    }
+  ]
+}

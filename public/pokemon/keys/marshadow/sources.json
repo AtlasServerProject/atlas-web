@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0802_marshadow/0_marshadow_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0802_marshadow/marshadow.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0802_marshadow/marshadow.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0802_marshadow/marshadow.png",
+      "sha256": "2f754abc2a1160998da30c2fab059938840c9de7e3a1e9fdef6be081852fd749"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0802_marshadow/marshadow_shiny.png",
+      "sha256": "080f8364a15c4b52ff465a6bd05b6d85d290ec7479816d3988a73414a2a93c9e"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0802_marshadow/marshadow_emissive.png",
+      "sha256": "fee177efeb39feaf89faf3e87462787c390358613acdce943e09d1d4b95eeff1"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0802_marshadow/marshadow_emissive.png",
+      "sha256": "fee177efeb39feaf89faf3e87462787c390358613acdce943e09d1d4b95eeff1"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.marshadow.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0802_marshadow/marshadow.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0890_eternatus/0_eternatus_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0890_eternatus/eternatus.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0890_eternatus/eternatus.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus.png",
+      "sha256": "4ff32eda4eb75c97cc0fdd7a89b7ed6060c5e154ddaa60b3830722ce50d05a10"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus_shiny.png",
+      "sha256": "d47e40c0f5eae2eb1d34bac7fc5cb5a2e3ef594b3348c1286975280d218e8698"
+    },
+    "normal-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus_emissive.png",
+      "sha256": "f3b1a6d8e25251a60afdcbe0f0831935abfef4b93dbd4e417594a77503644b9c"
+    },
+    "normal-layer-1.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus_transparency.png",
+      "sha256": "5775490b5d14962b363321e40e9c44f22df4e2a3e3a2c54750a8b829e6d16f78"
+    },
+    "shiny-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus_emissive.png",
+      "sha256": "f3b1a6d8e25251a60afdcbe0f0831935abfef4b93dbd4e417594a77503644b9c"
+    },
+    "shiny-layer-1.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0890_eternatus/eternatus_transparency.png",
+      "sha256": "5775490b5d14962b363321e40e9c44f22df4e2a3e3a2c54750a8b829e6d16f78"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.eternatus.ground_idle",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0890_eternatus/eternatus.animation.json"
+    }
+  ]
+}

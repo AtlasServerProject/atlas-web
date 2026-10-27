@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0642_thundurus/0_thundurus_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0642_thundurus/thundurus.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0642_thundurus/thundurus.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0642_thundurus/thundurus.png",
+      "sha256": "7c3b523d51bee22eb5d3901f159bad9a94f69658d05e7bf4ecb6af234adce9a5"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0642_thundurus/thundurus_shiny.png",
+      "sha256": "6b7dadc616761b4b35b02e6530e4dc186e511d048d65c95917c7b46d91b52792"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.pokemans_thundurus.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0642_thundurus/pokemans_thundurus.animation.json"
+    }
+  ]
+}

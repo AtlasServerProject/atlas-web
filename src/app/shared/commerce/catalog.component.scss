@@ -128,3 +128,15 @@
     transition: none;
   }
 }
+
+.key-card { display: flex; flex-direction: column; gap: 14px; }
+.key-card h3, .key-card p { margin: 0; }
+.key-card dl { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 0; }
+.key-card dd { margin: 0; text-align: right; }
+.key-card .product-price { margin-top: auto; }
+
+.key-card .key-art { display: block; width: 100%; height: 320px; object-fit: contain; border-radius: 0; background: transparent; mix-blend-mode: lighten; }
+
+.key-card .key-art-sprite { height: auto; aspect-ratio: 2 / 3; width: min(100%, 213.333px); margin-inline: auto; background-image: url('/keys/johto-hoenn-cartoon.png'); background-repeat: no-repeat; background-size: 200% 100%; }
+
+.key-art-frame { display: flex; align-items: center; justify-content: center; height: 320px; overflow: hidden; border-radius: 12px; background: #102950; isolation: isolate; }

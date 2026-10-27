@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0785_tapukoko/0_tapukoko_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0785_tapukoko/tapukoko.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0785_tapukoko/tapukoko.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0785_tapukoko/tapukoko.png",
+      "sha256": "74ce78512fe8e0871f481b3f4b7c125f77863fdc4327ccd8cefb21319d7fb52c"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0785_tapukoko/tapukoko_shiny.png",
+      "sha256": "dc078c857ac41d0b6b1f4e7b3a3f1be727ee75b1549bc281fda0f8d46d4bdb16"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0785_tapukoko/tapukoko_emissive.png",
+      "sha256": "bf06651fcc197184702638b3e7409fda98ac6a3d94584fe17b2a0985e544aa80"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0785_tapukoko/tapukoko_shiny_emissive.png",
+      "sha256": "97279d295352c88fb5efe3f4197e9732917b446f6e1614000585aa81d1d62765"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.tapukoko.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0785_tapukoko/tapukoko.animation.json"
+    }
+  ]
+}

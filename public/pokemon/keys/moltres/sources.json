@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0146_moltres/0_moltres_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0146_moltres/moltres.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0146_moltres/moltres.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0146_moltres/moltres.png",
+      "sha256": "c2cb9fa80c9acd05ab5904c7404bb041bf44da2132c51dffeb232b5c9da525d0"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0146_moltres/moltres_shiny.png",
+      "sha256": "5621a45cc7c85355fe7a4a9f3b01f1837dad009b78274bfd710100183a250ffe"
+    },
+    "normal-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0146_moltres/moltres_emissive.png",
+      "sha256": "3c153ae1738631e32f79a7bed4d4de939a2426fd9917e5a85da8d30212077ca9"
+    },
+    "shiny-layer-0.png": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0146_moltres/moltres_emissive_shiny.png",
+      "sha256": "656116275b1e9aa25c71214c6a18bacb4dcf257a163fe8945be236d6ebdf8dd6"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.moltres.air_fly",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0146_moltres/moltres.animation.json"
+    }
+  ]
+}

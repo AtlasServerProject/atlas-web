@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0641_tornadus/0_tornadus_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0641_tornadus/tornadus.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0641_tornadus/tornadus.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0641_tornadus/tornadus.png",
+      "sha256": "1e78fbdc449cce497ed76c288522dc8dbcf18fd1a25cb3f711f5dab13d52b174"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0641_tornadus/tornadus_shiny.png",
+      "sha256": "b9f29e9a9da11d15220c63997ef515e463bd5933d76bc430eb522786af1e269b"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.pokemans_tornadus.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0641_tornadus/pokemans_tornadus.animation.json"
+    }
+  ]
+}

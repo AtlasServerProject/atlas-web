@@ -1,0 +1,174 @@
+<section class="section key-detail">
+  <a class="back-link" routerLink="/store" [queryParams]="{ categoria: 'Chaves' }"
+    >← Voltar para as chaves</a
+  >
+  @if (data.loading() && !data.catalogue()) {
+    <p class="empty-state" role="status">Abrindo o catálogo…</p>
+  } @else if (data.error()) {
+    <div class="empty-state" role="alert">
+      <p>{{ data.error() }}</p>
+      <button class="button secondary" (click)="data.load(true)">Tentar novamente</button>
+    </div>
+  } @else if (crate(); as key) {
+    <header class="key-heading">
+      <div>
+        <span class="eyebrow">CATÁLOGO DE CHAVES · EMERALD</span>
+        <h1>{{ key.name }}</h1>
+        <p class="key-price">
+          {{ price() | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}
+          <span>por chave · 1 abertura</span>
+        </p>
+        <p>
+          {{
+            key.generation
+              ? 'Conheça os lendários e míticos desta caixa.'
+              : 'Conheça os 10 lendários selecionados para este mês.'
+          }}
+          Compare as versões normal e shiny e veja cada Pokémon em movimento.
+        </p>
+        @if (auth.adminMode() && products.available()) {
+          @if (product(); as editable) {
+            <div class="actions admin-controls">
+              <button class="button secondary" (click)="editor.open(editable, 'price')">✎ Preço</button>
+              <button class="button secondary" (click)="editor.open(editable, 'promotion')">⚡ Promoção</button>
+            </div>
+          }
+        }
+      </div>
+      <div class="key-summary">
+        <strong>{{ key.species.length }}</strong
+        ><span>Pokémon disponíveis</span
+        ><small>{{ key.species.length * 2 }} versões · normal + shiny</small>
+      </div>
+    </header>
+    <nav class="generation-nav" aria-label="Escolher outra chave">
+      @for (other of data.catalogue()?.crates; track other.identifier) {
+        <a
+          [routerLink]="['/store/chaves', other.identifier]"
+          [class.current]="identifier() === other.identifier"
+          [attr.aria-current]="identifier() === other.identifier ? 'page' : null"
+          >{{ other.region ?? 'Mensal' }}</a
+        >
+      }
+    </nav>
+    @if (key.hiddenPreviews?.length) {
+      <p class="results">
+        Prévia 3D de {{ key.hiddenPreviews?.join(', ') }} indisponível. Consulte a lista completa de
+        prêmios na caixa dentro do jogo.
+      </p>
+    }
+    @if (key.period) {
+      <div class="monthly-note">
+        <span>✦ Seleção de {{ period() }}</span>
+        <p>
+          10 lendários escolhidos para este mês, nas versões normal e shiny. A chave usa a seleção
+          vigente no momento da abertura.
+        </p>
+      </div>
+    }
+    @if (stale()) {
+      <div class="empty-state" role="status">
+        <h2>A nova seleção está sendo atualizada</h2>
+        <p>
+          O mês mudou. Consulte a prévia da caixa no jogo enquanto o catálogo recebe os novos
+          lendários.
+        </p>
+        <button class="button secondary" (click)="data.load(true)">Atualizar seleção</button>
+      </div>
+    } @else {
+      <div class="catalogue-toolbar">
+        <label class="search"
+          ><span>Buscar Pokémon</span
+          ><input
+            type="search"
+            placeholder="Ex.: Rayquaza"
+            [value]="query()"
+            (input)="search($event)"
+            maxlength="80"
+        /></label>
+        <div class="type-filter" role="group" aria-label="Filtrar categoria">
+          <button
+            [attr.aria-pressed]="classification() === 'all'"
+            (click)="classification.set('all')"
+          >
+            Todos
+          </button>
+          <button
+            [attr.aria-pressed]="classification() === 'legendary'"
+            (click)="classification.set('legendary')"
+          >
+            Lendários
+          </button>
+          <button
+            [attr.aria-pressed]="classification() === 'mythical'"
+            (click)="classification.set('mythical')"
+          >
+            Míticos
+          </button>
+        </div>
+      </div>
+      <div class="results-row">
+        <p class="results" aria-live="polite">
+          {{ species().length }} Pokémon · arraste para girar os modelos
+        </p>
+        @if (reducedMotion) {
+          <span class="motion-note">Movimento reduzido ativado</span>
+        } @else {
+          <button class="motion-toggle" (click)="toggleAnimation()" [attr.aria-pressed]="paused()">
+            {{ paused() ? '▶ Reproduzir animações' : 'Ⅱ Pausar animações' }}
+          </button>
+        }
+      </div>
+      <div class="pokemon-grid">
+        @for (pokemon of species(); track pokemon.species) {
+          <article class="pokemon-card" [attr.data-species]="pokemon.species">
+            <div class="pokemon-heading">
+              <h2>{{ pokemon.name }}</h2>
+              <span
+                class="classification"
+                [class.mythical]="pokemon.classification === 'mythical'"
+                >{{ pokemon.classification === 'mythical' ? 'Mítico' : 'Lendário' }}</span
+              >
+            </div>
+            <app-key-pokemon-viewer
+              [modelUrl]="pokemon.modelUrl"
+              [name]="pokemon.name"
+              [animation]="pokemon.animation"
+            />
+          </article>
+        } @empty {
+          <p class="empty-state">Nenhum Pokémon encontrado. Tente outro nome ou categoria.</p>
+        }
+      </div>
+      <aside class="catalogue-footnote">
+        <strong>Antes de abrir sua caixa</strong>
+        <p>
+          Use uma chave virtual com o botão direito na caixa correspondente. O botão esquerdo mostra
+          a prévia e as chances atuais no jogo. As duas cores aparecem aqui para comparação; cada
+          abertura entrega um Pokémon.
+        </p>
+      </aside>
+    }
+    <footer class="credits">
+      Modelos, texturas e animações:
+      <a href="https://cobblemon.com/" target="_blank" rel="noopener noreferrer">Cobblemon</a> e
+      <a
+        href="https://github.com/yajatkaul/CobblemonMegaShowdown"
+        target="_blank"
+        rel="noopener noreferrer"
+        >Mega Showdown</a
+      >
+      e seus artistas. Pokémon pertence aos respectivos titulares.
+      <a href="/pokemon/keys/NOTICE.txt" target="_blank" rel="noopener">Créditos dos recursos</a>.
+    </footer>
+  } @else if (!data.loading()) {
+    <div class="empty-state">
+      <h1>Chave não encontrada</h1>
+      <p>Escolha uma das chaves disponíveis na loja.</p>
+      <a class="button secondary" routerLink="/store" [queryParams]="{ categoria: 'Chaves' }"
+        >Ver chaves</a
+      >
+    </div>
+  }
+</section>
+<app-product-editor #editor />

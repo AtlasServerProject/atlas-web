@@ -1,3 +1,4 @@
+import { GoogleSignInComponent } from '../../shared/google-sign-in.component';
 import { Component, inject, signal, viewChild, ElementRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -6,7 +7,7 @@ import { AuthService } from '../../core/auth.service';
 @Component({
   selector: 'app-auth-page',
   standalone: true,
-  imports: [FormsModule, RouterLink, DialogFocusDirective],
+  imports: [FormsModule, RouterLink, DialogFocusDirective, GoogleSignInComponent],
   styleUrls: ['./account-message.scss', './auth-page.component.scss'],
   template: ` <section class="section page-intro auth-page">
     <div class="auth-heading">
@@ -22,12 +23,33 @@ import { AuthService } from '../../core/auth.service';
           </p>
           <a class="text-link" routerLink="/store">Voltar para a loja</a>
         </div>
+      } @else if (auth.recoveryCodes().length) {
+        <div class="card auth-form">
+          <h2>Guarde seus códigos de recuperação</h2>
+          <p>Cada código funciona uma única vez. Salve em um local seguro; eles não serão mostrados novamente.</p>
+          @for (code of auth.recoveryCodes(); track code) { <code>{{ code }}</code><br /> }
+          <button class="button" type="button" (click)="continueAfterMfa()">Já guardei os códigos</button>
+        </div>
+      } @else if (auth.mfaChallenge()) {
+        <form class="card auth-form" (ngSubmit)="completeMfa()">
+          <h2>Proteção em duas etapas</h2>
+          @if (auth.mfaChallenge()?.setupRequired) {
+            <p>Para acessar sua conta de equipe, adicione o Atlas ao seu aplicativo autenticador.</p>
+            @if (!mfaSecret()) { <button class="button" type="button" [disabled]="loading()" (click)="prepareMfa()">Configurar autenticador</button> }
+            @else { <p>Chave para configuração manual:</p><code>{{ mfaSecret() }}</code><p>Use TOTP, 6 dígitos e intervalo de 30 segundos. Não compartilhe esta chave.</p> }
+          } @else { <p>Informe o código do autenticador ou um código de recuperação.</p> }
+          <label>Código<input name="mfa-code" autocomplete="one-time-code" maxlength="32" required [(ngModel)]="mfaCode" /></label>
+          @if (error()) { <p role="alert">{{ error() }}</p> }
+          <button class="button" type="submit" [disabled]="loading() || !mfaCode">Confirmar acesso</button>
+          <button class="button secondary" type="button" (click)="cancelMfa()">Cancelar</button>
+        </form>
       } @else {
         <form #authForm="ngForm" class="card auth-form" (ngSubmit)="submit()">
           <nav class="auth-tabs" aria-label="Acesso à conta">
             <a routerLink="/login" [class.selected]="!register" [attr.aria-current]="!register ? 'page' : null">Entrar</a>
             <a routerLink="/cadastro" [class.selected]="register" [attr.aria-current]="register ? 'page' : null">Criar conta</a>
           </nav>
+          <app-google-sign-in />
           @if (register) {
             <label
               >Nickname<input
@@ -139,6 +161,8 @@ export class AuthPageComponent {
   readonly auth = inject(AuthService);
   private readonly router = inject(Router);
   private readonly emailDialog = viewChild<ElementRef<HTMLDialogElement>>('emailDialog');
+  readonly mfaSecret = signal('');
+  mfaCode = '';
   registeredEmail = '';
   closeEmailDialog() {
     this.emailDialog()?.nativeElement.close();
@@ -151,6 +175,25 @@ export class AuthPageComponent {
   readonly loading = signal(false);
   readonly error = signal('');
   readonly feedback = signal('');
+  async prepareMfa() {
+    if (this.loading()) return;
+    this.loading.set(true); this.error.set('');
+    try { this.mfaSecret.set((await this.auth.setupMfa()).secret); }
+    catch (e) { this.error.set(e instanceof Error ? e.message : 'Não foi possível configurar.'); }
+    finally { this.loading.set(false); }
+  }
+  async completeMfa() {
+    if (this.loading()) return;
+    this.loading.set(true); this.error.set('');
+    try {
+      await this.auth.verifyMfa(this.mfaCode);
+      this.mfaCode = ''; this.mfaSecret.set('');
+      if (!this.auth.recoveryCodes().length) await this.router.navigateByUrl('/conta');
+    } catch (e) { this.error.set(e instanceof Error ? e.message : 'Confira o código.'); }
+    finally { this.loading.set(false); }
+  }
+  async continueAfterMfa() { this.auth.recoveryCodes.set([]); await this.router.navigateByUrl('/conta'); }
+  async cancelMfa() { this.mfaCode = ''; this.mfaSecret.set(''); await this.auth.logout(); }
   async submit() {
     if (this.loading() || !this.auth.available()) return;
     this.error.set('');
@@ -171,7 +214,8 @@ export class AuthPageComponent {
         this.emailDialog()?.nativeElement.showModal();
       } else {
         await this.auth.login(this.email, this.password);
-        await this.router.navigateByUrl('/conta');
+        this.password = '';
+        if (!this.auth.mfaChallenge()) await this.router.navigateByUrl('/conta');
       }
     } catch (e) {
       this.error.set(e instanceof Error ? e.message : 'Não foi possível entrar.');

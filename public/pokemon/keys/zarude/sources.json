@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0893_zarude/0_zarude_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0893_zarude/zarude.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0893_zarude/zarude.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0893_zarude/zarude.png",
+      "sha256": "12a4fb36ace2c81f6cd0044d27534d980c25d9385535cd08abd4af7d032c3631"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0893_zarude/zarude_shiny.png",
+      "sha256": "96c4fcdd647fe58dd27a0e4385398528da572dd39f8545373e5d18b884566c90"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.zarude.ground_idle",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0893_zarude/zarude.animation.json"
+    }
+  ]
+}

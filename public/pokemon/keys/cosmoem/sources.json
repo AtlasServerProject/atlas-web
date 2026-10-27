@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0790_cosmoem/0_cosmoem_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0790_cosmoem/cosmoem.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0790_cosmoem/cosmoem.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0790_cosmoem/cosmoem.png",
+      "sha256": "aba269cc91286c79e1553190c9b59366f9067506144edeeee0a133e5ae34b676"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0790_cosmoem/cosmoem_shiny.png",
+      "sha256": "ae3a142f53f03d7ec69be5b4a2f621586e25d258e321f05319e5ac06c20a8eef"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0790_cosmoem/cosmoem_emissive.png",
+      "sha256": "c14f8bbe0dc96c6208ec76b5e1834236bb05117aa5ab1ece1a6bf9227f8dff73"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0790_cosmoem/cosmoem_emissive.png",
+      "sha256": "c14f8bbe0dc96c6208ec76b5e1834236bb05117aa5ab1ece1a6bf9227f8dff73"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.cosmoem.ground_idle",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0790_cosmoem/cosmoem.animation.json"
+    }
+  ]
+}

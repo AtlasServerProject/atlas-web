@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0786_tapulele/0_tapulele_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0786_tapulele/tapulele.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0786_tapulele/tapulele.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0786_tapulele/tapulele.png",
+      "sha256": "340bc96b04fc80dc7b2b8d6bd2f58be0dabc59302c08b3e140dc1f50c7ce8432"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0786_tapulele/tapulele_shiny.png",
+      "sha256": "99a9ffb8ddb413dc2e4a05f3ccaffb9252b6eba82a08efea6e874dfc18e006c6"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0786_tapulele/tapulele_emissive.png",
+      "sha256": "66c28a6a94387173463a1d4728ad48d8f82b6885890f22b87ba27127f0d8b066"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0786_tapulele/tapulele_shiny_emissive.png",
+      "sha256": "989c85b17b9601b1aa731e2467d791f8edb3caafcb42c9bf198ae3521615617c"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.tapulele.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0786_tapulele/tapulele.animation.json"
+    }
+  ]
+}

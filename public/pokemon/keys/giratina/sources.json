@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0487_giratina/0_giratina_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0487_giratina/giratina.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0487_giratina/giratina.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0487_giratina/giratina.png",
+      "sha256": "13e04c04300016ec34d4ea1538eaf0dcf7b5d16060b3dc3ad7d341fa2ec579d5"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0487_giratina/giratina_shiny.png",
+      "sha256": "a11fff1eb0282e2e5e888e2184aa6e6cca3e5b47a466b451e7a590b13a9b1439"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.giratina.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0487_giratina/giratina.animation.json"
+    }
+  ]
+}

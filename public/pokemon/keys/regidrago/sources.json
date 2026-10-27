@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0895_regidrago/0_regidrago_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0895_regidrago/regidrago.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0895_regidrago/regidrago.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0895_regidrago/regidrago.png",
+      "sha256": "9bf29c81d530967f2ac10f1fecf1f04997d71085cde03bffdbdf61d14897fd3b"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0895_regidrago/regidrago_shiny.png",
+      "sha256": "95dbe053a08ddb3becc2162683243d84663a1877b1f6e1ac8bd465a1f2d443d0"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.regidrago.ground_walk",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0895_regidrago/regidrago.animation.json"
+    }
+  ]
+}

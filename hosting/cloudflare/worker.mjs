@@ -2,7 +2,7 @@ const API_ORIGIN = 'https://api.atlascobblemon.com.br';
 const ALLOWED_METHODS = new Set(['GET', 'HEAD', 'POST', 'PATCH', 'DELETE', 'OPTIONS']);
 const MAX_BODY = 65536;
 function failure(status, code, message) {
-  return Response.json({ code, message }, { status, headers: { 'Cache-Control': 'no-store' } });
+  return Response.json({ code, message }, { status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options':'nosniff', 'X-Frame-Options':'DENY', 'Strict-Transport-Security':'max-age=31536000', 'Content-Security-Policy':"default-src 'none'; frame-ancestors 'none'" } });
 }
 export default {
   async fetch(request, env) {
@@ -26,10 +26,18 @@ export default {
           'cf-ray',
           'cf-worker',
           'forwarded',
+          'x-real-ip',
+          'x-atlas-verified-ip',
+          'x-atlas-ip-time',
+          'x-atlas-ip-signature',
         ].includes(name)
       )
         headers.delete(name);
     }
+    // Cloudflare same-zone subrequests derive CF-Connecting-IP from x-real-ip.
+    // Set it exclusively from Cloudflare's own incoming header, never a caller value.
+    const visitorIp = request.headers.get('cf-connecting-ip');
+    if (visitorIp && /^[0-9a-fA-F:.]{3,45}$/.test(visitorIp)) headers.set('x-real-ip', visitorIp);
     try {
       // A fixed origin and normalized path keep caller-controlled hosts out of the proxy.
       const target = new URL(API_ORIGIN);
@@ -78,6 +86,9 @@ export default {
       const responseHeaders = new Headers(upstream.headers);
       responseHeaders.set('Cache-Control', 'no-store');
       responseHeaders.delete('Location');
+      responseHeaders.set('X-Content-Type-Options', 'nosniff');
+      responseHeaders.set('X-Frame-Options', 'DENY');
+      responseHeaders.set('Strict-Transport-Security', 'max-age=31536000');
       return new Response(upstream.body, {
         status: upstream.status,
         statusText: upstream.statusText,

@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1004_chiyu/0_chiyu_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1004_chiyu/chiyu.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1004_chiyu/chiyu.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1004_chiyu/chiyu.png",
+      "sha256": "f8e1701313b947f45f662614cb2e12de6a2e654d9c404ccacc857dc05ddc1439"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1004_chiyu/chiyu_shiny.png",
+      "sha256": "b62cbd34b84fe2f7a69025e2973c8ea766006484e97c149871ea704df4ce1e4d"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1004_chiyu/chiyu_emissive.png",
+      "sha256": "1fbbc9b8721b1513b7beeb01be943364a2e9d7001bf4c39a81c93f85f4b9a95c"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1004_chiyu/chiyu_shiny_emissive.png",
+      "sha256": "efd93131a4d1b0abb84b6e5b4296e30078fe1d536805e8a9934688a778708b97"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.chiyu.ground_idle",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1004_chiyu/chiyu.animation.json"
+    }
+  ]
+}

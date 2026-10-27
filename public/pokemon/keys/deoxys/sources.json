@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0386_deoxys/0_deoxys_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0386_deoxys/deoxys.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0386_deoxys/deoxys.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0386_deoxys/deoxys.png",
+      "sha256": "9d0d34c9855bd562e260e6b3911806412c063e83f93e1e229508201ed28b071b"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0386_deoxys/deoxys_shiny.png",
+      "sha256": "e9258d1c2c952e197f3f2a2c4924252afec3bbc9945a83461b1f3f002541c009"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0386_deoxys/deoxys_emissive.png",
+      "sha256": "5180a29128c4cd9aaebe060197f494d9bdb480c529db3328314ffdc07a9a6de0"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0386_deoxys/deoxys_emissive.png",
+      "sha256": "5180a29128c4cd9aaebe060197f494d9bdb480c529db3328314ffdc07a9a6de0"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.deoxys.walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0386_deoxys/deoxys.animation.json"
+    }
+  ]
+}

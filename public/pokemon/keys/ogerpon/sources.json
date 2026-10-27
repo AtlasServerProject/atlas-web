@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1017_ogerpon/0_ogerpon_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1017_ogerpon/ogerpon_teal.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1017_ogerpon/ogerpon_teal.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1017_ogerpon/ogerpon.png",
+      "sha256": "220a02702220e9fd53b844a1e791f61379443b88e92f361725120e941369728b"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1017_ogerpon/ogerpon_shiny.png",
+      "sha256": "2c81dbdfbddbbe5da75c3657b65080f23399c470e19578d520b6f81266ffce95"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1017_ogerpon/ogerpon_emissive.png",
+      "sha256": "9935460b905c8d211db4840ce122b7b5ed4034ee111f19fbdc0a6f1e41102886"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1017_ogerpon/ogerpon_emissive.png",
+      "sha256": "9935460b905c8d211db4840ce122b7b5ed4034ee111f19fbdc0a6f1e41102886"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.ogerpon_teal.ground_run",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1017_ogerpon/ogerpon_teal.animation.json"
+    }
+  ]
+}

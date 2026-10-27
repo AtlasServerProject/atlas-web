@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0897_spectrier/0_spectrier_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0897_spectrier/spectrier.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0897_spectrier/spectrier.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0897_spectrier/spectrier.png",
+      "sha256": "a665d66f0e3e98bbb8abd5526b6400c08d4cc64e3ebc8cc64fb0e642e2ca6de7"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0897_spectrier/spectrier_shiny.png",
+      "sha256": "1d88246a0991fde3f219ac95e4577f77ef2643e424c01a232b744ac909642c95"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.spectrier.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0897_spectrier/spectrier.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1007_koraidon/0_koraidon_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1007_koraidon/koraidon.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1007_koraidon/koraidon.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1007_koraidon/koraidon.png",
+      "sha256": "9dfebf6e2b909b618eba455528f7c97f3214bbf27a3f9e6eab6314fe058fd871"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1007_koraidon/koraidon_shiny.png",
+      "sha256": "9ea7048e9f59752e2d97b541d74f0f09154b432ec9dbcac5a99aaacd157ba628"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.koraidon.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1007_koraidon/koraidon.animation.json"
+    }
+  ]
+}

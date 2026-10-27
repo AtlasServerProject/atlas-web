@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0905_enamorus/0_enamorus_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0905_enamorus/enamorus.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0905_enamorus/enamorus.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0905_enamorus/enamorus.png",
+      "sha256": "da5160ac248992967e9102e32eeb29f5417a14f71e484c8391391fc188092317"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0905_enamorus/enamorus_shiny.png",
+      "sha256": "08289c742c032086c1703d0ab1e758a82258ed3c4110c1d42171254d31b9e419"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.pokemans_enamorus.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0905_enamorus/pokemans_enamorus.animation.json"
+    }
+  ]
+}

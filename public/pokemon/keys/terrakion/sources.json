@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0639_terrakion/0_terrakion_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0639_terrakion/terrakion.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0639_terrakion/terrakion.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0639_terrakion/terrakion.png",
+      "sha256": "83a9ef82dcffe2fcce9a90e14dabee2783c07ddac7d74240c74af230e21afd02"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0639_terrakion/terrakion_shiny.png",
+      "sha256": "3799b94ad570db71ab05e93365854bfde822c6609d5a49a1ca523b1c25114a8a"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.terrakion.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0639_terrakion/terrakion.animation.json"
+    }
+  ]
+}

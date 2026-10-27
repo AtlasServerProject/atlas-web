@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0383_groudon/0_groudon_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0383_groudon/groudon.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0383_groudon/groudon.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0383_groudon/groudon.png",
+      "sha256": "37549877a8dfea0d79a92e3cd5a3be03cf8d04b032bc0b52e7ce5f38b86cd204"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0383_groudon/groudon_shiny.png",
+      "sha256": "2e5a3db284801874c42c27133cecd88004b42dc43edfb8caf0e1b7f0114f90ed"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.groudon.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0383_groudon/groudon.animation.json"
+    }
+  ]
+}

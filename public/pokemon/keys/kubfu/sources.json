@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0891_kubfu/0_kubfu_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0891_kubfu/kubfu.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0891_kubfu/kubfu.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0891_kubfu/kubfu.png",
+      "sha256": "c71bfd0dc59ffd23855f6afc246a1da99f30fa78aa25966dc5eeb6b52aec929a"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0891_kubfu/kubfu_shiny.png",
+      "sha256": "562800a2ffe8e2b254907fb67a23f10b686a5afc4b0d2b042bb51854b03ed95b"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.kubfu.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0891_kubfu/kubfu.animation.json"
+    }
+  ]
+}

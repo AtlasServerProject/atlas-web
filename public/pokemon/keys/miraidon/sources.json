@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1008_miraidon/0_miraidon_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1008_miraidon/miraidon.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1008_miraidon/miraidon.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1008_miraidon/miraidon.png",
+      "sha256": "799f38d87d3b604955f1095b7f207c3430a579ab7ab3566f7c5b69838d954bda"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1008_miraidon/miraidon_shiny.png",
+      "sha256": "39439a3baa25b2eb6c79e9436c4758753ef4eacfa13938e9f62c842e3d0830c2"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1008_miraidon/miraidon_emissive.png",
+      "sha256": "03610bbbc649433dabdc735df4bd4a2947d7a046c266f595a8136b2c1a87302b"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1008_miraidon/miraidon_emissive.png",
+      "sha256": "03610bbbc649433dabdc735df4bd4a2947d7a046c266f595a8136b2c1a87302b"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.miraidon.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1008_miraidon/miraidon.animation.json"
+    }
+  ]
+}

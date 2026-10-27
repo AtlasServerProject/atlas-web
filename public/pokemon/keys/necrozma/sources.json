@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0800_necrozma/0_necrozma_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0800_necrozma/necrozma.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0800_necrozma/necrozma.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0800_necrozma/necrozma.png",
+      "sha256": "b3021d087334eb498352731ebe1b0aecea131509852cf68623286ee5d1c8538f"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0800_necrozma/necrozma_shiny.png",
+      "sha256": "fd3c96596c9beb8d52d3582d365de0e461d1101271c5e02b86dc47253035cc73"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0800_necrozma/necrozma_emissive.png",
+      "sha256": "17188fffc7f9a6ed8833cebafd437ceefe40ff38ae6fb0283ce057a78bec6a03"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0800_necrozma/necrozma_emissive.png",
+      "sha256": "17188fffc7f9a6ed8833cebafd437ceefe40ff38ae6fb0283ce057a78bec6a03"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.necrozma.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0800_necrozma/necrozma.animation.json"
+    }
+  ]
+}

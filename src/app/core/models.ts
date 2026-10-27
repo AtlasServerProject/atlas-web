@@ -2,6 +2,7 @@ export type UserRole = 'USER' | 'SUPPORT' | 'MODERATOR' | 'ADMIN';
 export interface User {
   id: string;
   emailVerified: boolean;
+  mfaEnabled?: boolean;
   username: string;
   email: string;
   role: UserRole;

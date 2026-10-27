@@ -1,3 +1,5 @@
+import { GoogleAccountComponent } from './google-account.component';
+import { AccountSecurityComponent } from './account-security.component';
 import { Component, inject, signal } from '@angular/core';
 import { DatePipe, CurrencyPipe } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -29,6 +31,8 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
   `,
   standalone: true,
   imports: [
+    AccountSecurityComponent,
+    GoogleAccountComponent,
     DatePipe,
     CurrencyPipe,
     RouterLink,
@@ -39,6 +43,7 @@ import { MinecraftLinkComponent } from './minecraft-link.component';
   template: ` <section class="section page-intro">
     <span class="eyebrow">SEU UNIVERSO ATLAS</span>
     <h1>{{ purchases ? 'Meus apoios' : 'Minha conta' }}</h1>
+    @if (!purchases) { <app-google-account /><app-account-security /> }
     @if (purchases) {
       <app-purchase-mailbox />
       <p>Acompanhe seus pedidos, pagamentos e entregas.</p>

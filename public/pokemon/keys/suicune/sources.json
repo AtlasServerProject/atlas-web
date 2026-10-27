@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0245_suicune/0_suicune_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0245_suicune/suicune.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0245_suicune/suicune.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0245_suicune/suicune.png",
+      "sha256": "9bba77609e392ceefcd69111a8d07b1eaa00ca98cd7c20dc75029414c4488d32"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0245_suicune/suicune_shiny.png",
+      "sha256": "7175b65f1897bdb5d48b52fe08d249431158f689a2bff71a030f278696408c12"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.suicune.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0245_suicune/suicune.animation.json"
+    },
+    {
+      "name": "animation.suicune.tail_idle",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0245_suicune/suicune.animation.json"
+    },
+    {
+      "name": "animation.suicune.hair",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0245_suicune/suicune.animation.json"
+    }
+  ]
+}

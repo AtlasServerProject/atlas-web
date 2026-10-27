@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0483_dialga/0_dialga_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0483_dialga/dialga.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0483_dialga/dialga.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0483_dialga/dialga.png",
+      "sha256": "73c9ca409a28a88e9b35163f88e8c569487f898858684f9d7c9a160ac83d4c9b"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0483_dialga/dialga_shiny.png",
+      "sha256": "f968b9a1d7babef0bde76f1ca5205505a13a966f5f0e6900e598d2a6b344d87d"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0483_dialga/dialga_emissive.png",
+      "sha256": "bb8cb135aa6eb5bfbb678effd184b2f3f0dc0f24fcb43879302d8a6c9d821f71"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0483_dialga/dialga_emissive_shiny.png",
+      "sha256": "0e6bdd2a2fa52b3b2112364771a235bab6d31137fab07fe8af2614628f6ae5a6"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.dialga.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0483_dialga/dialga.animation.json"
+    }
+  ]
+}

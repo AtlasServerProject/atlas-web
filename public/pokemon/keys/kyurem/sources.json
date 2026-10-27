@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0646_kyurem/0_kyurem_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0646_kyurem/kyurem.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0646_kyurem/kyurem.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0646_kyurem/kyurem.png",
+      "sha256": "9e6b57ccfbfab7a380e93339d30c69713543344f3c99559e7bc5b429d3b3dd5e"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0646_kyurem/kyurem_shiny.png",
+      "sha256": "678aaa98861251c0149f3bce4cbe11322a187e09ec512b2ad8c32300ff6f6b39"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.kyurem.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0646_kyurem/kyurem.animation.json"
+    }
+  ]
+}

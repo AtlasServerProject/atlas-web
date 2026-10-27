@@ -7,11 +7,19 @@ import { PromotionService } from '../../core/promotion.service';
 import { Product, productCategories } from '../../core/models';
 import { CountdownComponent } from './countdown.component';
 import { ProductEditorComponent } from './product-editor.component';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { KEY_PRODUCTS } from '../../core/key-products';
 @Component({
   selector: 'app-catalog',
   standalone: true,
   styleUrl: './catalog.component.scss',
-  imports: [CurrencyPipe, CountdownComponent, ProductEditorComponent, CheckoutComponent],
+  imports: [
+    CurrencyPipe,
+    CountdownComponent,
+    ProductEditorComponent,
+    CheckoutComponent,
+    RouterLink,
+  ],
   template: `
     <section class="section commerce-catalog" aria-label="Formas de apoio ao servidor">
       <div class="catalog-heading">
@@ -27,7 +35,11 @@ import { ProductEditorComponent } from './product-editor.component';
             <strong>Catálogo disponível para consulta</strong>
             <p role="alert">{{ products.error() }}</p>
           </div>
-          <button class="button secondary retry-button" [disabled]="products.loading()" (click)="products.refresh()">
+          <button
+            class="button secondary retry-button"
+            [disabled]="products.loading()"
+            (click)="products.refresh()"
+          >
             {{ products.loading() ? 'Atualizando…' : 'Tentar novamente' }}
           </button>
         </div>
@@ -35,18 +47,82 @@ import { ProductEditorComponent } from './product-editor.component';
       <div class="catalog-filters">
         <span class="filter-label" id="catalog-category-label">Categorias de benefícios</span>
         <div class="category-tabs" role="group" aria-labelledby="catalog-category-label">
-        @for (cat of categories; track cat) {
-          <button
-            class="button secondary"
-            [attr.aria-pressed]="category() === cat"
-            (click)="category.set(cat)"
-          >
-            {{ cat }}
-          </button>
-        }
+          @for (cat of categories; track cat) {
+            <button
+              class="button secondary"
+              [attr.aria-pressed]="category() === cat"
+              (click)="category.set(cat)"
+            >
+              {{ cat }}
+            </button>
+          }
         </div>
       </div>
-      @if (category() !== 'VIPs' || extraVips()) {
+      @if (category() === 'Chaves') {
+        <p class="notice">
+          Chaves virtuais: consulte seu saldo em /compras e use uma chave com o botão direito na
+          caixa correspondente. Nenhum item físico é entregue. Confira os preços por chave abaixo;
+          vendas ainda indisponíveis.
+        </p>
+        <div class="cards key-catalog">
+          @for (key of crateKeys; track key.identifier) {
+            <article class="card product-card key-card">
+              <div class="key-art-frame">
+                @if (key.sprite) {
+                  <div
+                    class="key-art key-art-sprite"
+                    role="img"
+                    [attr.aria-label]="key.name"
+                    [style.background-position]="key.artPosition"
+                  ></div>
+                } @else if (key.imageUrl) {
+                  <img
+                    class="key-art"
+                    [src]="key.imageUrl"
+                    [alt]="key.name"
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                  />
+                }
+              </div>
+              <span class="eyebrow">CHAVE VIRTUAL · EMERALD</span>
+              <h3>{{ key.name }}</h3>
+              <p>{{ key.description }}</p>
+              <dl>
+                <dt>Uso</dt>
+                <dd>1 chave por abertura</dd>
+                <dt>Onde consultar</dt>
+                <dd>/compras</dd>
+              </dl>
+              @if (key.productId && promotions.activeFor(key.productId); as offer) {
+                <div class="product-price">
+                  <del>{{ key.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}</del
+                  ><strong>{{
+                    offer.promotionalPrice | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+                  }}</strong>
+                </div>
+                <app-countdown [endsAt]="offer.endsAt" />
+              } @else {
+                <strong class="product-price">{{
+                  key.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+                }}</strong>
+              }
+              @if (auth.adminMode() && products.available() && key.product) {
+                <div class="actions admin-controls">
+                  <button class="button secondary" (click)="editor.open(key.product, 'price')">✎ Preço</button>
+                  <button class="button secondary" (click)="editor.open(key.product, 'promotion')">⚡ Promoção</button>
+                </div>
+              }
+              <a class="button secondary" [routerLink]="['/store/chaves', key.identifier]"
+                >Ver Pokémon desta chave ↗</a
+              >
+              <button class="button secondary" disabled>Em breve</button>
+            </article>
+          }
+        </div>
+      }
+      @if ((category() !== 'VIPs' || extraVips()) && category() !== 'Chaves') {
         <div class="cards">
           @for (product of products.products(); track product.id) {
             @if (
@@ -114,11 +190,32 @@ import { ProductEditorComponent } from './product-editor.component';
   `,
 })
 export class CatalogComponent {
+  readonly keyDefinitions = KEY_PRODUCTS;
+  get crateKeys() {
+    return this.keyDefinitions.flatMap((key) => {
+      const product = this.products
+        .products()
+        .find((p) => p.slug === key.slug && p.category === 'Chaves');
+      if (this.products.available() && (!product || !product.active)) return [];
+      return [
+        {
+          ...key,
+          name: product?.name ?? key.name,
+          description: product?.description ?? key.description,
+          price: product?.price ?? key.price,
+          productId: product?.id,
+          product,
+        },
+      ];
+    });
+  }
   readonly auth = inject(AuthService);
   readonly products = inject(ProductService);
   readonly promotions = inject(PromotionService);
   readonly categories = productCategories;
-  readonly category = signal<string>('VIPs');
+  readonly category = signal<string>(
+    inject(ActivatedRoute).snapshot.queryParamMap.get('categoria') === 'Chaves' ? 'Chaves' : 'VIPs',
+  );
   private readonly editor = viewChild<ProductEditorComponent>('editor');
   openEditor(product: Product, kind: 'price' | 'promotion') {
     this.editor()?.open(product, kind);

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1014_okidogi/0_okidogi_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1014_okidogi/okidogi.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1014_okidogi/okidogi.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1014_okidogi/okidogi.png",
+      "sha256": "d8cfa35c644073431c5e31ff1fdaa89d29e16ee20432a85498a009beb2538b18"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1014_okidogi/okidogi_shiny.png",
+      "sha256": "0cc71f25f17aa127a24455024fbdc02f3f938c59f0a1581c8ec4f60f9295c53f"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.pokemans_okidogi.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1014_okidogi/pokemans_okidogi.animation.json"
+    }
+  ]
+}

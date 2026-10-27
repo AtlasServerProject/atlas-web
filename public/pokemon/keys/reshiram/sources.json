@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0643_reshiram/0_reshiram_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0643_reshiram/reshiram.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0643_reshiram/reshiram.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0643_reshiram/reshiram.png",
+      "sha256": "df6649c7a0f57e27bb40a474be13d028b0e1181193b40e116cec359d906dfe4a"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0643_reshiram/reshiram_shiny.png",
+      "sha256": "9acf5a216f5f50ac7160c1aec00da5c54251c2a0dc2a2ed2bcb70192b8c4aa74"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0643_reshiram/reshiram_emissive.png",
+      "sha256": "8f845aaa0447aad9c492e8fc6d6b7ba837365e2cf729bab23108d2882f740434"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0643_reshiram/reshiram_emissive_shiny.png",
+      "sha256": "98e9f71508ba758db2dbb1a4e6518bbdc0426df6036ae006560aefb78967c809"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.reshiram.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0643_reshiram/reshiram.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0649_genesect/0_genesect_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0649_genesect/genesect.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0649_genesect/genesect.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0649_genesect/genesect.png",
+      "sha256": "ecb4da5e8332b11a833c0e2fc2368c5bb379fe3d3b5d53e8758af1edf0cc6a95"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0649_genesect/genesect_shiny.png",
+      "sha256": "0a05db82329c659ae5d07cd84dd06378f0a6f2b718071bf8eb9d6f783091d012"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.genesect.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0649_genesect/genesect.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0717_yveltal/0_yveltal_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0717_yveltal/yveltal.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0717_yveltal/yveltal.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0717_yveltal/yveltal.png",
+      "sha256": "d1c4309b40519ba1508a7f81d1b56967b29419d722f86150d47827d1330413bb"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0717_yveltal/yveltal_shiny.png",
+      "sha256": "aa7b1ecad39e23e23c5114c7ba55f6a90105db4e3694f0ba81df218aeafce5bc"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0717_yveltal/yveltal_emissive.png",
+      "sha256": "7e9a09ef8ca4a7e46fcd6ccb4a2d2fcd62eb867920823142e30e79afa4c2fcd6"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0717_yveltal/yveltal_emissive_shiny.png",
+      "sha256": "7e9a09ef8ca4a7e46fcd6ccb4a2d2fcd62eb867920823142e30e79afa4c2fcd6"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.yveltal.air_fly",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0717_yveltal/yveltal.animation.json"
+    }
+  ]
+}

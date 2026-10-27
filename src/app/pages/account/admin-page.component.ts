@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { DeliveryAdminComponent } from './delivery-admin.component';
 import { FormsModule } from '@angular/forms';
 import { Product } from '../../core/models';
+import { KEY_PRODUCTS } from '../../core/key-products';
 import { Component, inject, signal } from '@angular/core';
 import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ProductService } from '../../core/product.service';
@@ -25,6 +26,17 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
     CountdownComponent,
     DialogFocusDirective,
   ],
+  styles: `
+    .admin-key-art {
+      height: 220px;
+      width: 147px;
+      margin: 0 auto 20px;
+      background-repeat: no-repeat;
+    }
+    .admin-section {
+      scroll-margin-top: 100px;
+    }
+  `,
   template: `<div class="admin-dashboard">
     <aside class="admin-sidebar" [class.is-open]="menuOpen()" aria-label="Navegação administrativa">
       <div class="admin-brand">
@@ -40,10 +52,19 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
         ☰ Menu do painel
       </button>
       <nav id="admin-navigation" class="admin-nav">
-        <a routerLink="/admin" fragment="admin-overview" (click)="menuOpen.set(false)">◈ Visão geral</a>
-        <a routerLink="/admin" fragment="admin-products" (click)="menuOpen.set(false)">▦ Produtos e promoções</a>
-        <a routerLink="/admin" fragment="admin-team" (click)="menuOpen.set(false)">♧ Equipe do site</a>
-        <a routerLink="/admin" fragment="admin-deliveries" (click)="menuOpen.set(false)">↗ Entregas de VIP</a>
+        <a routerLink="/admin" fragment="admin-overview" (click)="menuOpen.set(false)"
+          >◈ Visão geral</a
+        >
+        <a routerLink="/admin" fragment="admin-products" (click)="menuOpen.set(false)"
+          >▦ Produtos e promoções</a
+        >
+        <a routerLink="/admin" fragment="admin-keys" (click)="menuOpen.set(false)">⚿ Chaves</a>
+        <a routerLink="/admin" fragment="admin-team" (click)="menuOpen.set(false)"
+          >♧ Equipe do site</a
+        >
+        <a routerLink="/admin" fragment="admin-deliveries" (click)="menuOpen.set(false)"
+          >↗ Entregas de VIP</a
+        >
         <a routerLink="/admin/tickets">◇ Atendimento</a>
         <a routerLink="/conta">← Minha conta</a>
       </nav>
@@ -78,6 +99,68 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
       </section>
       <section class="section admin-support-link">
         <a class="button" routerLink="/admin/tickets">Atendimento de compras</a>
+      </section>
+      <section id="admin-keys" class="section admin-section">
+        <span class="eyebrow">CHAVES VIRTUAIS · EMERALD</span>
+        <h2>Chaves</h2>
+        <p>
+          Gerencie os preços, a visibilidade e as promoções das chaves. A compra e a entrega
+          automática de chaves ainda estão indisponíveis.
+        </p>
+        @if (products.error()) {
+          <p role="alert">{{ products.error() }}</p>
+        }
+        <div class="cards">
+          @for (product of keyProducts(); track product.id) {
+            <article class="card">
+              @if (keyDefinition(product); as key) {
+                <div
+                  class="admin-key-art"
+                  role="img"
+                  [attr.aria-label]="product.name"
+                  [style.background-image]="'url(' + key.imageUrl + ')'"
+                  [style.background-size]="key.sprite ? '200% 100%' : 'contain'"
+                  [style.background-position]="key.sprite ? 'right center' : 'center'"
+                ></div>
+                <a class="button secondary" [routerLink]="['/store/chaves', key.identifier]"
+                  >Ver Pokémon da chave</a
+                >
+              }
+              <h3>{{ product.name }}</h3>
+              <p>{{ product.active ? 'Visível no catálogo' : 'Oculta no catálogo' }}</p>
+              <strong class="product-price">{{
+                product.price | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'
+              }}</strong>
+              @if (promotions.activeFor(product.id); as offer) {
+                <p>
+                  Oferta:
+                  {{ offer.promotionalPrice | currency: 'BRL' : 'symbol' : '1.2-2' : 'pt-BR' }}
+                </p>
+                <app-countdown [endsAt]="offer.endsAt" />
+              }
+              <div class="actions">
+                <button class="button secondary" (click)="editProduct(product)">
+                  Editar produto
+                </button>
+                <button class="button secondary" [disabled]="busy()" (click)="toggle(product)">
+                  {{ product.active ? 'Ocultar' : 'Exibir' }}
+                </button>
+                <button class="button secondary" (click)="editor.open(product, 'price')">
+                  Editar preço
+                </button>
+                <button class="button secondary" (click)="editor.open(product, 'promotion')">
+                  Criar promoção
+                </button>
+              </div>
+            </article>
+          } @empty {
+            <p>
+              {{
+                products.loading() ? 'Carregando chaves…' : 'Nenhuma chave cadastrada no catálogo.'
+              }}
+            </p>
+          }
+        </div>
       </section>
       <div id="admin-team"><app-team-directory /></div>
       <div id="admin-deliveries"><app-delivery-admin /></div>
@@ -144,7 +227,7 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
           </form>
         }
         <div class="cards">
-          @for (product of products.products(); track product.id) {
+          @for (product of regularProducts(); track product.id) {
             <article class="card">
               <h3>{{ product.name }}</h3>
               <p>{{ product.active ? 'Visível em Emerald' : 'Desativado' }}</p>
@@ -218,6 +301,19 @@ import { CountdownComponent } from '../../shared/commerce/countdown.component';
   </div>`,
 })
 export class AdminPageComponent {
+  keyProducts() {
+    return this.products.products().filter((p) => p.category === 'Chaves');
+  }
+  regularProducts() {
+    return this.products.products().filter((p) => p.category !== 'Chaves');
+  }
+  keyDefinition(product: Product) {
+    return KEY_PRODUCTS.find((key) => key.slug === product.slug);
+  }
+  editProduct(product: Product) {
+    this.draft = this.copy(product);
+    document.getElementById('admin-products')?.scrollIntoView({ behavior: 'auto', block: 'start' });
+  }
   readonly products = inject(ProductService);
   readonly promotions = inject(PromotionService);
   pending?: Promotion;

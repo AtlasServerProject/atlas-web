@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0719_diancie/0_diancie_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0719_diancie/diancie.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0719_diancie/diancie.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0719_diancie/diancie.png",
+      "sha256": "fcad74cc0f12430774f143dbc6d678330495d9f49f6dbdff00e3f7e3d596d443"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0719_diancie/diancie_shiny.png",
+      "sha256": "4fa8e4498f1f99f4fb1eaf6872cc8c92c959cd086e1c73646d75373e9f6dce3d"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.diancie.air_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0719_diancie/diancie.animation.json"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0151_mew/0_mew_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0151_mew/mew.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0151_mew/mew.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0151_mew/mew.png",
+      "sha256": "775b18bdd2c09ee18cd7c474b873e19864e69d591fa4b649906eb63fa312164f"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0151_mew/mew_shiny.png",
+      "sha256": "ec445b3d7946dea0a41255848f468f176b595a179af670f7b012b8682f757fe1"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.mew.ground_idle",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0151_mew/mew.animation.json"
+    }
+  ]
+}

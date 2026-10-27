@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/1003_tinglu/0_tinglu_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/1003_tinglu/tinglu.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/1003_tinglu/tinglu.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1003_tinglu/tinglu.png",
+      "sha256": "2037544b832daac97cbacfdae1083fa4015618e8c86717a07a7eb95c4f3e6bd4"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/1003_tinglu/tinglu_shiny.png",
+      "sha256": "33e6d45cd27b73d96f7503dd9d4f0e27b85942d9c76221185ac927a81bb5c509"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.tinglu.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/1003_tinglu/tinglu.animation.json"
+    }
+  ]
+}

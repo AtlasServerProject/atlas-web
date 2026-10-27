@@ -1,0 +1,43 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0382_kyogre/0_kyogre_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0382_kyogre/kyogre.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0382_kyogre/kyogre.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0382_kyogre/kyogre.png",
+      "sha256": "93ae03562dc1c71f8a2581552f5aa5cd9dfd3b9489ae7735ca481595e3ec7956"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0382_kyogre/kyogre_shiny.png",
+      "sha256": "e19922b2eaf7be6cd3c2f2221739acc0b97e0068fe9d0521904c6dd91320d17e"
+    },
+    "normal-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0382_kyogre/kyogre_emissive.png",
+      "sha256": "717729fa962cbef5c172477d8897fdc03cd8124edf92e4d9375a3f879dbfb076"
+    },
+    "shiny-layer-0.png": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0382_kyogre/kyogre_emissive_shiny.png",
+      "sha256": "89370cf7b12dfdeeef15704aa000030f1c3d904d4b146bb3979c1d25ab35003c"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.kyogre.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0382_kyogre/kyogre.animation.json"
+    }
+  ]
+}

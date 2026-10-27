@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0491_darkrai/0_darkrai_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0491_darkrai/darkrai.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0491_darkrai/darkrai.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0491_darkrai/darkrai.png",
+      "sha256": "ed585e2484c16280d4decb010a9e762b3ea80d173c2f2a8cd3ab50b2d20e7d43"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0491_darkrai/darkrai_shiny.png",
+      "sha256": "7eace3987ab1287b352cee981803d4584bac1bb4883572642942fed9776a8be6"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.darkrai.air_fly",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0491_darkrai/darkrai.animation.json"
+    }
+  ]
+}

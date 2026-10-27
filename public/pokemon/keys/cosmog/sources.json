@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0789_cosmog/0_cosmog_base.json"
+  },
+  "model": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0789_cosmog/cosmog.geo.json"
+  },
+  "poser": {
+    "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0789_cosmog/cosmog.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0789_cosmog/cosmog.png",
+      "sha256": "6313e51eaec3d0f9aeb5ebca43c5f6428d3c58374298225dc9412a1a7ed07b08"
+    },
+    "shiny": {
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/textures/pokemon/0789_cosmog/cosmog_shiny.png",
+      "sha256": "508e77bdbba66c40e28f2c7d74ff8063053d53a25db760b1554fa2bf0a04e05e"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.cosmog.ground_walk",
+      "source": "mega_showdown-fabric-1.3.1+1.8.2+1.21.1-release.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0789_cosmog/cosmog.animation.json"
+    }
+  ]
+}

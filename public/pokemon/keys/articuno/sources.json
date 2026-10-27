@@ -1,0 +1,33 @@
+{
+  "resolver": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/resolvers/0144_articuno/0_articuno_base.json"
+  },
+  "model": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/models/0144_articuno/articuno.geo.json"
+  },
+  "poser": {
+    "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+    "path": "assets/cobblemon/bedrock/pokemon/posers/0144_articuno/articuno.json"
+  },
+  "textures": {
+    "normal": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0144_articuno/articuno.png",
+      "sha256": "ef7629f9dd6721b9c08fe3aea0617a5faea8748f59bd19f2ebbabbb84bece599"
+    },
+    "shiny": {
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/textures/pokemon/0144_articuno/articuno_shiny.png",
+      "sha256": "da120ea743e34be5fd96ed362a2f43ea7ad4f419540661489bac8393422e790e"
+    }
+  },
+  "animations": [
+    {
+      "name": "animation.articuno.air_fly",
+      "source": "Cobblemon-fabric-1.8.2+1.21.1.jar",
+      "path": "assets/cobblemon/bedrock/pokemon/animations/0144_articuno/articuno.animation.json"
+    }
+  ]
+}

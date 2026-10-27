@@ -35,6 +35,10 @@ export const routes: Routes = [
   { path: 'how-to-play', title: 'Como jogar | Atlas Cobblemon', component: HowToPlayPageComponent },
   { path: 'notices', title: 'Novidades | Atlas Cobblemon', component: NoticesPageComponent },
   { path: 'store/vip/:slug', component: VipDetailPageComponent },
+  {
+    path: 'store/chaves/:identifier',
+    loadComponent: () => import('./pages/store/key-catalogue/key-catalogue-page.component').then(m => m.KeyCataloguePageComponent),
+  },
   { path: 'store', title: 'Loja VIP | Atlas Cobblemon', component: StorePageComponent },
   { path: 'loja', title: 'Loja | Atlas Cobblemon', component: StorePageComponent },
   { path: 'login', title: 'Entrar | Atlas Cobblemon', component: AuthPageComponent },

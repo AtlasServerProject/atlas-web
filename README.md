@@ -87,3 +87,9 @@ A suíte de comércio cobre login USER/ADMIN, erro de login, logout, cadastro, s
 ## Migração para Cloudflare Pages (03/10/2026)
 
 Preparada, aguardando autorização da conta e ativação de `atlascobblemon.com.br`. Use `npm run build:pages` (saída `dist/atlas-web/browser`) e `npm run test:hosting`. Pages usa um Worker apenas para `/api/`, com origem fixa `api.atlascobblemon.com.br`; o API/PostgreSQL continua na VM. No painel Pages, conectar o GitHub `AtlasServerProject/atlas-web`, branch main, build `npm run build:pages`, Node 24.21.0. Não criar por Direct Upload se desejar a integração Git nativa. Configuração e ativação do túnel permanente: [CLOUDFLARE.md](../atlas-docs/OPERACAO.md). Não declarar publicado antes do teste HTTPS real.
+
+## Distribuição Atlas Launcher
+
+Página pública: https://www.atlascobblemon.com.br/launcher/. Manifestações assinadas em public/launcher/latest.json (launcher) e modpack.json (pack). Os pacotes Windows são divididos em partes de no máximo 20 MiB, conservadas localmente em .launcher-distribution e excluídas do Git. `scripts/prepare-pages.mjs` verifica tamanho e SHA-256 das partes e as inclui no deploy por hardlink/cópia. O build para publicação falha se faltar uma parte referenciada. Para nova versão ou ambiente novo, preparar a distribuição pelo script `atlas-launcher/scripts/publish-site-release.mjs` antes de `npm run build:pages`. A chave de assinatura não integra os fontes ou arquivos públicos.
+
+O download do launcher agora começa diretamente em /how-to-play pelo botão Baixar Atlas Launcher, com progresso e conferência de assinatura/hashes na página. /launcher/ redireciona para esse guia; /launcher/latest.json, modpack.json e files continuam como fontes estáticas.

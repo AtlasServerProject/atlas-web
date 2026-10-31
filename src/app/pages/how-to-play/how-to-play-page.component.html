@@ -1,45 +1,124 @@
-<section class="section page-intro">
-  <span class="eyebrow">GUIA DO TREINADOR</span>
-  <h1>Prepare sua jornada<br />no <em>Atlas.</em></h1>
-  <p class="lead">Instale o modpack completo, com mods, texturas e sons, e conecte-se ao servidor. Siga os passos abaixo na ordem para preparar seu Minecraft.</p>
-  <div class="guide-actions">
-    <a class="button" href="https://drive.google.com/drive/folders/1SMYUUUn1nnJtcw_9fqzsX-7LYiZjHhot?usp=drive_link" target="_blank" rel="noopener noreferrer">Baixar modpack ↗</a>
-    <a class="button secondary" href="/downloads/LEIA-ME-Atlas.txt" download>Baixar LEIA-ME ↓</a>
+<section class="section page-intro launcher-intro">
+  <div class="intro-copy">
+    <span class="eyebrow">COMECE PELO ATLAS LAUNCHER</span>
+    <h1>Sua jornada começa<br />com um <em>download.</em></h1>
+    <p class="lead">O launcher prepara o Minecraft, o Java, o Fabric e os mods do Atlas para você. Baixe, escolha seu nick e siga os passos para entrar no servidor.</p>
+    <div class="guide-actions">
+      <button class="button" type="button" (click)="downloadLauncher()" [disabled]="downloading()">{{ downloading() ? 'Baixando… ' + downloadProgress() + '%' : 'Baixar Atlas Launcher' }} <span aria-hidden="true">↓</span></button>
+      <a class="button secondary" href="/downloads/Atlas-Cobblemon-1.0.2-beta.5-Importar.zip" download>Baixar modpack atualizado <span aria-hidden="true">↓</span></a>
+    </div>
+    <p class="download-note">Launcher: Windows 64 bits · Modpack: ZIP importável 1.0.2-beta.5 · 58 mods</p>
+    @if (downloading()) { <progress class="launcher-progress" max="100" [value]="downloadProgress()" aria-label="Download do launcher"></progress> }
+    <p class="download-status" role="status" aria-live="polite">{{ downloadMessage() }}</p>
   </div>
-  <p class="muted">O modpack oficial no Google Drive já inclui os mods, o Atlas Textures e o pacote de sons. Você não precisa baixá-los separadamente.</p>
+  <aside class="setup-card" aria-label="O que você precisa para começar">
+    <span class="setup-icon" aria-hidden="true">↓</span>
+    <h2>Uma instalação só do Atlas</h2>
+    <p>Seus outros modpacks e mundos ficam separados.</p>
+    <dl>
+      <div><dt>Computador</dt><dd>Windows 64 bits</dd></div>
+      <div><dt>Jogo</dt><dd>Minecraft Java 1.21.1</dd></div>
+      <div><dt>Java e mods</dt><dd>Preparados pelo launcher</dd></div>
+      <div><dt>Acesso disponível</dt><dd>Modo offline por nick</dd></div>
+    </dl>
+    <p class="setup-footnote">Tenha conexão com a internet e espaço livre para os downloads. Recomendamos 4 GB de RAM para o jogo, mantendo memória disponível para o Windows. Você também pode tentar iniciar com menos RAM pelas configurações do launcher.</p>
+  </aside>
 </section>
-<section class="section steps" aria-label="Passos de instalação">
-  <article atlasReveal="up"><span>01</span><div>
-    <h2>Prepare o Minecraft Java 1.21.1</h2>
-    <p>Crie uma instalação com Fabric para Minecraft Java 1.21.1 no seu launcher. Inicie essa instalação uma vez e feche o jogo antes de copiar os arquivos.</p>
-    <p class="muted">Use uma instalação separada para o Atlas, evitando misturar os mods com os de outros servidores. Se precisar confirmar a versão do Fabric, consulte a equipe no Discord.</p>
-  </div></article>
-  <article atlasReveal="up"><span>02</span><div>
-    <h2>Instale o modpack</h2>
-    <p>Baixe o <strong>modpack completo</strong> na pasta oficial do Google Drive. Extraia o pacote e copie as pastas fornecidas para a instalação que você criou, mantendo a estrutura: mods em <code>mods</code> e pacotes de texturas e sons em <code>resourcepacks</code>.</p>
-    <p class="notice">Se a extração já criar uma pasta chamada mods, copie o conteúdo dela para mods. Os arquivos .jar devem ficar diretamente nessa pasta, sem uma segunda pasta mods dentro dela.</p>
-  </div></article>
-  <article atlasReveal="up"><span>03</span><div>
-    <h2>Ative as texturas e os sons</h2>
-    <p>O <strong>Atlas Textures</strong> e o pacote de <strong>sons</strong> já acompanham o modpack. Mantenha os ZIPs desses recursos <strong>sem extrair</strong> na pasta <code>resourcepacks</code>.</p>
-    <p>No jogo, abra <strong>Opções → Pacotes de recursos</strong>, ative os pacotes incluídos e confirme. Não é necessário fazer outro download.</p>
-    <p class="notice">Evite ativar versões antigas ou duplicadas dos mesmos pacotes. O Atlas Textures já reúne a interface Cobblemon, os ícones do minimapa e as sprites do GTS.</p>
-  </div></article>
-  <article atlasReveal="up"><span>04</span><div>
-    <h2>Entre no Atlas</h2>
-    <p>Inicie o perfil com Fabric e abra <strong>Multijogador → Adicionar servidor</strong>. Use Atlas como nome e copie o endereço abaixo:</p>
-    <div class="server-address"><span>Servidor principal</span><code>stapling-gpo.tun.ply.gg</code></div>
-    <p>Entre no servidor e siga as orientações de login exibidas no jogo. Depois, siga para o Emerald para começar sua jornada.</p>
-    <p class="muted">O projeto está em testes. O acesso depende de o servidor estar online e das orientações da equipe.</p>
-  </div></article>
+
+<section id="passos" class="section installation-guide" aria-labelledby="steps-title">
+  <div class="guide-heading">
+    <span class="eyebrow">DO DOWNLOAD AO SERVIDOR</span>
+    <h2 id="steps-title">Cinco passos para jogar</h2>
+    <p>Usando o Atlas Launcher, faça na ordem. Ele prepara o Java e os mods automaticamente. Prefere outro launcher? <a href="#modpack">Veja como importar o modpack.</a></p>
+  </div>
+  <div class="guide-steps">
+    <article class="guide-step" atlasReveal="up">
+      <span class="step-number" aria-hidden="true">01</span>
+      <div class="step-content">
+        <span class="step-label">DOWNLOAD OFICIAL</span>
+        <h3>Baixe o launcher</h3>
+        <p>Clique em <strong>Baixar Atlas Launcher</strong> no início desta página. O download começa aqui mesmo. Aguarde o navegador salvar o arquivo <code>Atlas-Launcher-…-Setup-x64.exe</code>.</p>
+        <p class="step-tip">O botão baixa a versão publicada mais recente. Guarde o arquivo em uma pasta fácil de encontrar, como Downloads.</p>
+      </div>
+    </article>
+    <article class="guide-step" atlasReveal="up">
+      <span class="step-number" aria-hidden="true">02</span>
+      <div class="step-content">
+        <span class="step-label">INSTALE UMA ÚNICA VEZ</span>
+        <h3>Instale uma vez e abra pelo atalho</h3>
+        <p>Feche qualquer versão antiga do launcher. Abra o arquivo <code>Atlas-Launcher-…-Setup-x64.exe</code> que você baixou e siga o instalador. Ele instala o aplicativo no seu usuário do Windows e cria um atalho <strong>Atlas Launcher</strong>.</p>
+        <p class="step-tip">Da próxima vez, abra pelo atalho. O launcher baixará suas próprias atualizações e aplicará ao fechar, depois que o Minecraft estiver encerrado. Não será necessário baixar outro ZIP.</p>
+      </div>
+    </article>
+    <article class="guide-step" atlasReveal="up">
+      <span class="step-number" aria-hidden="true">03</span>
+      <div class="step-content">
+        <span class="step-label">SEU PERFIL</span>
+        <h3>Escolha o modo offline e informe seu nick</h3>
+        <p>Na tela inicial, selecione <strong>Modo offline</strong>, digite seu nick e clique em <strong>Entrar no modo offline</strong>. Use de 3 a 16 caracteres: letras sem acento, números ou sublinhado.</p>
+        <p class="step-tip">Já joga no Atlas? Use exatamente o mesmo nick. O login Microsoft ainda está em preparação; o modo offline não exige esse cadastro.</p>
+        <p class="login-reminder">O nick seleciona seu perfil local. A senha da sua conta no servidor será informada <strong>dentro do Minecraft</strong>, ao entrar no Atlas.</p>
+      </div>
+    </article>
+    <article class="guide-step" atlasReveal="up">
+      <span class="step-number" aria-hidden="true">04</span>
+      <div class="step-content">
+        <span class="step-label">INSTALAÇÃO AUTOMÁTICA</span>
+        <h3>Clique em Instalar modpack</h3>
+        <p>Na tela <strong>Início</strong>, clique em <strong>Instalar modpack</strong>. O launcher baixa os arquivos necessários e confere a instalação. Você pode acompanhar o progresso na seção <strong>Atualizações</strong>.</p>
+        <div class="installation-check"><span aria-hidden="true">✓</span><div><strong>Instalação verificada</strong><small>Quando essa mensagem aparecer, os arquivos foram conferidos.</small></div></div>
+        <p class="step-tip">Mantenha o launcher aberto até concluir. Se o download falhar, tente novamente: os arquivos válidos já baixados são reaproveitados.</p>
+      </div>
+    </article>
+    <article class="guide-step" atlasReveal="up">
+      <span class="step-number" aria-hidden="true">05</span>
+      <div class="step-content">
+        <span class="step-label">BEM-VINDO AO ATLAS</span>
+        <h3>Jogue e entre na sua conta do servidor</h3>
+        <p>Clique em <strong>Jogar Atlas</strong> e aguarde o Minecraft abrir. O launcher está configurado para conectar ao servidor. Caso precise adicioná-lo manualmente, use <strong>Multijogador → Adicionar servidor</strong> e este endereço:</p>
+        <div class="server-address"><div><span>Atlas Cobblemon</span><code>{{ serverAddress }}</code></div><button class="button secondary" type="button" (click)="copyAddress()">Copiar IP</button></div>
+        <p class="copy-status" role="status" aria-live="polite">{{ copyMessage() }}</p>
+        <p>No chat do jogo, siga a orientação exibida: <code>/register &lt;senha&gt; &lt;confirmação&gt;</code> no primeiro acesso ou <code>/login &lt;senha&gt;</code> se já tem conta. Não envie sua senha a outras pessoas.</p>
+        <p class="step-tip">O Lobby faz parte do Atlas: é o ponto de encontro dentro do mesmo servidor. O projeto está em testes e o acesso depende de o servidor estar online.</p>
+      </div>
+    </article>
+  </div>
 </section>
-<section class="section faq">
-  <span class="eyebrow">PRECISA DE AJUDA?</span><h2>Dúvidas frequentes</h2>
-  <details><summary>Onde ficam as pastas mods e resourcepacks?</summary><p>Abra a pasta do jogo pelo launcher, na instalação que criou para o Atlas. Se as pastas não existirem, inicie o perfil com Fabric uma vez e feche o jogo. Crie mods ou resourcepacks nessa pasta, se necessário.</p></details>
-  <details><summary>Devo extrair todos os arquivos ZIP?</summary><p>Extraia o arquivo principal do modpack para instalar suas pastas. Os ZIPs de texturas e sons dentro de resourcepacks devem permanecer sem extrair.</p></details>
-  <details><summary>As texturas e os sons não estão ativos. O que faço?</summary><p>Confira se os ZIPs incluídos no modpack estão em resourcepacks. Abra Opções → Pacotes de recursos e ative o Atlas Textures e o pacote de sons. Remova versões antigas ou duplicadas da lista de pacotes ativos.</p></details>
-  <details><summary>O Atlas Textures instala o minimapa?</summary><p>Ele fornece os ícones e as texturas. O mod do minimapa precisa estar instalado pelo modpack do Atlas; o pacote de recursos não substitui os mods.</p></details>
-  <details><summary>Posso usar outro modpack de Cobblemon?</summary><p>Use o pacote disponibilizado pelo Atlas. Mods ou versões diferentes podem impedir a conexão. Evite adicionar mods extras durante a instalação inicial.</p></details>
-  <details><summary>O jogo não abriu ou não consigo conectar. O que faço?</summary><p>Confira Minecraft Java 1.21.1, Fabric e a localização dos arquivos. Se continuar com problemas, envie à equipe a mensagem de erro ou o log da instalação pelo Discord.</p></details>
-  <a class="button secondary" href="https://discord.gg/uUBN4YV6Y" target="_blank" rel="noopener noreferrer">Pedir ajuda no Discord ↗</a>
+
+<section id="modpack" class="section manual-pack" aria-labelledby="modpack-title">
+  <div class="guide-heading">
+    <span class="eyebrow">PREFERE SEU PRÓPRIO LAUNCHER?</span>
+    <h2 id="modpack-title">O mesmo Atlas, em um ZIP importável</h2>
+    <p>Versão <strong>1.0.2-beta.5</strong> · Minecraft Java 1.21.1 · Fabric 0.18.0 · Java 21</p>
+  </div>
+  <div class="step-content">
+    <p>O pacote contém as referências de download e os complementos dos mesmos <strong>58 mods do Atlas Launcher</strong>, incluindo Battle Positions e Atlas Interface. Os mods referenciados são baixados pelo launcher durante a importação.</p>
+    <ol class="import-steps">
+      <li>Baixe o ZIP abaixo e mantenha o arquivo inteiro.</li>
+      <li>No seu launcher compatível com perfis CurseForge, crie uma instância pela opção <strong>Importar</strong> e selecione o ZIP. No Prism Launcher: <strong>Adicionar instância → Importar</strong>.</li>
+      <li>Aguarde os downloads, selecione <strong>Java 21</strong> e abra a nova instância. Não coloque este ZIP diretamente na pasta <code>mods</code>.</li>
+      <li>Em Multijogador, entre no <strong>Atlas Cobblemon</strong> usando <code>{{ serverAddress }}</code> e aceite o pacote de recursos oferecido pelo servidor.</li>
+    </ol>
+    <div class="guide-actions">
+      <a class="button" href="/downloads/Atlas-Cobblemon-1.0.2-beta.5-Importar.zip" download>Baixar modpack · 7,9 MB <span aria-hidden="true">↓</span></a>
+      <a class="button secondary" href="/downloads/Atlas-Cobblemon-1.0.2-beta.5-Importar.zip.sha256" download>Baixar SHA-256</a>
+    </div>
+    <p class="step-tip">Essa opção exige um launcher compatível e não inclui Java ou Minecraft. As atualizações são manuais: quando sair uma nova versão, importe o pacote atualizado em outra instância e preserve seus mundos. Para instalação e atualizações guiadas, use o Atlas Launcher.</p>
+  </div>
+</section>
+
+<section class="section update-guide" atlasReveal="up" aria-labelledby="updates-title">
+  <div><span class="eyebrow">PRONTO PARA A PRÓXIMA AVENTURA</span><h2 id="updates-title">Como manter tudo atualizado</h2></div>
+  <div><p>O launcher consulta versões no site oficial ao abrir e a cada cinco minutos. Você também pode usar <strong>Atualizações → Buscar atualizações</strong>.</p><p>Para o modpack, confirme a instalação quando houver uma nova versão. O próprio launcher baixa suas atualizações em segundo plano e instala ao fechar. Se o Minecraft estiver aberto, a atualização espera. Você também pode usar Reiniciar e atualizar na seção Atualizações.</p></div>
+</section>
+
+<section class="section faq" aria-labelledby="faq-title">
+  <span class="eyebrow">SE PRECISAR DE UMA MÃO</span><h2 id="faq-title">Dúvidas na instalação?</h2>
+  <details><summary>Preciso instalar Java, Fabric ou colocar arquivos na pasta mods?</summary><p>Não pelo Atlas Launcher. Ele prepara o Java, o Minecraft, o Fabric e os mods na instância do Atlas. Evite misturar arquivos de outro modpack nessa instalação.</p></details>
+  <details><summary>O download não terminou. Preciso começar do zero?</summary><p>Abra o launcher novamente e tente preparar a instalação. Os arquivos já baixados são conferidos, e os que estiverem válidos são reaproveitados. Se o erro continuar, envie a mensagem à equipe no Discord.</p></details>
+  <details><summary>O botão Jogar Atlas está desabilitado. O que falta?</summary><p>Entre pelo Modo offline com um nick válido e conclua a instalação. Aguarde a verificação ou o download em andamento terminar. O botão é liberado quando o perfil está selecionado e a instalação está verificada.</p></details>
+  <details><summary>Preciso digitar minha senha no launcher?</summary><p>No modo offline, somente o nick é solicitado. A senha da sua conta Atlas é digitada no chat do Minecraft, usando as orientações de /login ou /register exibidas pelo servidor.</p></details>
+  <details><summary>Atualizar o launcher apaga meus mundos?</summary><p>A pasta da instância é separada da instalação do aplicativo. A atualização automática preserva seus mundos, os downloads do modpack e suas configurações. Se você usava a versão antiga em ZIP, instale a nova versão uma única vez pelo instalador, sem apagar os dados locais.</p></details>
+  <details><summary>O jogo fechou ou não consegui entrar. Como peço ajuda?</summary><p>Copie a mensagem de erro ou faça uma captura. Se o launcher abrir, procure Configurações → Avançado → Diagnósticos para localizar os registros do jogo. Procure o fórum de dúvidas no Discord; se precisar de atendimento individual, abra um ticket.</p></details>
+  <div class="help-footer"><p>Não encontrou a resposta? Nossa equipe ajuda você a preparar sua jornada.</p><a class="button secondary" href="https://discord.gg/uUBN4YV6Y" target="_blank" rel="noopener noreferrer">Abrir Discord <span aria-hidden="true">↗</span></a></div>
 </section>

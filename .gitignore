@@ -56,3 +56,6 @@ playwright-report/
 # Cloudflare local state and private development credentials
 .wrangler/
 .dev.vars*
+
+# Generated launcher distribution parts
+.launcher-distribution/
